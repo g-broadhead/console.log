@@ -1,14 +1,26 @@
 {
+  "main": "server.js",
   "dependencies": {
-    "concurrently": "^7.0.0",
     "dotenv": "^14.3.0",
     "express": "^4.17.2",
-    "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.8",
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0"
+  },
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "start:prod": "start server.js",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "if-env": "^1.0.4",
+    "nodemon": "^2.0.15"
   }
 }
