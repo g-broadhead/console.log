@@ -13,18 +13,18 @@ const Splash = (props) => {
         backgroundImage: `url(${SplashImage})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        backgroundPositionX: '50%',
+        backgroundPositionX: '45%',
         color: "#000"
 
     };
 
     const middleBoxStyle = {
         display: "inline-block",
-        width: "15%",
+        width: "25%",
         backgroundColor: "#EEE",
         padding: "4em",
         marginTop: "20%",
-        boxShadow: "-16px 0px 32px #000",
+        boxShadow: "8px 16px 32px #000",
         
     }
 
