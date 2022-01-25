@@ -6,6 +6,8 @@ import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 
 // Pages
+
+import Landing from './pages/Landing';
 import Home from './pages/Home';
 import Auth from './pages/Auth';
 
@@ -16,8 +18,9 @@ function App() {
     <AppHeader />
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home />} />
           <Route exact path="/" element={<Auth />} />
+          <Route exact path="/" element={<Landing />} />
+          <Route exact path="/home" element={<Home />} />
         </Routes>
       </Router>
     <AppFooter />
