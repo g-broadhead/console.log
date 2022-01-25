@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Form, Label, Input, Button } from 'reactstrap'
-import UserAPI from '../../utils/UserAPI'
+import UserAPI from '../../utils/UserAPI/UserAPI'
 
 const RegisterForm = () => {
  const [registerState, setRegisterState] = useState({
