@@ -2,7 +2,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button'
 import SplashImage from "../../images/splash.jpg"
 
-const Splash = (props) => {
+const Landing = (props) => {
 
     const boxStyle = {
         display: "block",
@@ -42,4 +42,4 @@ const Splash = (props) => {
     )
 }
 
-export default Splash;
+export default Landing;
