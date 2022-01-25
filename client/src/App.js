@@ -19,7 +19,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/login" element={<Auth />} />
+          <Route exact path="/" element={<Auth />} />
         </Routes>
       </Router>
     <AppFooter />

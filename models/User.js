@@ -1,6 +1,29 @@
 const { Schema, model } = require('mongoose')
 
 const User = new Schema({
+<<<<<<< HEAD
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true
+  },
+  email: {
+    type: String,
+    lowercase: true,
+    unique: true,
+    validate: {
+      validator: function (v) {
+        return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v)
+      },
+      message: 'Please enter a valid email'
+    },
+    required: [true, 'Email required']
+  }
+},
+
+  module.exports = model('user', User)
+=======
  name: String,
  email: String,
 }, { timestamps: true })
@@ -8,3 +31,4 @@ const User = new Schema({
 User.plugin(require('passport-local-mongoose'))
 
 module.exports = model('User', User)
+>>>>>>> e8786503229c19e19b64e6a079bcb43d5bf81ffe
