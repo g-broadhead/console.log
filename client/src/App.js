@@ -6,7 +6,7 @@ import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 
 // Pages
-import Splash from './pages/Splash';
+import Landing from './pages/Landing';
 import Home from './pages/Home';
 
 
@@ -15,7 +15,8 @@ function App() {
    <>
       <Router>
         <Routes>
-          <Route exact path="/" element={<Splash />} />
+          <Route exact path="/" element={<Landing />} />
+          <Route exact path="/home" element={<Home />} />
         </Routes>
       </Router>
    </> 
