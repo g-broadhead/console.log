@@ -4,6 +4,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import InfoIcon from '@mui/icons-material/Info';
@@ -38,6 +39,11 @@ const AppFooter = (props) => {
                         <ListItemIcon><InfoIcon /></ListItemIcon>
                         <ListItemText><a href="/about">About</a></ListItemText>
                     </ListItem>
+                    <ListItem>
+                        <ListItemIcon><AdminPanelSettingsIcon /></ListItemIcon>
+                        <ListItemText><a href="/admin">Admin</a></ListItemText>
+                    </ListItem>
+
                 </List>
             </div>
         </Box>

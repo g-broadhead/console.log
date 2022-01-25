@@ -12,8 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-const pages = ['Home', 'Profile', 'Favorites'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Home', 'Profile', 'Admin'];
+const settings = ['Logout'];
 
 const AppHeader = (props) => {
   const [anchorElNav, setAnchorElNav] = useState(null);
