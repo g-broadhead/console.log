@@ -5,8 +5,6 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 
-
-
 // Pages
 import Home from './pages/Home';
 import Auth from './pages/Auth';
