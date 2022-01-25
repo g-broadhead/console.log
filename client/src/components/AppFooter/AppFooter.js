@@ -14,7 +14,9 @@ const AppFooter = (props) => {
         gridTemplateColumns: "repeat(3, 1fr)",
         width: "100%",
         borderTop: "1px solid #AAA",
-        paddingLeft:"25%"
+        paddingLeft:"25%",
+        marginTop: "2em"
+        
     }
     return (
         <Box sx={footerStyle}>
