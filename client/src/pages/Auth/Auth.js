@@ -1,9 +1,50 @@
+import { useState } from 'react'
 import RegisterForm from "../../components/RegisterForm"
 import LoginForm from "../../components/LoginForm"
+import UserAPI from '../../utils/UserAPI'
+import AuthContext from '../../utils/AuthContext'
 
 const Auth = () => {
+ const [authState, setAuthState] = useState({
+  name: '',
+  email: '',
+  username: '',
+  password: '',
+  lUsername: '',
+  lPassword: ''
+ })
+
+ authState.handleInputChange = ({ target: { name, value } }) => setAuthState({ ...authState, [name]: value })
+
+ authState.handleRegisterUser = event => {
+  event.preventDefault()
+  UserAPI.register({
+   name: authState.name,
+   email: authState.email,
+   username: authState.username,
+   password: authState.password
+  })
+   .then(() => {
+    alert('User Registered! Please Log In!')
+    setAuthState({ ...authState, name: '', email: '', username: '', password: '' })
+   })
+ }
+
+ authState.handleLoginUser = event => {
+  event.preventDefault()
+  UserAPI.login({
+   username: authState.lUsername,
+   password: authState.lPassword
+  })
+   .then(token => {
+    localStorage.setItem('user', token)
+    setAuthState({ ...authState, lUsername: '', lPassword: '' })
+    window.location = '/'
+   })
+ }
+
  return (
-  <>
+  <AuthContext.Provider value={authState}>
    <div className="container">
     <div className="row bg-light p-5 rounded-lg m-3">
      <h1 className="display-4">Song App</h1>
@@ -24,7 +65,7 @@ const Auth = () => {
      </div>
     </div>
    </div>
-  </>
+  </AuthContext.Provider>
  )
 }
 
