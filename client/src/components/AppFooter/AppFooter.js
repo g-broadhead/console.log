@@ -28,22 +28,9 @@ const AppFooter = (props) => {
             <div>
                 <List>
                     <ListItem>
-                        <ListItemIcon><HomeIcon /></ListItemIcon>
-                        <ListItemText><a href="/home">Home</a></ListItemText>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemIcon><AccountCircleIcon /></ListItemIcon>
-                        <ListItemText><a href="/profile">Profile</a></ListItemText>
-                    </ListItem>
-                    <ListItem>
                         <ListItemIcon><InfoIcon /></ListItemIcon>
                         <ListItemText><a href="/about">About</a></ListItemText>
                     </ListItem>
-                    <ListItem>
-                        <ListItemIcon><AdminPanelSettingsIcon /></ListItemIcon>
-                        <ListItemText><a href="/admin">Admin</a></ListItemText>
-                    </ListItem>
-
                 </List>
             </div>
         </Box>
