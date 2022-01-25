@@ -1,6 +1,8 @@
+
 import AppHeader from "../../components/AppHeader";
 import AppFooter from "../../components/AppFooter";
 import Container from "@mui/material/Container";
+
 const Home = (props) => {
     return (
         <>
