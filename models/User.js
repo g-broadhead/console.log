@@ -19,6 +19,6 @@ const User = new Schema({
     },
     required: [true, 'Email required']
   }
-},
+},)
 
   module.exports = model('user', User)
