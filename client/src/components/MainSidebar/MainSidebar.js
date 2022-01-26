@@ -8,6 +8,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { palette } from '@mui/system';
 import { shadows } from '@mui/system';
+import Divider from '@mui/material/Divider';
+import Link from '@mui/material/Link';
 
 
 
@@ -35,23 +37,23 @@ const MainSidebar = (props) => {
                 <List>
                     <ListItem>
                         <ListItemIcon><AccountBoxIcon /></ListItemIcon>
-                        <ListItemText><a href="/profile">Profile</a></ListItemText>
+                        <ListItemText><Link href="/profile" underline="none" sx={{ color: 'black' }}>Profile</Link></ListItemText>
                     </ListItem>
                     <ListItem>
                         <ListItemIcon><ChatIcon /></ListItemIcon>
-                        <ListItemText><a href="/topics">topics</a></ListItemText>
+                        <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>topics</Link></ListItemText>
                     </ListItem>
                     <ListItem>
                         <ListItemIcon><ChatIcon /></ListItemIcon>
-                        <ListItemText><a href="/topics">topics</a></ListItemText>
+                        <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>topics</Link></ListItemText>
                     </ListItem>
                     <ListItem>
                         <ListItemIcon><ChatIcon /></ListItemIcon>
-                        <ListItemText><a href="/topics">topics</a></ListItemText>
+                        <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>topics</Link></ListItemText>
                     </ListItem>
                     <ListItem>
                         <ListItemIcon><ChatIcon /></ListItemIcon>
-                        <ListItemText><a href="/topics">topics</a></ListItemText>
+                        <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>topics</Link></ListItemText>
                     </ListItem>
                 </List>
             </div>
