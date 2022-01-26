@@ -65,7 +65,7 @@ const Post = (props) => {
                 </Box>
                 <p>{dummyData.content}</p>
             </Box>
-            <Box sx={{width:"100%"}} component="form">
+            <Box component="form">
                 <h2>Leave a comment</h2>
                 <Input placeholder="Comment..." label="Comment" sx={{ width: '90%' }}/>
                 <Button variant="contained" sx={{margin: "1em"}}>Reply</Button>
