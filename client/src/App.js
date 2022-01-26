@@ -4,6 +4,8 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 // Components
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
+import LoginForm from './components/LoginForm';
+import RegisterForm from './components/RegisterForm'
 
 // Pages
 
