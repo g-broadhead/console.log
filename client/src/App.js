@@ -16,7 +16,7 @@ import Auth from './pages/Auth';
 
 function App() {
   return (
-   <>
+    <>
     <AppHeader />
       <Router>
         <Routes>
@@ -26,7 +26,7 @@ function App() {
         </Routes>
       </Router>
     <AppFooter />
-   </> 
+    </> 
   );
 }
 
