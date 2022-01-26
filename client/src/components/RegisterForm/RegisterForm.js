@@ -15,7 +15,7 @@ const RegisterForm = () => {
 
   return (
     <FormControl>
-      <div className="mb-3">
+      <div className="mb-3">  
         <InputLabel htmlFor="name">Name</InputLabel>
         <Input
           type="text"
