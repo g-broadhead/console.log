@@ -6,6 +6,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import { palette } from '@mui/system';
+
 
 
 // Icons
@@ -13,8 +15,21 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ChatIcon from '@mui/icons-material/Chat';
 
 const MainSidebar = (props) => {
+    const sidebarStyle = {
+        display: "inline-flex",
+        flexDirection: "column",
+        height: "100%",
+        left: "0",
+        position: "absolute",
+        bgcolor: "primary.main",
+        width: "20%",
+        alignItems: "center",
+        marginTop: "1em"
+
+
+    }
     return (
-        <Box sx={{ display: 'inline-flex' },{ flexDirection: 'column' }}>
+        <Box sx={sidebarStyle}>
             <div>
                 <List>
                     <ListItem>

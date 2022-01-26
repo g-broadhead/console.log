@@ -16,7 +16,12 @@ const AppFooter = (props) => {
         width: "100%",
         borderTop: "1px solid #AAA",
         paddingLeft:"25%",
-        marginTop: "2em"
+        marginTop: "2em",
+
+        //fixed footer??
+        bottom: "0",
+        position: "absolute",
+        bgcolor: "primary.main",
         
     }
     return (
