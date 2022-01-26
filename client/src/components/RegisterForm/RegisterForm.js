@@ -1,6 +1,6 @@
-import { useState, useContext } from 'react'
-import { Form, Label, Input, Button } from 'reactstrap'
-import UserAPI from '../../utils/UserAPI'
+import { useContext } from 'react'
+import { FormControl, InputLabel, Input, Button } from '@mui/material';
+// import UserAPI from '../../utils/UserAPI'
 import AuthContext from '../../utils/AuthContext'
 
 const RegisterForm = () => {
@@ -14,9 +14,9 @@ const RegisterForm = () => {
   } = useContext(AuthContext)
 
   return (
-    <Form>
+    <FormControl>
       <div className="mb-3">
-        <Label htmlFor="name">Name</Label>
+        <InputLabel htmlFor="name">Name</InputLabel>
         <Input
           type="text"
           className="form-control"
@@ -25,7 +25,7 @@ const RegisterForm = () => {
           onChange={handleInputChange} />
       </div>
       <div className="mb-3">
-        <Label htmlFor="email">Email</Label>
+        <InputLabel htmlFor="email">Email</InputLabel>
         <Input
           type="email"
           className="form-control"
@@ -34,7 +34,7 @@ const RegisterForm = () => {
           onChange={handleInputChange} />
       </div>
       <div className="mb-3">
-        <Label htmlFor="username">Username</Label>
+        <InputLabel htmlFor="username">Username</InputLabel>
         <Input
           type="text"
           className="form-control"
@@ -43,7 +43,7 @@ const RegisterForm = () => {
           onChange={handleInputChange} />
       </div>
       <div className="mb-3">
-        <Label htmlFor="password">Password</Label>
+        <InputLabel htmlFor="password">Password</InputLabel>
         <Input
           type="password"
           className="form-control"
@@ -56,7 +56,7 @@ const RegisterForm = () => {
         onClick={handleRegisterUser} >
         Register
       </Button>
-    </Form>
+    </FormControl>
   )
 }
 
