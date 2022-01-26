@@ -1,15 +1,14 @@
-
 import AppHeader from "../../components/AppHeader";
 import AppFooter from "../../components/AppFooter";
 import Container from "@mui/material/Container";
+import MainSidebar from "../../components/MainSidebar";
 
 const Home = (props) => {
     return (
         <>
             
             <Container>
-                <h3>Home page</h3>
-                <p>Hello this is where all the content goes. Need to fill this with stuff!</p>
+                <MainSidebar />
             </Container>
             
         </>
