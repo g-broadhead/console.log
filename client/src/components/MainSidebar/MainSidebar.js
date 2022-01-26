@@ -7,6 +7,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { palette } from '@mui/system';
+import { shadows } from '@mui/system';
 
 
 
@@ -24,10 +25,10 @@ const MainSidebar = (props) => {
         bgcolor: "primary.main",
         width: "20%",
         alignItems: "center",
-        marginTop: "1em"
-
-
+        marginTop: "1em",
+        boxShadow: "3",
     }
+
     return (
         <Box sx={sidebarStyle}>
             <div>
