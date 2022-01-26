@@ -19,7 +19,7 @@ import ChatIcon from '@mui/icons-material/Chat';
 
 const MainSidebar = (props) => {
     const sidebarStyle = {
-        display: "inline-flex",
+        display: "block",
         flexDirection: "column",
         height: "100%",
         left: "0",
