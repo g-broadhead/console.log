@@ -1,29 +1,30 @@
 const router = require('express').Router()
-const { User, Post } = require('../models')
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
 const { redirect } = require('express/lib/response')
+const { Post, User } = require('../models')
 
-//user registration
-router.post('/users/register', (req, res) => {
-  User.register(new User({ username: req.body.username, email: req.body.email}), req.body.password, err => {
-    if (err) { console.log(err) }
-    res.sendStatus(200)
-    res.redirect('./loginPage.html')
-  })
+// GET all posts
+// user must be logged in
+router.get('/posts', passport.authenticate('jwt'), async function (req, res) {
+  const posts = await Post.findAll({ include: [User] })
+  res.json(posts)
 })
 
-// authenticate user login
-router.post('/users/login', (req, res) => {
-  User.authenticate()(req.body.username, req.body.password, (err, user) => {
-    if (err) { console.log(err) }
-    res.json(user ? {
-      username: user.username,
-      token: jwt.sign({ id: user.id }, process.env.SECRET)
-    } : null)
+// POST one post
+router.post('/posts', passport.authenticate('jwt'), async function ({ body, user }, res) {
+  const post = await Post.create({
+    ...body,
+    uid: user.id
   })
+  res.json(post)
 })
 
-router.get('/users/profile', passport.authenticate('jwt'), (req, res) => res.json(req.user))
+// DELETE one post
+//user must be logged in
+router.delete('/posts/:id', passport.authenticate('jwt'), async function ({ params: { id } }, res) {
+  await Post.destroy({ where: { id } })
+  res.sendStatus(200)
+})
 
 module.exports = router
