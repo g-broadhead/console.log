@@ -5,13 +5,15 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 import LoginForm from './components/LoginForm';
-import RegisterForm from './components/RegisterForm'
+import RegisterForm from './components/RegisterForm';
 
 // Pages
 
 import Landing from './pages/Landing';
 import Home from './pages/Home';
 import Auth from './pages/Auth';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
           <Route exact path="/" element={<Auth />} />
           <Route exact path="/" element={<Landing />} />
           <Route exact path="/home" element={<Home />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/register" element={<Register />} />
         </Routes>
       </Router>
     <AppFooter />
