@@ -9,12 +9,14 @@ import { flexbox } from '@mui/system';
 import SendIcon from '@mui/icons-material/Send';
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
+import Divider from '@mui/material/Divider';
 
 const UserHomepage = (props) => {
     const outerBox = {
         mt: 2,
         mr: 2,
+        
+        // margin: 2,
     }
 
     const buttonStyle = {
@@ -41,8 +43,8 @@ const UserHomepage = (props) => {
                     Send
                 </Button>
             </Grid>
-
-            <Grid container spacing={2} sx={{ justifyContent: 'flex-end' }}>
+            
+            <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
                 <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
                         <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
                 </Grid>
@@ -58,7 +60,7 @@ const UserHomepage = (props) => {
                 </Grid>
             </Grid>
 
-            <Grid container spacing={2} sx={{ justifyContent: 'flex-end' }}>
+            <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
                 <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
                         <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
                 </Grid>
