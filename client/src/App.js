@@ -6,9 +6,9 @@ import AppHeader from './components/AppHeader'
 import AppFooter from './components/AppFooter'
 
 // Pages
-import Splash from './pages/Splash'
+import Landing from './pages/Landing'
 import Home from './pages/Home'
-import Auth from './pages/Auth'
+import Register from './pages/Register'
 
 function App () {
   return (
@@ -16,7 +16,7 @@ function App () {
       <Router>
         <Routes>
           <Route exact path='/' element={<Home />} />
-          <Route exact path='/' element={<Auth />} />
+          <Route exact path="/register" element={<Register />} />
         </Routes>
       </Router>
     </>
