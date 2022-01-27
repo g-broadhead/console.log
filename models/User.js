@@ -19,8 +19,8 @@ const User = new Schema({
     },
     required: [true, 'Email required']
   }
-},)
+});
 
-User.plugin(require('passport-local-mongoose'))
+User.plugin(require('passport-local-mongoose'));
 
-  module.exports = model('user', User)
+module.exports = model('user', User)

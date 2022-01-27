@@ -1,13 +1,14 @@
-import './App.css';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 // Components
-import AppHeader from './components/AppHeader';
-import AppFooter from './components/AppFooter';
-import LoginForm from './components/LoginForm';
-import RegisterForm from './components/RegisterForm';
+import AppHeader from './components/AppHeader'
+import AppFooter from './components/AppFooter'
 
 // Pages
+import Landing from './pages/Landing'
+import Home from './pages/Home'
+import Register from './pages/Register'
 
 import Landing from './pages/Landing';
 import Home from './pages/Home';
@@ -21,7 +22,6 @@ import Register from './pages/Register';
 function App() {
   return (
     <>
-    <AppHeader />
       <Router>
         <Routes>
           <Route exact path="/" element={<Auth />} />
@@ -33,9 +33,8 @@ function App() {
           <Route exact path="/register" element={<Register />} />
         </Routes>
       </Router>
-    <AppFooter />
-    </> 
-  );
+    </>
+  )
 }
 
-export default App;
+export default App
