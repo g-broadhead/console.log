@@ -24,7 +24,6 @@ function App() {
     <AppHeader />
       <Router>
         <Routes>
-          <Route exact path="/" element={<Auth />} />
           <Route exact path="/" element={<Landing />} />
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/profile" element={<Profile />} />
