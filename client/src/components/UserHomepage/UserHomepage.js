@@ -6,17 +6,57 @@ import IconButton from '@mui/material/IconButton';
 import { borders } from '@mui/system';
 import { spacing } from '@mui/system';
 import { flexbox } from '@mui/system';
+import SendIcon from '@mui/icons-material/Send';
+import Stack from '@mui/material/Stack';
 
 const UserHomepage = (props) => {
+    const outerBox = {
+
+    }
+
+    const innerBox = {
+
+    }
 
     return (
-        <Box>
+        <Stack>
             <Box>
-                <div>
-                    <h1>hi</h1>
-                </div>
+                <Avatar>H</Avatar>
+                    <TextField
+                        id="filled-multiline-static fullWidth"
+                        label="Multiline"
+                        multiline
+                        rows={4}
+                        defaultValue="Default Value"
+                        variant="filled"
+                    />
+                    <Button variant="contained" endIcon={<SendIcon />}>
+                        Send
+                    </Button>
             </Box>
-        </Box>
+            <Box>
+                <Avatar>H</Avatar>
+                    <TextField
+                        id="filled-multiline-static fullWidth"
+                        label="Multiline"
+                        multiline
+                        rows={4}
+                        defaultValue="Default Value"
+                        variant="filled"
+                    />
+            </Box>
+            <Box>
+                <Avatar>H</Avatar>
+                    <TextField
+                        id="filled-multiline-static fullWidth"
+                        label="Multiline"
+                        multiline
+                        rows={4}
+                        defaultValue="Default Value"
+                        variant="filled"
+                    />
+            </Box>
+        </Stack>
     )
 }
 

@@ -19,18 +19,19 @@ const Home = (props) => {
     const sidebarStyle= {
         ml: 0,
         bgcolor: "primary.main",
-        width: "20%",
     };
 
     const rightbarStyle = {
         mr: 0,
         bgcolor: "primary.main",
     };
-    
+    const homepageStyle = {
+        width: "100%",
+    }
     return (
             <Box sx={mainBox}>
                 <MainSidebar sx={sidebarStyle}/>
-                <UserHomepage />
+                <UserHomepage sx={homepageStyle} />
                 <RightSidebar sx={rightbarStyle}/>
             </Box>
     );
