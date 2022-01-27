@@ -13,17 +13,17 @@ import Link from '@mui/material/Link';
 
 
 
+
 // Icons
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ChatIcon from '@mui/icons-material/Chat';
 
 const MainSidebar = (props) => {
     const sidebarStyle = {
-        display: "block",
+        display: "flex",
         flexDirection: "column",
         height: "100%",
-        left: "0",
-        position: "absolute",
+        // position: "absolute",
         bgcolor: "primary.main",
         width: "20%",
         alignItems: "center",

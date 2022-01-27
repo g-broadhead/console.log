@@ -12,23 +12,23 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
 
+
 // Icons
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ChatIcon from '@mui/icons-material/Chat';
 
 const RightSidebar = (props) => {
     const rightbarStyle = {
-        right: "0",
-        position: "absolute",
+        // right: "0",
+        // position: "absolute",
         width: "20%",
-        display: "inline-flex",
         flexDirection: "column",
         height: "100%",
         alignItems: "center",
         marginTop: "1em",
         boxShadow: "3",
         bgcolor: "primary.main",
-        
+        display: "flex"
     }
 
     // const secondBox = {
