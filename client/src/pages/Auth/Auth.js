@@ -1,4 +1,4 @@
-import RegisterForm from '../../components/RegisterForm'
+import Register from '../Register'
 import LoginForm from '../../components/LoginForm'
 
 const Auth = () => {
@@ -16,7 +16,7 @@ const Auth = () => {
           <div className='col-md-6'>
             <h5>Register A New Account</h5>
             <hr />
-            <RegisterForm />
+            <Register />
           </div>
           <div className='col-md-6'>
             <h5>Log In To Existing Account</h5>
