@@ -10,7 +10,7 @@ import AppFooter from './components/AppFooter';
 import Landing from './pages/Landing';
 import Home from './pages/Home';
 import Auth from './pages/Auth';
-
+import Post from './pages/Post';
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
           <Route exact path="/" element={<Auth />} />
           <Route exact path="/" element={<Landing />} />
           <Route exact path="/home" element={<Home />} />
+          <Route exact path="/post" element={<Post />} />
         </Routes>
       </Router>
     <AppFooter />

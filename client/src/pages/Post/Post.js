@@ -10,6 +10,7 @@ import {
     Input,
     Button,
 } from "@mui/material"
+import PostCard from "../../components/PostCard"
 
 const Post = (props) => {
 
@@ -55,16 +56,11 @@ const Post = (props) => {
 
     return (
         <Container sx={{marginTop: "1em"}}>
-            <Box sx={postStyle}>
-                <Box align-items="flex-start" sx={{display: "flex"}}>
-                    <Avatar sx={{margin: "0.5em"}}>{dummyData.user[0]}</Avatar>
-                    <Box sx={{display: "flex", flexDirection: "column"}}>
-                        <Typography variant="h5">{dummyData.user}</Typography>
-                        <Typography variant="sub">at {dummyData.date}</Typography>
-                    </Box>
-                </Box>
-                <p>{dummyData.content}</p>
-            </Box>
+            <PostCard 
+                user={dummyData.user}
+                date={dummyData.date}
+                content={dummyData.content} />
+
             <Box component="form">
                 <h2>Leave a comment</h2>
                 <Input placeholder="Comment..." label="Comment" sx={{ width: '90%' }}/>
