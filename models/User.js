@@ -1,7 +1,6 @@
 const { Schema, model } = require('mongoose')
 
 const User = new Schema({
-<<<<<<< HEAD
   username: {
     type: String,
     required: true,
@@ -23,12 +22,3 @@ const User = new Schema({
 },
 
   module.exports = model('user', User)
-=======
- name: String,
- email: String,
-}, { timestamps: true })
-
-User.plugin(require('passport-local-mongoose'))
-
-module.exports = model('User', User)
->>>>>>> e8786503229c19e19b64e6a079bcb43d5bf81ffe
