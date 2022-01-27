@@ -7,6 +7,12 @@ const User = new Schema({
     unique: true,
     trim: true
   },
+  name: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true
+  },
   email: {
     type: String,
     lowercase: true,
@@ -17,10 +23,10 @@ const User = new Schema({
       },
       message: 'Please enter a valid email'
     },
-    required: [true, 'Email required']
+    // required: [true, 'Email required']
   }
 })
 
 User.plugin(require('passport-local-mongoose'))
 
-module.exports = model('user', User)
+module.exports = model('User', User)

@@ -9,6 +9,7 @@ import AppFooter from './components/AppFooter'
 import Landing from './pages/Landing'
 import Home from './pages/Home'
 import Register from './pages/Register'
+import Login from './pages/Login'
 
 function App () {
   return (
@@ -17,6 +18,7 @@ function App () {
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route exact path="/register" element={<Register />} />
+          <Route exact path="/login" element={<Login />} />
         </Routes>
       </Router>
     </>
