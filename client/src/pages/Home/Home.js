@@ -1,7 +1,18 @@
-
+import AppHeader from "../../components/AppHeader";
+import AppFooter from "../../components/AppFooter";
+import Container from "@mui/material/Container";
+import MainSidebar from "../../components/MainSidebar";
+import RightSidebar from "../../components/RightSidebar"
 const Home = (props) => {
     return (
-        <h3>Home page</h3>
+        <>
+            
+            <Container>
+                <MainSidebar />
+                <RightSidebar />
+            </Container>
+            
+        </>
     );
 }
 
