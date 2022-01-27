@@ -8,15 +8,20 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import InfoIcon from '@mui/icons-material/Info';
+import {Container} from "@mui/material"
 
 const AppFooter = (props) => {
     const footerStyle = {
         display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        width: "100%",
+        gridTemplateColumns: "repeat(2, 1fr)",
         borderTop: "1px solid #AAA",
         paddingLeft:"25%",
-        marginTop: "2em"
+        marginTop: "2em",
+
+        //fixed footer??
+        bottom: "0",
+        position: "absolute",
+        bgcolor: "primary.main",
         
     }
     return (
