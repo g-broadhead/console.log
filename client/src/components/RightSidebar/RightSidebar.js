@@ -21,7 +21,7 @@ const RightSidebar = (props) => {
     const rightbarStyle = {
         // right: "0",
         // position: "absolute",
-        width: "20%",
+        // width: "20%",
         flexDirection: "column",
         height: "100%",
         alignItems: "center",

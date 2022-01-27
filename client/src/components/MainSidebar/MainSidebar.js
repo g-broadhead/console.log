@@ -25,7 +25,7 @@ const MainSidebar = (props) => {
         height: "100%",
         // position: "absolute",
         bgcolor: "primary.main",
-        width: "20%",
+        // width: "20%",
         alignItems: "center",
         marginTop: "1em",
         boxShadow: "3",

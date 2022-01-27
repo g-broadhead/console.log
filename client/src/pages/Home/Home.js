@@ -7,6 +7,7 @@ import UserHomepage from "../../components/UserHomepage";
 import Box from '@mui/material/Box';
 import { spacing } from '@mui/system';
 import { flexbox } from '@mui/system';
+import Grid from '@mui/material/Grid';
 
 const Home = (props) => {
     const mainBox = {
@@ -17,23 +18,33 @@ const Home = (props) => {
     };
 
     const sidebarStyle= {
-        ml: 0,
+        // ml: 0,
+        margin: "auto",
         bgcolor: "primary.main",
     };
 
     const rightbarStyle = {
-        mr: 0,
+        // mr: 0,
+        margin: "auto",
         bgcolor: "primary.main",
     };
     const homepageStyle = {
         width: "100%",
+        margin: "auto",
     }
     return (
-            <Box sx={mainBox}>
-                <MainSidebar sx={sidebarStyle}/>
-                <UserHomepage sx={homepageStyle} />
+            <Grid container spacing={1} sx={mainBox}>
+                <Grid item xs={2}>
+                    <MainSidebar sx={sidebarStyle}/>
+                </Grid>
+                <Grid item xs={8}>
+                    <UserHomepage sx={homepageStyle} />
+                </Grid>
+                <Grid item xs={2}>
                 <RightSidebar sx={rightbarStyle}/>
-            </Box>
+                </Grid>
+                
+            </Grid>
     );
 }
 
