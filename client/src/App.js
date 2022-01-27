@@ -6,12 +6,10 @@ import AppHeader from './components/AppHeader'
 import AppFooter from './components/AppFooter'
 
 // Pages
-import Landing from './pages/Landing';
-import Home from './pages/Home';
-import Profile from './pages/Profile';
-import Post from './pages/Post';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Landing from './pages/Landing'
+import Home from './pages/Home'
+import Register from './pages/Register'
+import Login from './pages/Login'
 
 
 function App() {
@@ -25,6 +23,7 @@ function App() {
           <Route exact path="/post" element={<Post />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
+          <Route exact path="/login" element={<Login />} />
         </Routes>
       </Router>
     </>
