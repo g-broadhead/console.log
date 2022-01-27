@@ -19,9 +19,6 @@ import ChatIcon from '@mui/icons-material/Chat';
 
 const RightSidebar = (props) => {
     const rightbarStyle = {
-        // right: "0",
-        // position: "absolute",
-        // width: "20%",
         flexDirection: "column",
         height: "100%",
         alignItems: "center",
@@ -30,13 +27,6 @@ const RightSidebar = (props) => {
         bgcolor: "primary.main",
         display: "flex"
     }
-
-    // const secondBox = {
-    //     width: "100%",
-    //     bgcolor: "red",
-    //     padding: "0",
-    //     display: "inline-block"
-    // }
 
     const listStyle = {
         width: "100%"

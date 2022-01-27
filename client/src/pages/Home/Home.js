@@ -8,13 +8,14 @@ import Box from '@mui/material/Box';
 import { spacing } from '@mui/system';
 import { flexbox } from '@mui/system';
 import Grid from '@mui/material/Grid';
+import { palette } from '@mui/system';
 
 const Home = (props) => {
     const mainBox = {
         display: "inline-flex",
         width: "100%",
         height: "100%",
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     };
 
     const sidebarStyle= {
@@ -31,6 +32,8 @@ const Home = (props) => {
     const homepageStyle = {
         width: "100%",
         margin: "auto",
+        mt: 4,
+
     }
     return (
             <Grid container spacing={1} sx={mainBox}>
@@ -38,7 +41,7 @@ const Home = (props) => {
                     <MainSidebar sx={sidebarStyle}/>
                 </Grid>
                 <Grid item xs={8}>
-                    <UserHomepage sx={homepageStyle} />
+                    <UserHomepage sx={homepageStyle } />
                 </Grid>
                 <Grid item xs={2}>
                 <RightSidebar sx={rightbarStyle}/>
