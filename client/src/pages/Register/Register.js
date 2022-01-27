@@ -1,4 +1,3 @@
-import RegisterForm from "../../components/RegisterForm"
 import AppHeader from '../../components/AppHeader';
 import AppFooter from '../../components/AppFooter';
 import React, { useState } from 'react';
