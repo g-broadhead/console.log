@@ -10,12 +10,15 @@ import { palette } from '@mui/system';
 import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 
 
 // Icons
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ChatIcon from '@mui/icons-material/Chat';
+import SearchIcon from '@mui/icons-material/Search';
 
 const RightSidebar = (props) => {
     const rightbarStyle = {
@@ -30,6 +33,17 @@ const RightSidebar = (props) => {
 
     const listStyle = {
         width: "100%"
+    }
+
+    const buttonStyle = {
+        display: "flex",
+        justifyContent: "center",
+        mt: 1,
+    }
+
+    const searchStyle = {
+        display: "block",
+        justifyContent: "center"
     }
     return (
         <Box sx={rightbarStyle}>
@@ -60,6 +74,12 @@ const RightSidebar = (props) => {
                         <ListItemIcon><ChatIcon /></ListItemIcon>
                         <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>MongoDB</Link></ListItemText>
                     </ListItem>
+                    </Box>
+                    <Box sx={searchStyle}>
+                        <TextField id="filled-basic" label="Search" variant="filled" />
+                        <Box sx={buttonStyle}>
+                            <Button variant="contained"><SearchIcon />Search</Button>
+                        </Box>
                     </Box>
                 </List>
             </div>
