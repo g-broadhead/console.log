@@ -32,7 +32,10 @@ app.use(require('./routes'))
 
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')))
 
-// app.use(routes)
-app.listen(process.env.PORT || 3001, async () => {
-    console.log(`Server running`)
-})
+require('./db')
+    .then(() => {
+        app.listen(process.env.PORT || 3001, async () => {
+            console.log(`Server running`)
+        })
+    })
+
