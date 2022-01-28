@@ -15,6 +15,7 @@ const Profile = (props) => {
     textAlign: 'center',
     color: theme.palette.text.secondary,
   }));
+  
   return (
     <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={3}>
       <Box gridColumn="span 5">
@@ -27,7 +28,7 @@ const Profile = (props) => {
               sx={{ width: 200, height: 200 }}
             />
           </Stack>
-          <h1>Profile Name</h1>
+          <h1>Username: Import from register form </h1>
           <h2>Position Title</h2>
           <h3>Works at: </h3>
           <h3>Member Since: </h3>
