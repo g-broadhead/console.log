@@ -34,7 +34,7 @@ const Register = () => {
     //console.log(registerState);
     axios.post('/api/user/register', registerState)
       .then(res => {
-        navigate('/login', {replace: true})
+        navigate('/login', { replace: true })
       }).catch(err => {
         console.log("Failed to register");
         console.error(err);
