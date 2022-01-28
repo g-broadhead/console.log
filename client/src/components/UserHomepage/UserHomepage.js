@@ -37,12 +37,11 @@ const UserHomepage = (props) => {
                     </Grid>
                     <Grid item xs={10}>
                         <TextField fullWidth
-                            id="filled-multiline-static fullWidth"
-                            label="Multiline fullWidth"
+                            id="outlined-textarea fullWidth"
+                            label="Send a Post"
                             multiline
                             rows={4}
-                            defaultValue="Default Value"
-                            variant="filled"
+                            placeholder="Text"
                         />
                     </Grid>
                     <Button sx={buttonStyle} variant="contained" endIcon={<SendIcon />}>
@@ -56,31 +55,30 @@ const UserHomepage = (props) => {
                     </Grid>
                     <Grid item xs={10}>
                         <TextField fullWidth
-                            id="filled-multiline-static fullWidth"
-                            label="Multiline fullWidth"
+                            disabled
+                            id="outlined-textarea fullWidth"
+                            label="Post Text Goes Here"
                             multiline
                             rows={4}
-                            defaultValue="Default Value"
-                            variant="filled"
+                            placeholder="Text"
                         />
                     </Grid>
                 </Grid>
 
                 <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
                     <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
-                            <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
+                        <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
                     </Grid>
                     <Grid item xs={10}>
                         <TextField fullWidth
-                            id="filled-multiline-static fullWidth"
-                            label="Multiline fullWidth"
+                            disabled
+                            id="outlined-textarea fullWidth"
+                            label="Post Text Goes Here"
                             multiline
                             rows={4}
-                            defaultValue="Default Value"
-                            variant="filled"
+                            placeholder="Text"
                         />
-                    </Grid>
-                    
+                    </Grid>                   
                 </Grid>
                 
             </Stack>

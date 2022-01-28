@@ -37,18 +37,22 @@ const MainSidebar = (props) => {
                         <ListItemIcon><AccountBoxIcon /></ListItemIcon>
                         <ListItemText><Link href="/profile" underline="none" sx={{ color: 'black' }}>Profile</Link></ListItemText>
                     </ListItem>
+                    <Divider/>
                     <ListItem>
                         <ListItemIcon><ChatIcon /></ListItemIcon>
                         <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>topics</Link></ListItemText>
                     </ListItem>
+                    <Divider/>
                     <ListItem>
                         <ListItemIcon><ChatIcon /></ListItemIcon>
                         <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>topics</Link></ListItemText>
                     </ListItem>
+                    <Divider/>
                     <ListItem>
                         <ListItemIcon><ChatIcon /></ListItemIcon>
                         <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>topics</Link></ListItemText>
                     </ListItem>
+                    <Divider/>
                     <ListItem>
                         <ListItemIcon><ChatIcon /></ListItemIcon>
                         <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>topics</Link></ListItemText>
