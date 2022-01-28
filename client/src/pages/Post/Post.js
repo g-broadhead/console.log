@@ -1,4 +1,4 @@
-import { 
+import {
     Container,
     Box,
     List,
@@ -31,10 +31,7 @@ const Post = (props) => {
 
     }
 
-    const postStyle = {
-        border: "1px solid black",
-        padding: "1em"
-    }
+
 
     const commentStyle = {
         borderBottom: "1px solid black"
@@ -55,16 +52,16 @@ const Post = (props) => {
     }
 
     return (
-        <Container sx={{marginTop: "1em"}}>
-            <PostCard 
+        <Container sx={{ marginTop: "1em" }}>
+            <PostCard
                 user={dummyData.user}
                 date={dummyData.date}
                 content={dummyData.content} />
 
             <Box component="form">
                 <h2>Leave a comment</h2>
-                <Input placeholder="Comment..." label="Comment" sx={{ width: '90%' }}/>
-                <Button variant="contained" sx={{margin: "1em"}}>Reply</Button>
+                <Input placeholder="Comment..." label="Comment" sx={{ width: '90%' }} />
+                <Button variant="contained" sx={{ margin: "1em" }}>Reply</Button>
             </Box>
             <h2>Comments</h2>
             <List>

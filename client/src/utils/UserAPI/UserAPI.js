@@ -12,7 +12,7 @@ const UserAPI = {
   getUser: async function () {
     const { data: user } = await axios.get('/api/users', {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('user')}`
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`
       }
     })
     return user

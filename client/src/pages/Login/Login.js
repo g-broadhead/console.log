@@ -14,6 +14,8 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import UserAPI from '../../utils/UserAPI'
 import AuthContext from '../../utils/AuthContext'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -31,13 +33,23 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignInSide() {
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
+    const formData = new FormData(event.currentTarget);
+    const userData ={
+      username: formData.get('username'),
+      password: formData.get('password'),
+    }
+   /* 
     console.log({
-      email: data.get('email'),
+      username: data.get('username'),
       password: data.get('password'),
+    });*/
+    axios.post('/api/user/login', userData).then(res =>{
+      localStorage.setItem('jwt', res.data);
+      navigate('/', {replace: true});
     });
   };
 
@@ -80,9 +92,9 @@ export default function SignInSide() {
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
+                id="username"
+                label="Username"
+                name="username"
                 autoComplete="email"
                 autoFocus
               />
