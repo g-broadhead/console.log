@@ -37,16 +37,17 @@ const Home = (props) => {
     }
     return (
             <Grid container spacing={1} sx={mainBox}>
+                <AppHeader />
                 <Grid item xs={2}>
                     <MainSidebar sx={sidebarStyle}/>
                 </Grid>
                 <Grid item xs={8}>
-                    <UserHomepage sx={homepageStyle } />
+                    <UserHomepage sx={homepageStyle} />
                 </Grid>
                 <Grid item xs={2}>
                 <RightSidebar sx={rightbarStyle}/>
                 </Grid>
-                
+                <AppFooter />
             </Grid>
     );
 }
