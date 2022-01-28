@@ -36,6 +36,8 @@ const Home = (props) => {
 
     }
     return (
+        <>
+        <AppHeader />
             <Grid container spacing={1} sx={mainBox}>
                 <Grid item xs={2}>
                     <MainSidebar sx={sidebarStyle}/>
@@ -46,8 +48,10 @@ const Home = (props) => {
                 <Grid item xs={2}>
                 <RightSidebar sx={rightbarStyle}/>
                 </Grid>
-                
             </Grid>
+
+        <AppFooter /> 
+        </>
     );
 }
 
