@@ -35,7 +35,16 @@ const Home = (props) => {
         mt: 4,
 
     }
+
+    // const backgroundStyle= {
+    //     bgcolor: "warning.main",
+    //     // display: "block",
+    //     width: "100%",
+    //     height: "100%",
+    //     // position: "absolute"
+    // }
     return (
+        <Box>
             <Grid container spacing={1} sx={mainBox}>
                 <AppHeader />
                 <Grid item xs={2}>
@@ -49,6 +58,7 @@ const Home = (props) => {
                 </Grid>
                 <AppFooter />
             </Grid>
+        </Box>
     );
 }
 
