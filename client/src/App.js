@@ -21,7 +21,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route exact path="/" element={UserAPI.getUser() ? <Home /> : <Landing />} />
+          {/* <Route exact path="/" element={UserAPI.getUser() ? <Home /> : <Landing />} /> */}
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/profile" element={<Profile />} />
           <Route exact path="/post" element={<Post />} />
