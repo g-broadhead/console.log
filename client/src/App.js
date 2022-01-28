@@ -14,6 +14,7 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
 import Post from './pages/Post'
+import Admin from './pages/Admin'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<Login />} />
+          <Route exact path='/admin' element={<Admin />} />
         </Routes>
       </Router>
     </>
