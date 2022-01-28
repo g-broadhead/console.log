@@ -31,7 +31,8 @@ const Profile = (props) => {
       github: 'github.com/test',
       linkedIn: 'linkedin.com/test',
       instagram: 'instagram.com/test',
-      twitter: 'twitter.com/test' 
+      twitter: 'twitter.com/test',
+      avatar: 'https://www.somethingwemade.se/wp-content/uploads/2019/07/webLogo-300x300.png', 
     }
   })
 
@@ -57,10 +58,11 @@ const Profile = (props) => {
               <Avatar
                 alt="Avatar"
                 //  Add avatar get in src
-                src="/static/images/avatar/1.jpg"
-                sx={{ width: 175, height: 175 }}
+                src={profileState.userData.avatar}
+                sx={{ width: 175, height: 175, border:"2px solid #000"}}
                 // onclick event to make button. lead to modal for user input
-              />
+              >{profileState.userData.name[0]}
+              </Avatar>
             </Stack>
             <h1>{profileState.userData.name}</h1>
             <h2>{profileState.userData.username}</h2>
