@@ -9,14 +9,21 @@ import AppFooter from './components/AppFooter'
 import Landing from './pages/Landing'
 import Home from './pages/Home'
 import Register from './pages/Register'
+import Login from './pages/Login'
 
-function App () {
+
+function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route exact path='/' element={<Home />} />
+          <Route exact path="/" element={<Landing />} />
+          <Route exact path="/home" element={<Home />} />
+          <Route exact path="/profile" element={<Profile />} />
+          <Route exact path="/post" element={<Post />} />
+          <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
+          <Route exact path="/login" element={<Login />} />
         </Routes>
       </Router>
     </>
