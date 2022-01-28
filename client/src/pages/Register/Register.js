@@ -6,12 +6,17 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import Image from "../../images/splash.jpg"
 
 const useStyles = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
+  padding: '2px',
+  paperContainer:{
+  backgroundImage : `url(${Image})`
+  }
 };
 
 const Register = () => {

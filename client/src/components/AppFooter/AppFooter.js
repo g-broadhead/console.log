@@ -13,19 +13,19 @@ import {Container} from "@mui/material"
 const AppFooter = (props) => {
     const footerStyle = {
         display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
+        gridTemplateColumns: "repeat(3, 1fr)",
         borderTop: "1px solid #AAA",
-        paddingLeft:"25%",
         marginTop: "2em",
 
         //fixed footer??
         bottom: "0",
         position: "absolute",
         bgcolor: "primary.main",
-        
+        width: "100%",
     }
     return (
         <Box sx={footerStyle}>
+            <div>&nbsp;</div>
             <div>
                 <strong>console.log</strong><br />
                 <sub>Copyright 2022 &copy;</sub>
