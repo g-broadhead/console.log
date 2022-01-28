@@ -31,10 +31,7 @@ const Post = (props) => {
 
     }
 
-    const postStyle = {
-        border: "1px solid black",
-        padding: "1em"
-    }
+    
 
     const commentStyle = {
         borderBottom: "1px solid black"
