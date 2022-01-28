@@ -1,12 +1,14 @@
-
+import AppHeader from '../../components/AppHeader';
+import AppFooter from '../../components/AppFooter';
+// import UserAPI from '../../utils/UserAPI';
+import { useEffect, useState } from 'react'
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
-import AppHeader from '../../components/AppHeader';
-import AppFooter from '../../components/AppFooter';
+import TextField from '@mui/material/TextField';
+import Input from '@mui/material/Input';
 
 const Profile = (props) => {
   const Item = styled(Paper)(({ theme }) => ({
@@ -15,7 +17,30 @@ const Profile = (props) => {
     textAlign: 'center',
     color: theme.palette.text.secondary,
   }));
+
+  const ariaLabel = { 'aria-label': 'description' };
+
+  const [profileState, setProfileState] = useState({
+    userData: {
+      name: 'Test Name',
+      username: 'Test Username'
+    }
+  })
+
+  // useEffect(() => {
+  //   UserAPI.getUser()
+  //     .then(user => {
+  //       console.log(user)
+  //       setProfileState({ ...profileState, userData: user })
+  //     })
+  //     .catch(err => {
+  //       window.location = '/login'
+  //     })
+  // }, [])
+
   return (
+    <>
+    <AppHeader/>
     <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={3}>
       <Box gridColumn="span 5">
         <Item>
@@ -49,7 +74,8 @@ const Profile = (props) => {
         <h3>Twitter: </h3>
         </Item>
       </Box>
-    </Box>
+      <AppFooter />
+    </>
   );
 }
 
