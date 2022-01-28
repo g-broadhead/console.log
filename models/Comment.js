@@ -1,21 +1,20 @@
 const { Schema, model } = require('mongoose')
 
-const Post = new Schema ({
- content: {
+const Comment = new Schema({
+ body: {
   type: String,
-  required: true,
-  maxlength: 280,
-  minlength: 1
+  required: true
  },
  user: {
   type: Schema.Types.ObjectId,
   ref: 'user',
   required: true
  },
- comments: [{
+ posts: {
   type: Schema.Types.ObjectId,
-  ref: 'comment',
- }]
+  ref: 'post',
+  required: true
+ }
 }, { timestamps: true })
 
-module.exports = model('post', Post)
+module.exports = model('comment', Comment)
