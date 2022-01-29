@@ -1,14 +1,17 @@
 import AppHeader from '../../components/AppHeader';
 import AppFooter from '../../components/AppFooter';
-// import UserAPI from '../../utils/UserAPI';
+import UserAPI from '../../utils/UserAPI';
 import { useEffect, useState } from 'react'
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
 import Input from '@mui/material/Input';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
 
 const Profile = (props) => {
   const Item = styled(Paper)(({ theme }) => ({
@@ -18,12 +21,16 @@ const Profile = (props) => {
     color: theme.palette.text.secondary,
   }));
 
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const ariaLabel = { 'aria-label': 'description' };
 
   const [profileState, setProfileState] = useState({
     userData: {
-      name: 'Test Name',
-      username: 'Test Username',
+      name: '',
+      username: '',
       workname: 'Test Work',
       positionTitle: 'QA Tester',
       memberSince: '1/2022',
@@ -32,20 +39,33 @@ const Profile = (props) => {
       linkedIn: 'linkedin.com/test',
       instagram: 'instagram.com/test',
       twitter: 'twitter.com/test',
-      avatar: 'https://www.somethingwemade.se/wp-content/uploads/2019/07/webLogo-300x300.png', 
+      avatar: '',
     }
   })
 
-  // useEffect(() => {
-  //   UserAPI.getUser()
-  //     .then(user => {
-  //       console.log(user)
-  //       setProfileState({ ...profileState, userData: user })
-  //     })
-  //     .catch(err => {
-  //       window.location = '/login'
-  //     })
-  // }, [])
+  useEffect(() => {
+    UserAPI.getUser()
+      .then(user => {
+        console.log(user)
+        setProfileState({ ...profileState, userData: user })
+      })
+      .catch(err => {
+        // window.location = '/login'
+        console.log(err)
+      })
+  }, [])
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
 
   return (
     <>
@@ -59,10 +79,33 @@ const Profile = (props) => {
                 alt="Avatar"
                 //  Add avatar get in src
                 src={profileState.userData.avatar}
-                sx={{ width: 175, height: 175, border:"2px solid #000"}}
-                // onclick event to make button. lead to modal for user input
+                sx={{ width: 175, height: 175, border: "2px solid #000", cursor: 'pointer' }}
+                onClick={handleOpen}
               >{profileState.userData.name[0]}
               </Avatar>
+
+              {/* Upload avatar modal */}
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+                  <Typography id="modal-modal-title" variant="h6" component="h2">
+                    Input Image URL to update Avatar
+                  </Typography>
+                  <Box component="form"
+                    sx={{
+                      '& > :not(style)': { m: 1, width: '25ch' },
+                    }}
+                    noValidate
+                    autoComplete="off">
+                  <TextField id="standard-basic" label="Image URL" variant="standard" />
+                    <Button type='submit' variant='outlined'>Submit</Button>
+                  </Box>
+                </Box>
+              </Modal>
             </Stack>
             <h1>{profileState.userData.name}</h1>
             <h2>{profileState.userData.username}</h2>
