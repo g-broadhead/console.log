@@ -23,4 +23,11 @@ router.get('/user', passport.authenticate('jwt'), (req, res) => {
     res.json(req.user)
 })
 
+router.put('/user', passport.authenticate('jwt'), (req, res) => {
+    User.findByIdAndUpdate(req.user._id, { ...req.body })
+        .then(update => {
+            res.json(update);
+        });
+})
+
 module.exports = router
