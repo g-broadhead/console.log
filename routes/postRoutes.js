@@ -16,7 +16,7 @@ router.post('/post', passport.authenticate('jwt'), function ({ body, user }, res
     console.log(user);
     Post.create({
         content: body.content,
-        user: user.id
+        user: user._id
     }).then(post => {
         User.findByIdAndUpdate(user._id, { $push: { posts: post._id } })
             .then(update => {
