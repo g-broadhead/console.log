@@ -52,10 +52,16 @@ const UserHomepage = (props) => {
 
     const handlePostChange = ({target: {name, value}}) => setPostState({content:value})
 
+    /*
+    //
+    /// This is how to navigate to a new post.
+    /// must use navigate and pass in the postId
+    //
     const testOnClick = (event) => {
         event.preventDefault();
         navigate('/post', {state: {postId: "61f48ab96e106fd86e689168"}});
     }
+    */
 
     return (
         <Box sx={outerBox}>
@@ -92,7 +98,6 @@ const UserHomepage = (props) => {
                             rows={4}
                             placeholder="Text"
                         />
-                        <Button onClick={testOnClick}>Go to test post</Button>
                     </Grid>
                 </Grid>
 
