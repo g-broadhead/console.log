@@ -19,6 +19,7 @@ const UserHomepage = (props) => {
     const outerBox = {
         // mr: 2,
         // bgcolor: "warning.main"
+        overflow: 'auto'
     }
 
     const navigate = useNavigate();
@@ -26,6 +27,7 @@ const UserHomepage = (props) => {
 
     const innerBox = {
         // ml: 6,
+        height: "80vh",
         mr: 6,
         mt: 6,
         bgcolor: "white"
@@ -88,6 +90,70 @@ const UserHomepage = (props) => {
                             placeholder="Text"
                         />
                     </Grid>
+                </Grid>
+
+                <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
+                    <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
+                        <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
+                    </Grid>
+                    <Grid item xs={10}>
+                        <TextField fullWidth
+                            disabled
+                            id="outlined-textarea fullWidth"
+                            label="Post Text Goes Here"
+                            multiline
+                            rows={4}
+                            placeholder="Text"
+                        />
+                    </Grid>                   
+                </Grid>
+
+                <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
+                    <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
+                        <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
+                    </Grid>
+                    <Grid item xs={10}>
+                        <TextField fullWidth
+                            disabled
+                            id="outlined-textarea fullWidth"
+                            label="Post Text Goes Here"
+                            multiline
+                            rows={4}
+                            placeholder="Text"
+                        />
+                    </Grid>                   
+                </Grid>
+
+                <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
+                    <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
+                        <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
+                    </Grid>
+                    <Grid item xs={10}>
+                        <TextField fullWidth
+                            disabled
+                            id="outlined-textarea fullWidth"
+                            label="Post Text Goes Here"
+                            multiline
+                            rows={4}
+                            placeholder="Text"
+                        />
+                    </Grid>                   
+                </Grid>
+
+                <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
+                    <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
+                        <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
+                    </Grid>
+                    <Grid item xs={10}>
+                        <TextField fullWidth
+                            disabled
+                            id="outlined-textarea fullWidth"
+                            label="Post Text Goes Here"
+                            multiline
+                            rows={4}
+                            placeholder="Text"
+                        />
+                    </Grid>                   
                 </Grid>
 
                 <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
