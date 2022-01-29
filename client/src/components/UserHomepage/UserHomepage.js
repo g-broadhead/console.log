@@ -52,6 +52,11 @@ const UserHomepage = (props) => {
 
     const handlePostChange = ({target: {name, value}}) => setPostState({content:value})
 
+    const testOnClick = (event) => {
+        event.preventDefault();
+        navigate('/post', {state: {postId: "61f48ab96e106fd86e689168"}});
+    }
+
     return (
         <Box sx={outerBox}>
             <Stack sx={innerBox}>
@@ -87,6 +92,7 @@ const UserHomepage = (props) => {
                             rows={4}
                             placeholder="Text"
                         />
+                        <Button onClick={testOnClick}>Go to test post</Button>
                     </Grid>
                 </Grid>
 
