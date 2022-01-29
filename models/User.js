@@ -15,11 +15,7 @@ const User = new Schema({
     },
     posts: [{
         type: Schema.Types.ObjectId,
-        ref: 'post',
-    }],
-    comments: [{
-        type: Schema.Types.ObjectId,
-        ref: 'comment',
+        ref: 'Post',
     }],
     avatar: {
         type: String,

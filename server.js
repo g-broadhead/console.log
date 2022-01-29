@@ -1,7 +1,7 @@
-require("dotenv").config()
+require('dotenv').config()
 
-const express = require("express");
-const path = require("path");
+const express = require('express')
+const path = require('path')
 const passport = require('passport')
 const { Strategy: LocalStrategy } = require('passport-local')
 const { Strategy: JWTStrategy, ExtractJwt } = require('passport-jwt')
@@ -9,7 +9,7 @@ const { Strategy: JWTStrategy, ExtractJwt } = require('passport-jwt')
 const app = express()
 const { User } = require('./models')
 
-app.use(express.static(path.join(__dirname, "client", "build")))
+app.use(express.static(path.join(__dirname, 'client', 'build')))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
@@ -21,21 +21,20 @@ passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
 passport.use(new JWTStrategy({
-    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: process.env.SECRET
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey: process.env.SECRET
 }, ({ id }, cb) => User.findById(id)
-    // .populate('songs')
-    .then(user => cb(null, user))
-    .catch(err => cb(err))))
+// .populate('songs')
+  .then(user => cb(null, user))
+  .catch(err => cb(err))))
 
 app.use(require('./routes'))
 
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')))
 
 require('./db')
-    .then(() => {
-        app.listen(process.env.PORT || 3001, async () => {
-            console.log(`Server running`)
-        })
+  .then(() => {
+    app.listen(process.env.PORT || 3001, async () => {
+      console.log('Server running')
     })
-
+  })
