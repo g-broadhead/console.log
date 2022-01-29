@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import axios from "axios";
 import Box from "@mui/material/Box"
 import TextField from '@mui/material/TextField';
 import Avatar from '@mui/material/Avatar';
@@ -18,6 +21,9 @@ const UserHomepage = (props) => {
         // bgcolor: "warning.main"
     }
 
+    const navigate = useNavigate();
+    const [postState, setPostState] = useState({content:''});
+
     const innerBox = {
         // ml: 6,
         mr: 6,
@@ -27,6 +33,24 @@ const UserHomepage = (props) => {
     const buttonStyle = {
         mt: 1,
     }
+
+    const handlePostSubmit = (event) => {
+        event.preventDefault();
+        console.log(postState.content);
+        axios.post('/api/post', 
+        {
+            content:postState.content
+        },
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('jwt')}`}
+        }).then(() =>{
+            setPostState({...postState, content: ''});
+            navigate('/home');
+        }).catch(err => {
+            alert("Failed to make post.");
+        })
+    }
+
+    const handlePostChange = ({target: {name, value}}) => setPostState({content:value})
 
     return (
         <Box sx={outerBox}>
@@ -42,9 +66,10 @@ const UserHomepage = (props) => {
                             multiline
                             rows={4}
                             placeholder="Text"
+                            onChange={handlePostChange}
                         />
                     </Grid>
-                    <Button sx={buttonStyle} variant="contained" endIcon={<SendIcon />}>
+                    <Button sx={buttonStyle} variant="contained" endIcon={<SendIcon />} onClick={handlePostSubmit}>
                         Send
                     </Button>
                 </Grid>

@@ -6,16 +6,17 @@ const { Post, User } = require('../models')
 
 // GET all posts
 // user must be logged in
-router.get('/posts', passport.authenticate('jwt'), async function (req, res) {
+router.get('/post', passport.authenticate('jwt'), async function (req, res) {
   const posts = await Post.findAll({ include: [User] })
   res.json(posts)
 })
 
 // POST one post
-router.post('/posts', passport.authenticate('jwt'), async function ({ body, user }, res) {
+router.post('/post', passport.authenticate('jwt'), async function ({ body, user }, res) {
+  console.log(user);
   const post = await Post.create({
-    ...body,
-    uid: user.id
+    content: body.content,
+    user: user.id
   })
   res.json(post)
 })
