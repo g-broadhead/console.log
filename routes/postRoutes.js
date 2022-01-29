@@ -2,7 +2,7 @@ const router = require('express').Router()
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
 const { redirect } = require('express/lib/response')
-const { Post, User } = require('../models')
+const { Post, User, Comment } = require('../models')
 
 // GET all posts
 // user must be logged in
@@ -11,8 +11,23 @@ router.get('/post', passport.authenticate('jwt'), async function (req, res) {
   res.json(posts)
 })
 
+router.get('/post/:id', passport.authenticate('jwt'), async function (req, res) {
+    try {
+        const post = await Post.findById(req.params.id)
+            .populate('user')
+            .populate('comments')
+            .populate({path: 'comments', populate: {path: 'user'}});
+        res.json(post);
+    } catch(err) {
+        console.log(`!! ERROR: Failed to fetch post with id ${req.params.id}`);
+        console.log(err);
+        res.status(500).json({error: `Failed to fetch post with id ${req.params.id}`})
+    }
+});
+
 // POST one post
 router.post('/post', passport.authenticate('jwt'), function ({ body, user }, res) {
+<<<<<<< HEAD
   console.log(user)
   Post.create({
     content: body.content,
@@ -23,6 +38,35 @@ router.post('/post', passport.authenticate('jwt'), function ({ body, user }, res
         res.json(post)
       })
   })
+=======
+    console.log(user);
+    Post.create({
+        content: body.content,
+        user: user.id
+    }).then(post => {
+        User.findByIdAndUpdate(user._id, { $push: { posts: post._id } })
+            .then(update => {
+                res.json(post);
+            });
+
+    })
+>>>>>>> 269083b051ff6473e36c2c2f2466d7566981f4a0
+})
+
+router.post('/post/comment', passport.authenticate('jwt'), (req, res) => {
+    Comment.create({body: req.body.content, post: req.body.postId, user: req.user.id})
+        .then(comment => {
+            Post.findByIdAndUpdate(req.body.postId, {$push: {comments: comment._id}})
+                .then(post => {
+                    res.json(comment);
+                }
+            )
+        }).catch(err => {
+            console.log('!! ERROR: failed to create comment');
+            console.log(err);
+            console.log(req.body)
+            res.status(500).json({error: 'failed to create comment'});
+        })
 })
 
 // DELETE one post

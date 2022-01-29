@@ -49,6 +49,7 @@ const UserHomepage = (props) => {
 
   const handlePostChange = ({ target: { name, value } }) => setPostState({ content: value })
 
+<<<<<<< HEAD
   return (
     <Box sx={outerBox}>
       <Stack sx={innerBox}>
@@ -71,6 +72,56 @@ const UserHomepage = (props) => {
             Send
           </Button>
         </Grid>
+=======
+    /*
+    //
+    /// This is how to navigate to a new post.
+    /// must use navigate and pass in the postId
+    //
+    const testOnClick = (event) => {
+        event.preventDefault();
+        navigate('/post', {state: {postId: "61f48ab96e106fd86e689168"}});
+    }
+    */
+
+    return (
+        <Box sx={outerBox}>
+            <Stack sx={innerBox}>
+                <Grid container spacing={2} sx={{ justifyContent: 'flex-end'}}>
+                    <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
+                            <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
+                    </Grid>
+                    <Grid item xs={10}>
+                        <TextField fullWidth
+                            id="outlined-textarea fullWidth"
+                            label="Send a Post"
+                            multiline
+                            rows={4}
+                            placeholder="Text"
+                            onChange={handlePostChange}
+                        />
+                    </Grid>
+                    <Button sx={buttonStyle} variant="contained" endIcon={<SendIcon />} onClick={handlePostSubmit}>
+                        Send
+                    </Button>
+                </Grid>
+                
+                <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
+                    <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
+                            <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
+                    </Grid>
+                    <Grid item xs={10}>
+                        <TextField fullWidth
+                            disabled
+                            id="outlined-textarea fullWidth"
+                            label="Post Text Goes Here"
+                            multiline
+                            rows={4}
+                            placeholder="Text"
+                        />
+                    </Grid>
+                </Grid>
+>>>>>>> 269083b051ff6473e36c2c2f2466d7566981f4a0
 
         <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
           <Grid item xs={2} sx={{ justifyContent: 'flex-end', display: 'flex' }}>
