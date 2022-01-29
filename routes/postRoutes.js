@@ -27,7 +27,6 @@ router.get('/post/:id', passport.authenticate('jwt'), async function (req, res) 
 
 // POST one post
 router.post('/post', passport.authenticate('jwt'), function ({ body, user }, res) {
-<<<<<<< HEAD
   console.log(user)
   Post.create({
     content: body.content,
@@ -38,19 +37,6 @@ router.post('/post', passport.authenticate('jwt'), function ({ body, user }, res
         res.json(post)
       })
   })
-=======
-    console.log(user);
-    Post.create({
-        content: body.content,
-        user: user.id
-    }).then(post => {
-        User.findByIdAndUpdate(user._id, { $push: { posts: post._id } })
-            .then(update => {
-                res.json(post);
-            });
-
-    })
->>>>>>> 269083b051ff6473e36c2c2f2466d7566981f4a0
 })
 
 router.post('/post/comment', passport.authenticate('jwt'), (req, res) => {
