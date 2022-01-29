@@ -69,7 +69,6 @@ const Profile = (props) => {
     p: 4,
   };
 
-  const navigate = useNavigate();
   const [postState, setPostState] = useState({ avatar: '' });
 
   const handlePostSubmit = (event) => {
