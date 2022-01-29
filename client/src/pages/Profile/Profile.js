@@ -1,6 +1,8 @@
 import AppHeader from '../../components/AppHeader';
 import AppFooter from '../../components/AppFooter';
 import UserAPI from '../../utils/UserAPI';
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { useEffect, useState } from 'react'
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -67,6 +69,31 @@ const Profile = (props) => {
     p: 4,
   };
 
+  const navigate = useNavigate();
+  const [postState, setPostState] = useState({ avatar: '' });
+
+  const handlePostSubmit = (event) => {
+    event.preventDefault();
+    console.log(postState.avatar);
+    axios.put('/api/user',
+      {
+        avatar: postState.avatar
+      },
+      {
+        headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` }
+      }).then(() => {
+        setPostState({ ...postState, avatar: '' });
+        handleClose();
+        window.location= '/profile';
+      }).catch(err => {
+        alert("Failed to upload avatar.");
+      })
+  }
+
+  const handlePostChange = ({ target: { name, value } }) => {
+    setPostState({ avatar: value })
+  }
+
   return (
     <>
       <AppHeader />
@@ -77,7 +104,6 @@ const Profile = (props) => {
               justifyContent="center">
               <Avatar
                 alt="Avatar"
-                //  Add avatar get in src
                 src={profileState.userData.avatar}
                 sx={{ width: 175, height: 175, border: "2px solid #000", cursor: 'pointer' }}
                 onClick={handleOpen}
@@ -95,14 +121,26 @@ const Profile = (props) => {
                   <Typography id="modal-modal-title" variant="h6" component="h2">
                     Input Image URL to update Avatar
                   </Typography>
-                  <Box component="form"
+                  <Box 
+                    component="form"
                     sx={{
                       '& > :not(style)': { m: 1, width: '25ch' },
                     }}
                     noValidate
                     autoComplete="off">
-                  <TextField id="standard-basic" label="Image URL" variant="standard" />
-                    <Button type='submit' variant='outlined'>Submit</Button>
+                    <TextField 
+                      id="standard-basic" 
+                      label="Image URL" 
+                      variant="standard" 
+                      onChange={handlePostChange} 
+                      name='avatar'
+                      value={postState.avatar}/>
+                    <Button 
+                      type='submit' 
+                      variant='outlined'
+                      onClick={handlePostSubmit}>
+                      Submit
+                    </Button>
                   </Box>
                 </Box>
               </Modal>
