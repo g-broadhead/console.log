@@ -1,12 +1,12 @@
-import AppHeader from '../../components/AppHeader';
-import AppFooter from '../../components/AppFooter';
-import React, { useState } from 'react';
-import { makeStyles } from '@mui/material';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
-import axios from "axios";
-import Image from "../../images/splash.jpg"
+import AppHeader from '../../components/AppHeader'
+import AppFooter from '../../components/AppFooter'
+import React, { useState } from 'react'
+import { makeStyles } from '@mui/material'
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import Image from '../../images/splash.jpg'
 
 const useStyles = {
   display: 'flex',
@@ -14,10 +14,10 @@ const useStyles = {
   justifyContent: 'center',
   alignItems: 'center',
   padding: '2px',
-  paperContainer:{
-  backgroundImage : `url(${Image})`
+  paperContainer: {
+    backgroundImage: `url(${Image})`
   }
-};
+}
 
 const Register = () => {
   // create state variables for each input
@@ -32,19 +32,19 @@ const Register = () => {
     setRegisterState({ ...registerState, [name]: value })
   }
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleSubmit = e => {
-    e.preventDefault();
-    //console.log(registerState);
+    e.preventDefault()
+    // console.log(registerState);
     axios.post('/api/user/register', registerState)
       .then(res => {
         navigate('/login', { replace: true })
       }).catch(err => {
-        console.log("Failed to register");
-        console.error(err);
+        console.log('Failed to register')
+        console.error(err)
       })
-  };
+  }
 
   return (
     <form sx={useStyles} onSubmit={handleSubmit}>
@@ -54,17 +54,17 @@ const Register = () => {
       <p>Join Us Today and share your thought!</p>
 
       <TextField
-        label="Name"
-        name="name"
-        variant="filled"
+        label='Name'
+        name='name'
+        variant='filled'
         required
         value={registerState.name}
         onChange={handleInputChange}
       />
       <TextField
-        label="User Name"
-        name="username"
-        variant="filled"
+        label='User Name'
+        name='username'
+        variant='filled'
         required
         value={registerState.username}
         onChange={handleInputChange}
@@ -78,21 +78,21 @@ const Register = () => {
                 onChange={e => setEmail(e.target.value)}
             /> */}
       <TextField
-        label="Password"
-        name="password"
-        variant="filled"
-        type="password"
+        label='Password'
+        name='password'
+        variant='filled'
+        type='password'
         required
         value={registerState.password}
         onChange={handleInputChange}
       />
       <div>
-        <Button type="submit" variant="contained" color="primary">
+        <Button type='submit' variant='contained' color='primary'>
           Signup
         </Button>
         <AppFooter />
       </div>
     </form>
-  );
-};
-export default Register;
+  )
+}
+export default Register

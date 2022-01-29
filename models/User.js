@@ -15,43 +15,43 @@ const User = new Schema({
   },
   posts: [{
     type: Schema.Types.ObjectId,
-    ref: 'post',
+    ref: 'post'
   }],
-  comments:[{
+  comments: [{
     type: Schema.Types.ObjectId,
-    ref: 'comment',
+    ref: 'comment'
   }],
-  avatar : {
-    type : String,
-    required : false,
-    unique : false,
+  avatar: {
+    type: String,
+    required: false,
+    unique: false
   },
   github: {
     type: String,
     required: false,
-    unique: false,
+    unique: false
   },
   linkedin: {
     type: String,
     required: false,
-    unique: false,
+    unique: false
   },
   instagram: {
     type: String,
     required: false,
-    unique: false,
+    unique: false
   },
   twitter: {
     type: String,
     required: false,
-    unique: false,
+    unique: false
   },
   email: {
     type: String,
     required: false,
     unique: true,
     match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
-  }, 
+  }
 })
 
 User.plugin(require('passport-local-mongoose'))
