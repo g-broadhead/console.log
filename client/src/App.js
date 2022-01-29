@@ -24,7 +24,7 @@ function App () {
           <Route exact path='/' element={UserAPI.getUser() ? <Home /> : <Landing />} />
           <Route exact path='/home' element={<Home />} />
           <Route exact path='/profile' element={<Profile />} />
-          <Route exact path='/post' element={<Post />} />
+          <Route exact path='/post/:id' element={<Post />} />
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/register' element={<Register />} />
           <Route exact path='/admin' element={<Admin />} />
