@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Box from "@mui/material/Box"
@@ -14,6 +14,7 @@ import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import { withTheme } from "@emotion/react";
+import {useLocation} from 'react-router-dom'
 
 const UserHomepage = (props) => {
     const outerBox = {
@@ -35,6 +36,49 @@ const UserHomepage = (props) => {
     const buttonStyle = {
         mt: 1,
     }
+
+    // const navState = useLocation();
+    
+    
+    // const [refresh, setRefresh] = useState(true);
+    // useEffect(() => {
+    //     const postId = navState.state.postId;
+    //     // setRefresh(false);
+    //     // const post = postState.content;
+    //     axios.get(`/api/post/postState.content`, {
+    //         headers: {
+    //             'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+    //         }
+    //     })
+    //     .then(({data}) => {
+    //         setPostState({...postState, postData: data});
+    //         console.log(data);
+    // }).catch(err => {
+    //     setPostState({...postState, err: err});
+    // })
+    // }, [refresh])
+
+    // const PostList = (props) => {
+    //     const post = postState.content;
+    //     return (
+    //         <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
+    //                 <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
+    //                         <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
+    //                 </Grid>
+    //                 <Grid item xs={10}>
+    //                     <TextField fullWidth
+    //                         disabled
+    //                         id="outlined-textarea fullWidth"
+    //                         label="Post Text Goes Here"
+    //                         multiline
+    //                         rows={4}
+    //                         defaultValue={post}
+    //                     />
+    //                 </Grid>
+    //             </Grid>
+    //     )
+    // }
+
 
     const handlePostSubmit = (event) => {
         event.preventDefault();
@@ -75,7 +119,7 @@ const UserHomepage = (props) => {
                         Send
                     </Button>
                 </Grid>
-                
+                {/* <PostList /> */}
                 <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
                     <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
                             <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>

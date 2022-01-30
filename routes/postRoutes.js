@@ -14,6 +14,7 @@ router.get('/post', passport.authenticate('jwt'), async function (req, res) {
 // POST one post
 router.post('/post', passport.authenticate('jwt'), function ({ body, user }, res) {
     console.log(user);
+    console.log(body);
     Post.create({
         content: body.content,
         user: user._id
