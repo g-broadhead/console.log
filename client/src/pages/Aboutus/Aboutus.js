@@ -6,12 +6,14 @@ import AboutusCard from '../../components/AboutusCard'
 const Aboutus = (props) => {
   return (
     <>
+    <AppHeader />
     <AboutusCard />
     <AboutusCard />
     <AboutusCard />
     <AboutusCard />
     <AboutusCard />
     <AboutusCard />
+    <AppFooter />
     </>
   )
 }
