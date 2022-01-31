@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-const RyanC = (props) => {
+const HarrisonR = (props) => {
   return (
     <Box m={1} display='flex' alignItems='center' flexDirection='row'>
       <Card sx={{ maxWidth: 300, mt: '10px', ml: '20px' }}>
@@ -17,7 +17,7 @@ const RyanC = (props) => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Ryan C
+            Harrison R
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Links to Team Member's contact info
@@ -28,4 +28,4 @@ const RyanC = (props) => {
   );
 }
 
-export default RyanC;
+export default HarrisonR;
