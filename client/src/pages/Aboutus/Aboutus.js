@@ -11,7 +11,9 @@ import Grid from '@mui/material/Grid';
 import { palette } from '@mui/system';
 
 const Aboutus = (props) => {
+  return (
 
+  );
 }
 
 export default Aboutus;
