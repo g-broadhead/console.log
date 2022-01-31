@@ -3,12 +3,11 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 
 const JohnnyC = (props) => {
   return (
-    <Box m={1} display='flex' alignItems='center' flexDirection='row'>
-      <Card sx={{ maxWidth: 260 }}>
+    <>
+      <Card sx={{ maxWidth: '260px' }}>
         <CardMedia
           component="img"
           height="170"
@@ -24,7 +23,7 @@ const JohnnyC = (props) => {
           </Typography>
         </CardContent>
       </Card>
-    </Box>
+    </>
   );
 }
 
