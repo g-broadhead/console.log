@@ -15,6 +15,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles'
 import UserAPI from '../../utils/UserAPI'
 import AuthContext from '../../utils/AuthContext'
 import axios from 'axios'
+import UserContext from '../../utils/UserContext'
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import loginImages from '../../images/login.jpg'
 
@@ -35,6 +37,7 @@ const theme = createTheme()
 
 export default function SignInSide () {
   const navigate = useNavigate()
+  const userContext = useContext(UserContext);
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -50,6 +53,7 @@ export default function SignInSide () {
     }); */
     axios.post('/api/user/login', userData).then(res => {
       localStorage.setItem('jwt', res.data)
+      userContext.setLoggedIn(true)
       navigate('/', { replace: true })
     })
   }
