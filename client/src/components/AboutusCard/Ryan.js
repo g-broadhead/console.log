@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-const Ryan = (props) => {
+const RyanC = (props) => {
   return (
     <Box m={1} display='flex' alignItems='center' flexDirection='row'>
       <Card sx={{ maxWidth: 300, mt: '10px', ml: '20px' }}>
@@ -28,4 +28,4 @@ const Ryan = (props) => {
   );
 }
 
-export default Ryan;
+export default RyanC;

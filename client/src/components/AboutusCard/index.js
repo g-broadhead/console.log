@@ -1,1 +1,1 @@
-export { default } from "./AboutusCard.js"
+export { default } from "./Ryan.js"
