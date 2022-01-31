@@ -15,6 +15,7 @@ import Login from './pages/Login'
 import Profile from './pages/Profile'
 import Post from './pages/Post'
 import Admin from './pages/Admin'
+import Aboutus from './pages/Aboutus'
 
 function App () {
   return (
