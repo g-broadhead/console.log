@@ -1,5 +1,5 @@
 import AppHeader from '../../components/AppHeader';
-import AppFooter from '../../components/AppFooter';
+// import AppFooter from '../../components/AppFooter';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import RyanC from '../../components/AboutusCard/Ryan';
@@ -15,8 +15,8 @@ const Aboutus = (props) => {
       <AppHeader />
       <Container >
         <Grid
-          container
-          spacing={1}
+          container mt="1px" mb="5px"
+          spacing={2}
           direction="row"
           justify="center"
           alignItems="center">
@@ -40,7 +40,7 @@ const Aboutus = (props) => {
           </Grid>
         </Grid>
       </Container>
-      <AppFooter />
+      {/* <AppFooter /> */}
     </>
   )
 }
