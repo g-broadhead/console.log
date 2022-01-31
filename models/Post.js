@@ -18,4 +18,8 @@ const Post = new Schema({
     }]
 }, { timestamps: true })
 
+Post.virtual('commentCount').get(function() {
+    return this.comments.length;
+})
+
 module.exports = model('post', Post)
