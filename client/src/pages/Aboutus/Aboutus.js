@@ -1,11 +1,11 @@
 import AppHeader from '../../components/AppHeader';
-// import AppFooter from '../../components/AppFooter';
+import AppFooterAbout from '../../components/AppFooter';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import RyanC from '../../components/AboutusCard/Ryan';
 import JohnnyC from '../../components/AboutusCard/JohnnyC';
-import ChanwooH from '../../components/AboutusCard/ChanwooH';
-import GarrettB from '../../components/AboutusCard/GarrettB';
+import ChanwooH from '../../components/AboutusCard/ChanW';
+import GarrettB from '../../components/AboutusCard/GarretB';
 import HaoyangY from '../../components/AboutusCard/Haoyang';
 import HarrisonR from '../../components/AboutusCard/HarrisonR';
 
@@ -15,7 +15,7 @@ const Aboutus = (props) => {
       <AppHeader />
       <Container >
         <Grid
-          container mt="1px" mb="5px"
+          container mt="1px"
           spacing={2}
           direction="row"
           justify="center"
@@ -40,7 +40,7 @@ const Aboutus = (props) => {
           </Grid>
         </Grid>
       </Container>
-      {/* <AppFooter /> */}
+      <AppFooterAbout />
     </>
   )
 }

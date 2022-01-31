@@ -8,20 +8,33 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import HomeIcon from '@mui/icons-material/Home';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import InfoIcon from '@mui/icons-material/Info';
-import {Container} from "@mui/material"
+import { Container } from "@mui/material"
 
 const AppFooter = (props) => {
-    const footerStyle = {
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        borderTop: "1px solid #AAA",
-        marginTop: "2em",
-
-        //fixed footer??
-        bottom: "0",
-        position: "absolute",
-        bgcolor: "primary.main",
-        width: "100%",
+    let footerStyle
+    if (document.location.pathname == '/about') {
+        footerStyle = {
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            borderTop: "1px solid #AAA",
+            marginTop: "2em",
+            //fixed footer??
+            bottom: "0",
+            bgcolor: "primary.main",
+            width: "100%",
+        }
+    } else {
+        footerStyle = {
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            borderTop: "1px solid #AAA",
+            marginTop: "2em",
+            //fixed footer??
+            bottom: "0",
+            position: "absolute",
+            bgcolor: "primary.main",
+            width: "100%",
+        }
     }
     return (
         <Box sx={footerStyle}>
