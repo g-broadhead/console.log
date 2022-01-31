@@ -55,6 +55,8 @@ export default function SignInSide () {
       localStorage.setItem('jwt', res.data)
       userContext.setLoggedIn(true)
       navigate('/', { replace: true })
+    }).catch(err => {
+      alert("Invalid username or password");
     })
   }
 
