@@ -1,6 +1,6 @@
 import AppHeader from '../../components/AppHeader';
 import AppFooter from '../../components/AppFooter';
-import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 // import Item from '@mui/material/ListItem'
 import RyanC from '../../components/AboutusCard/Ryan';
@@ -14,8 +14,8 @@ const Aboutus = (props) => {
   return (
     <>
     <AppHeader />
-      <Box sx={{ flexGrow: 1, mt:'30px', mb:'30px' }}>
-        <Grid container spacing={2}>
+      <Container sx={{ flexGrow: 1, mt:'30px', mb:'30px' }}>
+        <Grid container spacing={2} direction='row' justifyContent='center' alignItems='center'>
           <RyanC />
           <JohnnyC />
           <ChanW />
@@ -23,7 +23,7 @@ const Aboutus = (props) => {
           <GarretB />
           <HarrisonR />
         </Grid>
-      </Box>
+      </Container>
     <AppFooter />
     </>
   )

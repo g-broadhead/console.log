@@ -8,10 +8,10 @@ import Box from '@mui/material/Box';
 const GarretB = (props) => {
   return (
     <Box m={1} display='flex' alignItems='center' flexDirection='row'>
-      <Card sx={{ maxWidth: 300, mt: '10px', ml: '20px' }}>
+      <Card sx={{ maxWidth: 260 }}>
         <CardMedia
           component="img"
-          height="200"
+          height="170"
           image="https://images.unsplash.com/photo-1537884944318-390069bb8665?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGNvZGV8ZW58MHx8MHx8&w=1000&q=80"
           alt="Team Member Pic"
         />
