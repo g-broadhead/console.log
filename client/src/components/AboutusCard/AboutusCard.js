@@ -1,29 +1,30 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 const AboutusCard = (props) => {
   return (
-    <Card sx={{ maxWidth: 300 }}>
+  <Box m={1} display='flex'alignItems='center' flexDirection='row'>
+    <Card sx={{ maxWidth: 300}}>
       <CardMedia
         component="img"
         height="200"
         image="https://images.unsplash.com/photo-1537884944318-390069bb8665?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGNvZGV8ZW58MHx8MHx8&w=1000&q=80"
-        alt="Team Member Name"
+        alt="Team Member Pic"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           Team Member Name
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Short Bio about team mamber
+          Short Bio about team member
         </Typography>
       </CardContent>
     </Card>
+  </Box>  
   );
 }
 
