@@ -12,7 +12,7 @@ const AboutusCard = (props) => {
       <CardMedia
         component="img"
         height="200"
-        image=""
+          image="https://images.unsplash.com/photo-1537884944318-390069bb8665?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGNvZGV8ZW58MHx8MHx8&w=1000&q=80"
         alt="Team Member Pic"
       />
       <CardContent>
@@ -20,7 +20,7 @@ const AboutusCard = (props) => {
           Team Member Name
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Links to members contact info
+          Links to Team Member's contact info
         </Typography>
       </CardContent>
     </Card>
