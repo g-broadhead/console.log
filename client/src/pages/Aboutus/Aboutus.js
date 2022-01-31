@@ -13,11 +13,6 @@ const Aboutus = (props) => {
       <Box sx={{ flexGrow: 1, mt:'30px', mb:'30px' }}>
         <Grid container spacing={2}>
           <AboutusCard />
-          <AboutusCard />
-          <AboutusCard />
-          <AboutusCard />
-          <AboutusCard />
-          <AboutusCard />
         </Grid>
       </Box>
     <AppFooter />
