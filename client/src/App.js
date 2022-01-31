@@ -18,6 +18,7 @@ import Admin from './pages/Admin'
 import Logout from './pages/Logout'
 import { useContext, useEffect, useState } from 'react'
 import UserContext from './utils/UserContext'
+import Aboutus from './pages/Aboutus'
 
 function App () {
 
