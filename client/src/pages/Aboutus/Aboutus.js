@@ -4,8 +4,8 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import RyanC from '../../components/AboutusCard/Ryan';
 import JohnnyC from '../../components/AboutusCard/JohnnyC';
-import ChanW from '../../components/AboutusCard/ChanW';
-import GarretB from '../../components/AboutusCard/GarretB';
+import ChanwooH from '../../components/AboutusCard/ChanwooH';
+import GarrettB from '../../components/AboutusCard/GarrettB';
 import HaoyangY from '../../components/AboutusCard/Haoyang';
 import HarrisonR from '../../components/AboutusCard/HarrisonR';
 
@@ -27,13 +27,13 @@ const Aboutus = (props) => {
             <JohnnyC />
           </Grid>
           <Grid item xs={4} justifyContent='center' alignItems='center'>
-            <ChanW />
+            <ChanwooH />
           </Grid>
           <Grid item xs={4} justifyContent='center' alignItems='center'>
             <HaoyangY />
           </Grid>
           <Grid item xs={4} justifyContent='center' alignItems='center'>
-            <GarretB />
+            <GarrettB />
           </Grid>
           <Grid item xs={4} justifyContent='center' alignItems='center'>
             <HarrisonR />

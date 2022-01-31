@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-const GarretB = (props) => {
+const GarrettB = (props) => {
   return (
     <>
       <Card sx={{ maxWidth: 260 }}>
@@ -16,7 +16,7 @@ const GarretB = (props) => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Garret B
+            Garrett B
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Links to Team Member's contact info
@@ -27,4 +27,4 @@ const GarretB = (props) => {
   );
 }
 
-export default GarretB;
+export default GarrettB;
