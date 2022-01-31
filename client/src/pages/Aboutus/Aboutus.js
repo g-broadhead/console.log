@@ -6,7 +6,7 @@ import RyanC from '../../components/AboutusCard/Ryan';
 import JohnnyC from '../../components/AboutusCard/JohnnyC';
 import ChanW from '../../components/AboutusCard/ChanW';
 import GarretB from '../../components/AboutusCard/GarretB';
-import Haoyang from '../../components/AboutusCard/Haoyang';
+import HaoyangY from '../../components/AboutusCard/Haoyang';
 import HarrisonR from '../../components/AboutusCard/HarrisonR';
 
 const Aboutus = (props) => {
@@ -30,7 +30,7 @@ const Aboutus = (props) => {
             <ChanW />
           </Grid>
           <Grid item xs={4} justifyContent='center' alignItems='center'>
-            <Haoyang />
+            <HaoyangY />
           </Grid>
           <Grid item xs={4} justifyContent='center' alignItems='center'>
             <GarretB />
