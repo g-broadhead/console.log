@@ -7,8 +7,8 @@ const { Post, User, Comment } = require('../models')
 // GET all posts
 // user must be logged in
 router.get('/post', passport.authenticate('jwt'), async function (req, res) {
-    const posts = await Post.findAll({ include: [User] })
-    res.json(posts)
+  const posts = await Post.findAll({ include: [User] })
+  res.json(posts)
 })
 
 router.get('/post/:id', passport.authenticate('jwt'), async function (req, res) {
@@ -27,17 +27,16 @@ router.get('/post/:id', passport.authenticate('jwt'), async function (req, res) 
 
 // POST one post
 router.post('/post', passport.authenticate('jwt'), function ({ body, user }, res) {
-    console.log(user);
-    Post.create({
-        content: body.content,
-        user: user.id
-    }).then(post => {
-        User.findByIdAndUpdate(user._id, { $push: { posts: post._id } })
-            .then(update => {
-                res.json(post);
-            });
-
-    })
+  console.log(user)
+  Post.create({
+    content: body.content,
+    user: user._id
+  }).then(post => {
+    User.findByIdAndUpdate(user._id, { $push: { posts: post._id } })
+      .then(update => {
+        res.json(post)
+      })
+  })
 })
 
 router.post('/post/comment', passport.authenticate('jwt'), (req, res) => {
@@ -57,10 +56,10 @@ router.post('/post/comment', passport.authenticate('jwt'), (req, res) => {
 })
 
 // DELETE one post
-//user must be logged in
+// user must be logged in
 router.delete('/posts/:id', passport.authenticate('jwt'), async function ({ params: { id } }, res) {
-    await Post.destroy({ where: { id } })
-    res.sendStatus(200)
+  await Post.destroy({ where: { id } })
+  res.sendStatus(200)
 })
 
 module.exports = router
