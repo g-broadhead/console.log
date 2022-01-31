@@ -4,40 +4,40 @@ import UserAPI from '../../utils/UserAPI'
 import AuthContext from '../../utils/AuthContext'
 
 const LoginForm = () => {
- const {
+  const {
   lUsername,
   lPassword,
   handleInputChange,
   handleLoginUser
- } = useContext(AuthContext)
+  } = useContext(AuthContext)
 
- return (
+  return (
   <Form>
-   <div className="mb-3">
+    <div className="mb-3">
     <Label htmlFor="username">Username</Label>
     <Input
-     type="text"
-     className="form-control"
-     name="lUsername"
-     value={lUsername}
-     onChange={handleInputChange} />
-   </div>
-   <div className="mb-3">
+      type="text"
+      className="form-control"
+      name="lUsername"
+      value={lUsername}
+      onChange={handleInputChange} />
+    </div>
+    <div className="mb-3">
     <Label htmlFor="password">Password</Label>
     <Input
-     type="password"
-     className="form-control"
-     name="lPassword"
-     value={lPassword}
-     onChange={handleInputChange} />
-   </div>
-   <Button
+      type="password"
+      className="form-control"
+      name="lPassword"
+      value={lPassword}
+      onChange={handleInputChange} />
+    </div>
+    <Button
     color="primary"
     onClick={handleLoginUser} >
     Log In
-   </Button>
+    </Button>
   </Form>
- )
+  )
 }
 
 export default LoginForm
