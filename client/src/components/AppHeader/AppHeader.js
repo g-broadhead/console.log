@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,11 +11,16 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { useNavigate } from 'react-router-dom';
 
-const pages = ['Home', 'Profile', 'Admin', 'About Us'];
-const settings = ['Logout'];
+import UserContext from '../../utils/UserContext';
+
+const pages = ['Home', 'Profile', 'Admin'];
 
 const AppHeader = (props) => {
+  const navigate = useNavigate();
+  const userContext = useContext(UserContext);
+
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -33,6 +38,22 @@ const AppHeader = (props) => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const handleHomeClick = (event) => {
+    event.preventDefault();
+    navigate('/');
+  }
+
+  const handleProfileClick = (event) => {
+    event.preventDefault();
+    navigate('/profile');
+  }
+
+
+  const handleLogoutClick = (event) => {
+    event.preventDefault();
+    navigate('/logout');
+  }
 
   return (
     <AppBar position="static">
@@ -92,21 +113,30 @@ const AppHeader = (props) => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key="home"
+                onClick={handleHomeClick}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                Home
               </Button>
-            ))}
+              <Button
+                key="profile"
+                onClick={handleProfileClick}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Profile
+              </Button>
+
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="#" />
+                <Avatar alt="Remy Sharp" src={userContext.userData.avatar}>{userContext.userData.name[0]}</Avatar>
+                <Typography sx={{color: "white", padding: "0.5em"}}>
+                  {userContext.userData.username}
+                </Typography>
               </IconButton>
             </Tooltip>
             <Menu
@@ -125,11 +155,9 @@ const AppHeader = (props) => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <MenuItem key="logout" onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center" onClick={handleLogoutClick}>Logout</Typography>
                 </MenuItem>
-              ))}
             </Menu>
           </Box>
         </Toolbar>
