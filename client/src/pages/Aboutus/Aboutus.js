@@ -13,7 +13,7 @@ const Aboutus = (props) => {
     <AboutusCard />
     <AboutusCard />
     <AboutusCard />
-    <AppFooter />
+    {/* <AppFooter /> */}
     </>
   )
 }
