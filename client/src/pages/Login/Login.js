@@ -130,7 +130,7 @@ export default function SignInSide () {
               <Grid container>
                 <Grid item xs />
                 <Grid item>
-                  <Link href='#' variant='body2'>
+                  <Link href='/register' variant='body2'>
                     Register now
                   </Link>
                 </Grid>
