@@ -18,6 +18,7 @@ import Admin from './pages/Admin'
 import Logout from './pages/Logout'
 import { useContext, useEffect, useState } from 'react'
 import UserContext from './utils/UserContext'
+import Aboutus from './pages/Aboutus'
 
 function App () {
 
@@ -52,6 +53,7 @@ function App () {
             <Route exact path='/login' element={userState.loggedIn ? <Navigate to="/" /> : <Login /> } />
             <Route exact path='/register' element={<Register />} />
             <Route exact path='/admin' element={<Admin />} />
+            <Route exact path='/about' element={<Aboutus />} />
           </Routes>
         </Router>
       }
