@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 
 import UserContext from '../../utils/UserContext';
 
-const pages = ['Home', 'Profile', 'Admin'];
+const pages = ['Home', 'Profile', 'Admin', 'About Us'];
 
 const AppHeader = (props) => {
   const navigate = useNavigate();
