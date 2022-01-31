@@ -134,6 +134,9 @@ const AppHeader = (props) => {
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src={userContext.userData.avatar}>{userContext.userData.name[0]}</Avatar>
+                <Typography sx={{color: "white", padding: "0.5em"}}>
+                  {userContext.userData.username}
+                </Typography>
               </IconButton>
             </Tooltip>
             <Menu
