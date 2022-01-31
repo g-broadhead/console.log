@@ -2,7 +2,7 @@ import AppHeader from '../../components/AppHeader';
 import AppFooter from '../../components/AppFooter';
 import UserAPI from '../../utils/UserAPI';
 import * as React from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { useEffect, useState } from 'react'
 import { styled } from '@mui/material/styles';
@@ -22,7 +22,7 @@ const Profile = (props) => {
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.secondary
   }));
 
   const [open, setOpen] = useState(false);
@@ -72,7 +72,7 @@ const Profile = (props) => {
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    p: 4,
+    p: 4
   };
 
   const [postState, setPostState] = useState({ avatar: '' });
@@ -210,21 +210,20 @@ const Profile = (props) => {
                 hideBackdrop
                 open={openProfile}
                 onClose={profilehandleClose}
-                aria-labelledby="child-modal-title"
-                aria-describedby="child-modal-description"
+                aria-labelledby='child-modal-title'
+                aria-describedby='child-modal-description'
               >
                 <Box sx={{ ...style, width: 200 }}>
-                  <h1 id="child-modal-title">Edit Profile</h1>
-                  <TextField id="worksAt" label="Works at" variant="standard" />
-                  <TextField id="jobTitle" label="Job Title" variant="standard" />
+                  <h1 id='child-modal-title'>Edit Profile</h1>
+                  <TextField id='worksAt' label='Works at' variant='standard' />
+                  <TextField id='jobTitle' label='Job Title' variant='standard' />
                   <br></br>
                   <h2>Personal Information</h2>
-                  <TextField id="email" label="Email" variant="standard" />
-                  <TextField id="gitHub" label="GitHub Url" variant="standard" />
-                  <TextField id="linkedIn" label="LinkedIn Url" variant="standard" />
-                  <TextField id="instagram" label="Instagram" variant="standard" />
-                  <TextField id="twitter" label="Twitter Url" variant="standard" />
-                  
+                  <TextField id='email' label='Email' variant='standard' />
+                  <TextField id='gitHub' label='GitHub Url' variant='standard' />
+                  <TextField id='linkedIn' label='LinkedIn Url' variant='standard' />
+                  <TextField id='instagram' label='Instagram' variant='standard' />
+                  <TextField id='twitter' label='Twitter Url' variant='standard' />
                   <Button
                     type='submit'
                     onClick={profilehandleClose}
