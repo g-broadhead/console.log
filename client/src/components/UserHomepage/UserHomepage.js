@@ -15,6 +15,8 @@ import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import { withTheme } from "@emotion/react";
 import { useLocation } from 'react-router-dom'
+import ReportIcon from '@mui/icons-material/Report';
+import Report from "@mui/icons-material/Report";
 
 const UserHomepage = (props) => {
     const outerBox = {
@@ -106,6 +108,9 @@ const UserHomepage = (props) => {
                                     defaultValue={elem}
                                 />
                             </Grid>
+                            <Button sx={buttonStyle} variant="contained"  color="error" endIcon={<ReportIcon />} onClick={handlePostSubmit}>
+                                Report
+                            </Button>
                         </Grid>
                     )
                 }).reverse()}

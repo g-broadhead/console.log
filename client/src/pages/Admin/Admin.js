@@ -40,16 +40,11 @@ const Home = (props) => {
 
     }
 
-    // const backgroundStyle= {
-    //     bgcolor: "warning.main",
-    //     // display: "block",
-    //     width: "100%",
-    //     height: "100%",
-    //     // position: "absolute"
-    // }
+    
     return (
         <Box>
-            <Grid container spacing={1} sx={mainBox}>
+            <AppHeader />
+            {/* <Grid container spacing={1} sx={mainBox}>
                 <AppHeader />
                 <Grid item xs={2}>
                     <MainSidebar sx={sidebarStyle}/>
@@ -61,7 +56,8 @@ const Home = (props) => {
                 <RightSidebar sx={rightbarStyle}/>
                 </Grid>
                 <AppFooter />
-            </Grid>
+            </Grid> */}
+            <AppFooter />
         </Box>
     );
 }
