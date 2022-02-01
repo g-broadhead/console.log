@@ -25,7 +25,7 @@ const ChanwooH = (props) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button href='' size="small">LinkedIn</Button>
+          <Button href='https://www.linkedin.com/in/nathan-hwang-b836ab117/' size="small">LinkedIn</Button>
           <Button href='https://github.com/adipure' size="small">Github</Button>
         </CardActions>
       </Card>
