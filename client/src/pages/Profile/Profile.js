@@ -133,6 +133,8 @@ const Profile = (props) => {
     setPostState({ avatar: value })
   }
 
+  // Get and display user posts
+
   return (
     <>
       <AppHeader />
@@ -158,56 +160,6 @@ const Profile = (props) => {
               >
                 {profileState.userData.name[0]}
               </Avatar>
-
-              {/* Upload avatar modal */}
-              <Modal
-                hideBackdrop
-                open={open}
-                onClose={handleClose}
-                aria-labelledby='modal-modal-title'
-                aria-describedby='modal-modal-description'
-              >
-                <Box sx={style}>
-                  <Typography
-                    id='modal-modal-title'
-                    variant='h6'
-                    component='h2'
-                  >
-                    Input Image URL to update Avatar
-                  </Typography>
-                  <Box
-                    component='form'
-                    sx={{
-                      '& > :not(style)': { m: 1, width: '25ch' }
-                    }}
-                    noValidate
-                    autoComplete='off'
-                  >
-                    <TextField
-                      id='standard-basic'
-                      label='Image URL'
-                      variant='standard'
-                      onChange={handlePostChange}
-                      name='avatar'
-                      value={postState.avatar}
-                    />
-                    <Button
-                      type='submit'
-                      variant='outlined'
-                      onClick={handlePostSubmit}
-                    >
-                      Submit
-                    </Button>
-                    <Button
-                      type='submit'
-                      variant='outlined'
-                      onClick={handleClose}
-                    >
-                      Close
-                    </Button>
-                  </Box>
-                </Box>
-              </Modal>
             </Stack>
             <h1>{profileState.userData.name}</h1>
             <h2>{profileState.userData.username}</h2>
@@ -220,7 +172,7 @@ const Profile = (props) => {
         >
           <Item>
             <h1>User Posts</h1>
-            <div></div>
+            
           </Item>
         </Box>
         <Box
@@ -241,99 +193,149 @@ const Profile = (props) => {
               >
                 Edit Profile
               </Button>
-              <Modal
-                hideBackdrop
-                open={openProfile}
-                onClose={profileHandleClose}
-                aria-labelledby='child-modal-title'
-                aria-describedby='child-modal-description'
-              >
-                <Box
-                  sx={{ ...style, width: 200, '& .MuiTextField-root': { m: 1, width: '25ch' } }}
-                  component='form'
-                  noValidate
-                  autoComplete='off'
-                >
-                  <h1 id='child-modal-title'>Edit Profile</h1>
-                  <TextField
-                    key='workname'
-                    label='Place of Work'
-                    variant='standard'
-                    onChange={handleProfileChange}
-                    name='workname'
-                    value={profileState.workname}
-                  />
-                  <TextField
-                    id='positionTitle'
-                    label='Position Title'
-                    variant='standard'
-                    onChange={handleProfileChange}
-                    name='positionTitle'
-                    value={profileState.positionTitle}
-                  />
-                  <br></br>
-                  <h2>Personal Information</h2>
-                  <TextField
-                    id='email'
-                    label='Email'
-                    variant='standard'
-                    onChange={handleProfileChange}
-                    name='email'
-                    value={profileState.email}
-                  />
-                  <TextField
-                    id='github'
-                    label='GitHub Url'
-                    variant='standard'
-                    onChange={handleProfileChange}
-                    name='github'
-                    value={profileState.github}
-                  />
-                  <TextField
-                    id='linkedIn'
-                    label='LinkedIn Url'
-                    variant='standard'
-                    onChange={handleProfileChange}
-                    name='linkedIn'
-                    value={profileState.linkedIn}
-                  />
-                  <TextField
-                    id='instagram'
-                    label='Instagram URL'
-                    variant='standard'
-                    onChange={handleProfileChange}
-                    name='instagram'
-                    value={profileState.instagram}
-                  />
-                  <TextField
-                    id='twitter'
-                    label='Twitter Url'
-                    variant='standard'
-                    onChange={handleProfileChange}
-                    name='twitter'
-                    value={profileState.twitter}
-                  />
-                  <Button
-                    type='submit'
-                    variant='outlined'
-                    onClick={handleProfileSubmit}
-                    sx={{ mr: '10px' }}
-                  >
-                    Submit
-                  </Button>
-                  <Button
-                    type='submit'
-                    variant='outlined'
-                    onClick={profileHandleClose}
-                  >
-                    Close
-                  </Button>
-                </Box>
-              </Modal>
             </>
           </Item>
         </Box>
       </Box>
+      {/* Upload avatar modal */}
+      <Modal
+        hideBackdrop
+        open={open}
+        onClose={handleClose}
+        aria-labelledby='modal-modal-title'
+        aria-describedby='modal-modal-description'
+      >
+        <Box sx={style}>
+          <Typography
+            id='modal-modal-title'
+            variant='h6'
+            component='h2'
+          >
+            Input Image URL to update Avatar
+          </Typography>
+          <Box
+            component='form'
+            sx={{
+              '& > :not(style)': { m: 1, width: '25ch' }
+            }}
+            noValidate
+            autoComplete='off'
+          >
+            <TextField
+              id='standard-basic'
+              label='Image URL'
+              variant='standard'
+              onChange={handlePostChange}
+              name='avatar'
+              value={postState.avatar}
+            />
+            <Button
+              type='submit'
+              variant='outlined'
+              onClick={handlePostSubmit}
+            >
+              Submit
+            </Button>
+            <Button
+              type='submit'
+              variant='outlined'
+              onClick={handleClose}
+            >
+              Close
+            </Button>
+          </Box>
+        </Box>
+      </Modal>
+      {/* Edit Profile Modal */}
+      <Modal
+        hideBackdrop
+        open={openProfile}
+        onClose={profileHandleClose}
+        aria-labelledby='child-modal-title'
+        aria-describedby='child-modal-description'
+      >
+        <Box
+          sx={{ ...style, width: 200, '& .MuiTextField-root': { m: 1, width: '25ch' } }}
+          component='form'
+          noValidate
+          autoComplete='off'
+        >
+          <h1 id='child-modal-title'>Edit Profile</h1>
+          <TextField
+            key='workname'
+            label='Place of Work'
+            variant='standard'
+            onChange={handleProfileChange}
+            name='workname'
+            value={profileState.workname}
+          />
+          <TextField
+            id='positionTitle'
+            label='Position Title'
+            variant='standard'
+            onChange={handleProfileChange}
+            name='positionTitle'
+            value={profileState.positionTitle}
+          />
+          <br></br>
+          <h2>Personal Information</h2>
+          <TextField
+            id='email'
+            label='Email'
+            variant='standard'
+            onChange={handleProfileChange}
+            name='email'
+            value={profileState.email}
+          />
+          <TextField
+            id='github'
+            label='GitHub Url'
+            variant='standard'
+            onChange={handleProfileChange}
+            name='github'
+            value={profileState.github}
+          />
+          <TextField
+            id='linkedIn'
+            label='LinkedIn Url'
+            variant='standard'
+            onChange={handleProfileChange}
+            name='linkedIn'
+            value={profileState.linkedIn}
+          />
+          <TextField
+            id='instagram'
+            label='Instagram URL'
+            variant='standard'
+            onChange={handleProfileChange}
+            name='instagram'
+            value={profileState.instagram}
+          />
+          <TextField
+            id='twitter'
+            label='Twitter Url'
+            variant='standard'
+            onChange={handleProfileChange}
+            name='twitter'
+            value={profileState.twitter}
+          />
+          <Button
+            type='submit'
+            variant='outlined'
+            onClick={handleProfileSubmit}
+            sx={{ mr: '10px' }}
+          >
+            Submit
+          </Button>
+          <Button
+            type='submit'
+            variant='outlined'
+            onClick={profileHandleClose}
+          >
+            Close
+          </Button>
+        </Box>
+      </Modal>
       <AppFooter />
     </>
   );
