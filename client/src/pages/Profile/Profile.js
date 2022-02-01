@@ -1,6 +1,7 @@
 import AppHeader from '../../components/AppHeader';
 import AppFooter from '../../components/AppFooter';
 import UserAPI from '../../utils/UserAPI';
+import PostCard from '../../components/PostCard';
 import * as React from 'react';
 import axios from 'axios';
 import { useEffect, useState } from 'react'
@@ -13,6 +14,9 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import Container from '@mui/material/Container';
+
+
 
 const Profile = (props) => {
   const Item = styled(Paper)(({ theme }) => ({
@@ -86,6 +90,18 @@ const Profile = (props) => {
       .then(user => {
         console.log(user)
         setProfileState({ ...profileState, userData: user })
+        axios.get(`/api/post/user/${user._id}`, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+          }
+        }).then(({ data }) => {
+          console.log(data);
+          setTopicState({ ...topicState, posts: data, loading: false });
+        })
+          .catch(err => {
+            setTopicState({ ...topicState, loading: false, error: 'Failed to load posts for this topic.' })
+            console.log(err);
+          })
       })
       .catch(err => {
         window.location = '/login'
@@ -134,6 +150,10 @@ const Profile = (props) => {
   }
 
   // Get and display user posts
+  const [topicState, setTopicState] = useState({
+    error: '',
+    posts: []
+  })
 
   return (
     <>
@@ -142,8 +162,12 @@ const Profile = (props) => {
         display='grid'
         gridTemplateColumns='repeat(12, 1fr)'
         gap={3}
+        sx={{ mt: '15px' }}
       >
-        <Box gridColumn='span 5'>
+        <Box
+          gridColumn='span 5'
+          ml={'20px'}
+        >
           <Item>
             <Stack
               direction='row'
@@ -168,14 +192,6 @@ const Profile = (props) => {
           </Item>
         </Box>
         <Box
-          gridColumn='span 6'
-        >
-          <Item>
-            <h1>User Posts</h1>
-            
-          </Item>
-        </Box>
-        <Box
           gridColumn='span 5'
           gap={10}
         >
@@ -197,6 +213,15 @@ const Profile = (props) => {
           </Item>
         </Box>
       </Box>
+      {/* Container for User Posts */}
+      <Container sx={{ mt: '15px' }}>
+        <h1>User Posts</h1>
+        <Box gridColumn='span 6'>
+          {topicState.posts.map((post, index) => {
+            return <PostCard key={index} post={post} />
+          })}
+        </Box>
+      </Container>
       {/* Upload avatar modal */}
       <Modal
         hideBackdrop

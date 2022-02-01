@@ -36,7 +36,7 @@ router.get('/post/:id', passport.authenticate('jwt'), async function (req, res) 
 });
 
 // Get Posts by User ID
-router.get('/post/:id', passport.authenticate('jwt'), async function (req, res) {
+router.get('/post/user/:id', passport.authenticate('jwt'), async function (req, res) {
     try {
         const post = await Post.find({ user: req.user._id }).populate('user')
             .populate('user')
