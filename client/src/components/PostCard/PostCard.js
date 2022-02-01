@@ -34,9 +34,6 @@ const PostCard = (props) => {
             <p>{content}</p>
             <a href={"/post/" + _id}>{comments.length} comments</a>
         </Box>
-      </Box>
-      <p>{content}</p>
-    </Box>
   )
 }
 
