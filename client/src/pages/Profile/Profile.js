@@ -2,54 +2,84 @@ import AppHeader from '../../components/AppHeader';
 import AppFooter from '../../components/AppFooter';
 import UserAPI from '../../utils/UserAPI';
 import * as React from 'react';
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios from 'axios';
 import { useEffect, useState } from 'react'
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
-import Input from '@mui/material/Input';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { Dialog } from '@mui/material';
 
 const Profile = (props) => {
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
+    color: theme.palette.text.secondary
   }));
 
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  const [openProfile, setOpenProfile] = useState(false);
-  const profilehandleOpen = () => setOpenProfile(true);
-  const profilehandleClose = () => setOpenProfile(false);
-
-  const ariaLabel = { 'aria-label': 'description' };
+  // const ariaLabel = { 'aria-label': 'description' };
 
   const [profileState, setProfileState] = useState({
     userData: {
       name: '',
       username: '',
-      workname: 'Test Work',
-      positionTitle: 'QA Tester',
+      workname: '',
+      positionTitle: '',
       memberSince: '',
-      email: 'test@email.com',
-      github: 'github.com/test',
-      linkedIn: 'linkedin.com/test',
-      instagram: 'instagram.com/test',
-      twitter: 'twitter.com/test',
+      email: '',
+      github: '',
+      linkedIn: '',
+      instagram: '',
+      twitter: '',
       avatar: ''
     }
   })
+
+  // Update Profile Info Function
+  const [openProfile, setOpenProfile] = useState(false);
+  const profileHandleOpen = () => setOpenProfile(true);
+  const profileHandleClose = () => setOpenProfile(false);
+
+  const handleProfileSubmit = (event) => {
+    event.preventDefault();
+    axios.put('/api/user',
+      {
+        workname: profileState.workname,
+        positionTitle: profileState.positionTitle,
+        email: profileState.email,
+        github: profileState.github,
+        linkedIn: profileState.linkedIn,
+        instagram: profileState.instagram,
+        twitter: profileState.twitter
+      },
+      {
+        headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` }
+      }).then(() => {
+        setProfileState({
+          ...profileState,
+          workname: '',
+          positionTitle: '',
+          email: '',
+          github: '',
+          linkedIn: '',
+          instagram: '',
+          twitter: ''
+        });
+        profileHandleClose();
+        window.location = '/profile';
+      }).catch(err => {
+        alert("Failed to update.");
+      })
+  }
+
+  const handleProfileChange = ({ target: { name, value } }) => {
+    setProfileState({ ...profileState, [name]: value })
+  }
 
   useEffect(() => {
     UserAPI.getUser()
@@ -58,11 +88,12 @@ const Profile = (props) => {
         setProfileState({ ...profileState, userData: user })
       })
       .catch(err => {
-        // window.location = '/login'
+        window.location = '/login'
         console.log(err)
       })
   }, [])
 
+  // Style from MUI
   const style = {
     position: 'absolute',
     top: '50%',
@@ -72,11 +103,15 @@ const Profile = (props) => {
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    p: 4,
+    p: 4
   };
 
-  const [postState, setPostState] = useState({ avatar: '' });
+  // Avatar Upload Function
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
+  const [postState, setPostState] = useState({ avatar: '' });
   const handlePostSubmit = (event) => {
     event.preventDefault();
     console.log(postState.avatar);
@@ -91,10 +126,9 @@ const Profile = (props) => {
         handleClose();
         window.location = '/profile';
       }).catch(err => {
-        alert("Failed to upload avatar.");
+        alert('Failed to upload avatar.');
       })
   }
-
   const handlePostChange = ({ target: { name, value } }) => {
     setPostState({ avatar: value })
   }
@@ -121,7 +155,8 @@ const Profile = (props) => {
                 src={profileState.userData.avatar}
                 sx={{ width: 175, height: 175, border: '2px solid #000', cursor: 'pointer' }}
                 onClick={handleOpen}
-              >{profileState.userData.name[0]}
+              >
+                {profileState.userData.name[0]}
               </Avatar>
 
               {/* Upload avatar modal */}
@@ -176,9 +211,8 @@ const Profile = (props) => {
             </Stack>
             <h1>{profileState.userData.name}</h1>
             <h2>{profileState.userData.username}</h2>
-            <h2>{profileState.userData.positionTitle}</h2>
-            <h3>Works at: </h3> {profileState.userData.workname}
-            <h3>Member Since: </h3> {profileState.userData.memberSince}
+            <h3>Works at: {profileState.userData.workname}</h3>
+            <h3>Position Title: {profileState.userData.positionTitle}</h3>
           </Item>
         </Box>
         <Box
@@ -195,44 +229,102 @@ const Profile = (props) => {
         >
           <Item>
             <h1>Personal Information</h1>
-            <h3>Email: </h3>{profileState.userData.email}
-            <h3>Github: </h3>{profileState.userData.github}
-            <h3>LinkedIn: </h3>{profileState.userData.linkedIn}
-            <h3>Instagram: </h3>{profileState.userData.instagram}
-            <h3>Twitter: </h3>{profileState.userData.twitter}
+            <h3>Email: {profileState.userData.email}</h3>
+            <h3>Github: {profileState.userData.github}</h3>
+            <h3>LinkedIn: {profileState.userData.linkedIn}</h3>
+            <h3>Instagram: {profileState.userData.instagram}</h3>
+            <h3>Twitter: {profileState.userData.twitter}</h3>
             <>
               <Button
-                onClick={profilehandleOpen}
+                onClick={profileHandleOpen}
+                sx={{ width: '100%' }}
               >
                 Edit Profile
               </Button>
               <Modal
                 hideBackdrop
                 open={openProfile}
-                onClose={profilehandleClose}
-                aria-labelledby="child-modal-title"
-                aria-describedby="child-modal-description"
+                onClose={profileHandleClose}
+                aria-labelledby='child-modal-title'
+                aria-describedby='child-modal-description'
               >
-                <Box sx={{ ...style, width: 200 }}>
-                  <h1 id="child-modal-title">Edit Profile</h1>
-                  <TextField id="worksAt" label="Works at" variant="standard" />
-                  <TextField id="jobTitle" label="Job Title" variant="standard" />
+                <Box
+                  sx={{ ...style, width: 200, '& .MuiTextField-root': { m: 1, width: '25ch' } }}
+                  component='form'
+                  noValidate
+                  autoComplete='off'
+                >
+                  <h1 id='child-modal-title'>Edit Profile</h1>
+                  <TextField
+                    key='workname'
+                    label='Place of Work'
+                    variant='standard'
+                    onChange={handleProfileChange}
+                    name='workname'
+                    value={profileState.workname}
+                  />
+                  <TextField
+                    id='positionTitle'
+                    label='Position Title'
+                    variant='standard'
+                    onChange={handleProfileChange}
+                    name='positionTitle'
+                    value={profileState.positionTitle}
+                  />
                   <br></br>
                   <h2>Personal Information</h2>
-                  <TextField id="email" label="Email" variant="standard" />
-                  <TextField id="gitHub" label="GitHub Url" variant="standard" />
-                  <TextField id="linkedIn" label="LinkedIn Url" variant="standard" />
-                  <TextField id="instagram" label="Instagram" variant="standard" />
-                  <TextField id="twitter" label="Twitter Url" variant="standard" />
+                  <TextField
+                    id='email'
+                    label='Email'
+                    variant='standard'
+                    onChange={handleProfileChange}
+                    name='email'
+                    value={profileState.email}
+                  />
+                  <TextField
+                    id='github'
+                    label='GitHub Url'
+                    variant='standard'
+                    onChange={handleProfileChange}
+                    name='github'
+                    value={profileState.github}
+                  />
+                  <TextField
+                    id='linkedIn'
+                    label='LinkedIn Url'
+                    variant='standard'
+                    onChange={handleProfileChange}
+                    name='linkedIn'
+                    value={profileState.linkedIn}
+                  />
+                  <TextField
+                    id='instagram'
+                    label='Instagram URL'
+                    variant='standard'
+                    onChange={handleProfileChange}
+                    name='instagram'
+                    value={profileState.instagram}
+                  />
+                  <TextField
+                    id='twitter'
+                    label='Twitter Url'
+                    variant='standard'
+                    onChange={handleProfileChange}
+                    name='twitter'
+                    value={profileState.twitter}
+                  />
                   <Button
                     type='submit'
-                    onClick={profilehandleClose}
+                    variant='outlined'
+                    onClick={handleProfileSubmit}
+                    sx={{ mr: '10px' }}
                   >
                     Submit
                   </Button>
                   <Button
                     type='submit'
-                    onClick={profilehandleClose}
+                    variant='outlined'
+                    onClick={profileHandleClose}
                   >
                     Close
                   </Button>
