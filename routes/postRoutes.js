@@ -16,12 +16,27 @@ router.get('/post/:id', passport.authenticate('jwt'), async function (req, res) 
         const post = await Post.findById(req.params.id)
             .populate('user')
             .populate('comments')
-            .populate({path: 'comments', populate: {path: 'user'}});
+            .populate({ path: 'comments', populate: { path: 'user' } });
         res.json(post);
-    } catch(err) {
+    } catch (err) {
         console.log(`!! ERROR: Failed to fetch post with id ${req.params.id}`);
         console.log(err);
-        res.status(500).json({error: `Failed to fetch post with id ${req.params.id}`})
+        res.status(500).json({ error: `Failed to fetch post with id ${req.params.id}` })
+    }
+});
+
+// Get Posts by User ID
+router.get('/post/:id', passport.authenticate('jwt'), async function (req, res) {
+    try {
+        const post = await Post.find({ user: req.user._id }).populate('user')
+            .populate('user')
+            .populate('comments')
+            .populate({ path: 'comments', populate: { path: 'user' } });
+        res.json(post);
+    } catch (err) {
+        console.log(`!! ERROR: Failed to fetch post with id ${req.params.id}`);
+        console.log(err);
+        res.status(500).json({ error: `Failed to fetch post with id ${req.params.id}` })
     }
 });
 
@@ -41,18 +56,18 @@ router.post('/post', passport.authenticate('jwt'), function ({ body, user }, res
 })
 
 router.post('/post/comment', passport.authenticate('jwt'), (req, res) => {
-    Comment.create({body: req.body.content, post: req.body.postId, user: req.user.id})
+    Comment.create({ body: req.body.content, post: req.body.postId, user: req.user.id })
         .then(comment => {
-            Post.findByIdAndUpdate(req.body.postId, {$push: {comments: comment._id}})
+            Post.findByIdAndUpdate(req.body.postId, { $push: { comments: comment._id } })
                 .then(post => {
                     res.json(comment);
                 }
-            )
+                )
         }).catch(err => {
             console.log('!! ERROR: failed to create comment');
             console.log(err);
             console.log(req.body)
-            res.status(500).json({error: 'failed to create comment'});
+            res.status(500).json({ error: 'failed to create comment' });
         })
 })
 

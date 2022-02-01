@@ -211,8 +211,8 @@ const Profile = (props) => {
             </Stack>
             <h1>{profileState.userData.name}</h1>
             <h2>{profileState.userData.username}</h2>
-            <h3>Works at: </h3> {profileState.userData.workname}
-            <h3>Position Title:{profileState.userData.positionTitle}</h3>
+            <h3>Works at: {profileState.userData.workname}</h3>
+            <h3>Position Title: {profileState.userData.positionTitle}</h3>
           </Item>
         </Box>
         <Box
@@ -229,14 +229,15 @@ const Profile = (props) => {
         >
           <Item>
             <h1>Personal Information</h1>
-            <h3>Email: </h3>{profileState.userData.email}
-            <h3>Github: </h3>{profileState.userData.github}
-            <h3>LinkedIn: </h3>{profileState.userData.linkedIn}
-            <h3>Instagram: </h3>{profileState.userData.instagram}
-            <h3>Twitter: </h3>{profileState.userData.twitter}
+            <h3>Email: {profileState.userData.email}</h3>
+            <h3>Github: {profileState.userData.github}</h3>
+            <h3>LinkedIn: {profileState.userData.linkedIn}</h3>
+            <h3>Instagram: {profileState.userData.instagram}</h3>
+            <h3>Twitter: {profileState.userData.twitter}</h3>
             <>
               <Button
                 onClick={profileHandleOpen}
+                sx={{ width: '100%' }}
               >
                 Edit Profile
               </Button>
@@ -255,44 +256,62 @@ const Profile = (props) => {
                 >
                   <h1 id='child-modal-title'>Edit Profile</h1>
                   <TextField
-                  key='workname'
-                  label='Place of Work'
-                  variant='standard'
-                  onChange={handleProfileChange}
-                  name='workname'
-                  value={profileState.workname}
+                    key='workname'
+                    label='Place of Work'
+                    variant='standard'
+                    onChange={handleProfileChange}
+                    name='workname'
+                    value={profileState.workname}
                   />
                   <TextField
-                  id='jobTitle'
-                  label='Job Title'
-                  variant='standard'
+                    id='positionTitle'
+                    label='Position Title'
+                    variant='standard'
+                    onChange={handleProfileChange}
+                    name='positionTitle'
+                    value={profileState.positionTitle}
                   />
                   <br></br>
                   <h2>Personal Information</h2>
                   <TextField
-                  id='email'
-                  label='Email'
-                  variant='standard'
+                    id='email'
+                    label='Email'
+                    variant='standard'
+                    onChange={handleProfileChange}
+                    name='email'
+                    value={profileState.email}
                   />
                   <TextField
-                  id='gitHub'
-                  label='GitHub Url'
-                  variant='standard'
+                    id='github'
+                    label='GitHub Url'
+                    variant='standard'
+                    onChange={handleProfileChange}
+                    name='github'
+                    value={profileState.github}
                   />
                   <TextField
-                  id='linkedIn'
-                  label='LinkedIn Url'
-                  variant='standard'
+                    id='linkedIn'
+                    label='LinkedIn Url'
+                    variant='standard'
+                    onChange={handleProfileChange}
+                    name='linkedIn'
+                    value={profileState.linkedIn}
                   />
                   <TextField
-                  id='instagram'
-                  label='Instagram'
-                  variant='standard'
+                    id='instagram'
+                    label='Instagram URL'
+                    variant='standard'
+                    onChange={handleProfileChange}
+                    name='instagram'
+                    value={profileState.instagram}
                   />
                   <TextField
-                  id='twitter'
-                  label='Twitter Url'
-                  variant='standard'
+                    id='twitter'
+                    label='Twitter Url'
+                    variant='standard'
+                    onChange={handleProfileChange}
+                    name='twitter'
+                    value={profileState.twitter}
                   />
                   <Button
                     type='submit'
