@@ -59,19 +59,6 @@ export default function SignInSide() {
             alert("Invalid username or password");
         })
     }
-    /*
-    console.log({
-      username: data.get('username'),
-      password: data.get('password'),
-    }); */
-    axios.post('/api/user/login', userData).then(res => {
-      localStorage.setItem('jwt', res.data)
-      userContext.setLoggedIn(true)
-      window.location = '/'
-    }).catch(err => {
-      alert("Invalid username or password");
-    })
-  }
 
     return (
         <ThemeProvider theme={theme}>

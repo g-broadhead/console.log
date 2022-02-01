@@ -45,9 +45,6 @@ const PostCard = (props) => {
                 })}
             </Box>
         </Box>
-      </Box>
-      <p>{content}</p>
-    </Box>
   )
 }
 
