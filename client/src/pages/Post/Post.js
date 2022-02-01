@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {useNavigate, useLocation} from 'react-router-dom'
+import {useNavigate, useLocation, useParams} from 'react-router-dom'
 import axios from 'axios';
 import AppFooter from '../../components/AppFooter'
 import AppHeader from '../../components/AppHeader'
@@ -22,13 +22,14 @@ import PostCard from "../../components/PostCard"
 const Post = (props) => {
     const navState = useLocation();
     const navigate = useNavigate();
-    
+    const params = useParams();
+
     const [postState, setPostState] = useState({loading: true, err:"", postData: {}});
     const [commentState, setCommentState] = useState({content: ''});
     const [refresh, setRefresh] = useState(true);
 
     useEffect(() => {
-        const postId = navState.state.postId;
+        const postId = params.id;
         setRefresh(false);
         if(postId.length == 0) {
             setPostState({...postState, err:"Error: No post id was specified"});
@@ -112,12 +113,7 @@ const Post = (props) => {
             <AppHeader />
             <Container sx={{marginTop: "2em"}}>
                             {postState.loading ? <Loading /> : 
-            <PostCard
-                key="post-card"
-                avatar={postState.postData.user.avatar}
-                user={postState.postData.user.name}
-                date={postState.postData.createdAt}
-                content={postState.postData.content} />}
+            <PostCard key="post-card" post={postState.postData} />}
             
             <Box component="form">
                 <h2>Leave a comment</h2>

@@ -1,12 +1,12 @@
 import AppHeader from '../../components/AppHeader';
-import AppFooter from '../../components/AppFooter';
+// import AppFooter from '../../components/AppFooter';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import RyanC from '../../components/AboutusCard/Ryan';
 import JohnnyC from '../../components/AboutusCard/JohnnyC';
-import ChanW from '../../components/AboutusCard/ChanW';
-import GarretB from '../../components/AboutusCard/GarretB';
-import Haoyang from '../../components/AboutusCard/Haoyang';
+import ChanwooH from '../../components/AboutusCard/ChanwooH';
+import GarrettB from '../../components/AboutusCard/GarrettB';
+import HaoyangY from '../../components/AboutusCard/Haoyang';
 import HarrisonR from '../../components/AboutusCard/HarrisonR';
 
 const Aboutus = (props) => {
@@ -15,8 +15,8 @@ const Aboutus = (props) => {
       <AppHeader />
       <Container >
         <Grid
-          container
-          spacing={1}
+          container mt="1px" mb="5px"
+          spacing={2}
           direction="row"
           justify="center"
           alignItems="center">
@@ -27,20 +27,20 @@ const Aboutus = (props) => {
             <JohnnyC />
           </Grid>
           <Grid item xs={4} justifyContent='center' alignItems='center'>
-            <ChanW />
+            <ChanwooH />
           </Grid>
           <Grid item xs={4} justifyContent='center' alignItems='center'>
-            <Haoyang />
+            <HaoyangY />
           </Grid>
           <Grid item xs={4} justifyContent='center' alignItems='center'>
-            <GarretB />
+            <GarrettB />
           </Grid>
           <Grid item xs={4} justifyContent='center' alignItems='center'>
             <HarrisonR />
           </Grid>
         </Grid>
       </Container>
-      <AppFooter />
+      {/* <AppFooter /> */}
     </>
   )
 }

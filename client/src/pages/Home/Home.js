@@ -9,6 +9,13 @@ import { spacing } from '@mui/system';
 import { flexbox } from '@mui/system';
 import Grid from '@mui/material/Grid';
 import { palette } from '@mui/system';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+// Axios
+import {useEffect, useState} from 'react';
+import {useNavigate, useLocation} from 'react-router-dom'
+import axios from "axios";
+
 
 const Home = (props) => {
     const mainBox = {
@@ -36,13 +43,6 @@ const Home = (props) => {
 
     }
 
-    // const backgroundStyle= {
-    //     bgcolor: "warning.main",
-    //     // display: "block",
-    //     width: "100%",
-    //     height: "100%",
-    //     // position: "absolute"
-    // }
     return (
         <Box>
             <Grid container spacing={1} sx={mainBox}>
