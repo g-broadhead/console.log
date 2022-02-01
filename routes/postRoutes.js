@@ -7,7 +7,7 @@ const { Post, User, Comment } = require('../models')
 // GET all posts
 // user must be logged in
 router.get('/post', passport.authenticate('jwt'), async function (req, res) {
-    const posts = await Post.findAll({ include: [User] })
+    const posts = await Post.find().populate('user');
     res.json(posts)
 })
 

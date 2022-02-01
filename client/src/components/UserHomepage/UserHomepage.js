@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Box from "@mui/material/Box"
@@ -15,11 +15,15 @@ import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import { withTheme } from "@emotion/react";
 import { useLocation } from 'react-router-dom'
+import UserContext from "../../utils/UserContext";
+import PostCard from "../PostCard";
 
 const UserHomepage = (props) => {
     const outerBox = {
         overflow: 'auto'
     }
+
+    const userContext = useContext(UserContext);
 
     const navigate = useNavigate();
     const [postState, setPostState] = useState({ content: '' });
@@ -36,8 +40,14 @@ const UserHomepage = (props) => {
     }
 
     useEffect(() => {
-        console.log(pagePosts)
-    }, [pagePosts])
+        //console.log(pagePosts)
+        axios.get('/api/post', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+            }}).then(({data}) => {
+                setPagePosts(data);
+            })
+    }, [])
 
 
 
@@ -67,11 +77,11 @@ const UserHomepage = (props) => {
     return (
         <Box sx={outerBox}>
             <Stack sx={innerBox}>
-                <Grid container spacing={2} sx={{ justifyContent: 'flex-end' }}>
-                    <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
-                        <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
+                <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mb:"2em" }}>
+                    <Grid item xs={1} sx={{ justifyContent: "flex-end", display: "flex" }}>
+                        <Avatar sx={{ width: 56, height: 56 }} src={userContext.userData.avatar}>{userContext.userData.name[0]}</Avatar>
                     </Grid>
-                    <Grid item xs={10}>
+                    <Grid item xs={11}>
                         <TextField fullWidth
                             id="outlined-textarea fullWidth"
                             label="Send a Post"
@@ -88,6 +98,8 @@ const UserHomepage = (props) => {
 
                 {pagePosts.map((elem, i) => {
                     return (
+                        <PostCard key={i} post={elem} />
+                        /*
                         <Grid container key={i} spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
                             <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
                                 <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
@@ -106,7 +118,7 @@ const UserHomepage = (props) => {
                                     defaultValue={elem}
                                 />
                             </Grid>
-                        </Grid>
+                        </Grid>*/
                     )
                 }).reverse()}
 
