@@ -9,6 +9,8 @@ import { spacing } from '@mui/system';
 import { flexbox } from '@mui/system';
 import Grid from '@mui/material/Grid';
 import { palette } from '@mui/system';
+import { ClassNames, ThemeContext } from "@emotion/react";
+import { createTheme } from '@mui/material/styles';
 
 const Home = (props) => {
     const mainBox = {
@@ -28,6 +30,8 @@ const Home = (props) => {
         // mr: 0,
         margin: "auto",
         bgcolor: "primary.main",
+        height: "100%",
+        display: "inline-block"
     };
     const homepageStyle = {
         width: "100%",

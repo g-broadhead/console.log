@@ -23,7 +23,7 @@ import SearchIcon from '@mui/icons-material/Search';
 const RightSidebar = (props) => {
     const rightbarStyle = {
         flexDirection: "column",
-        height: "100%",
+        height: "80vh",
         alignItems: "center",
         marginTop: "1em",
         boxShadow: "3",
