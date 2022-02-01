@@ -21,7 +21,7 @@ const HarrisonR = (props) => {
             Harrison R
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Me
+            Born and raised in Southern California, I enjoy spending my time with my friends and family, as well as snowboarding and playing video games.
           </Typography>
         </CardContent>
         <CardActions>

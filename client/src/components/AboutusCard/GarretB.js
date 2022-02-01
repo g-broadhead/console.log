@@ -21,7 +21,7 @@ const GarrettB = (props) => {
             Garrett B
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Hates abusive managers
+            Born in New Hampshire, raised in Southern California. I love technology just as much as I love getting away from it. The outdoors or at my desk is where you can find me.
           </Typography>
         </CardContent>
         <CardActions>
