@@ -90,7 +90,7 @@ const UserHomepage = (props) => {
         { headers: {'Authorization': `Bearer ${localStorage.getItem('jwt')}`}
         }).then(() =>{
             setPostState({...postState, content: ''});
-            navigate('/home');
+            navigate('/');
         }).catch(err => {
             alert("Failed to make post.");
         })
@@ -131,7 +131,7 @@ const UserHomepage = (props) => {
                     </Button>
                 </Grid>
                 {/* <PostList /> */}
-                <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
+                {/* <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
                     <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
                             <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
                     </Grid>
@@ -139,10 +139,10 @@ const UserHomepage = (props) => {
                         <TextField fullWidth
                             disabled
                             id="outlined-textarea fullWidth"
-                            label="Post Text Goes Here"
+                            // label={postState.content}
                             multiline
                             rows={4}
-                            placeholder="Text"
+                            placeholder={postState.content}
                         />
                     </Grid>
                 </Grid>
@@ -225,7 +225,7 @@ const UserHomepage = (props) => {
                             placeholder="Text"
                         />
                     </Grid>                   
-                </Grid>
+                </Grid> */}
                 
             </Stack>
         </Box>
