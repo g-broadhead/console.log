@@ -13,7 +13,7 @@ const GarrettB = (props) => {
         <CardMedia
           component="img"
           height="170"
-          image="https://images.unsplash.com/photo-1537884944318-390069bb8665?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGNvZGV8ZW58MHx8MHx8&w=1000&q=80"
+          image="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Gragas_4.jpg"
           alt="Team Member Pic"
         />
         <CardContent>
@@ -21,7 +21,7 @@ const GarrettB = (props) => {
             Garrett B
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Links to Team Member's contact info
+            Hates abusive managers
           </Typography>
         </CardContent>
         <CardActions>
