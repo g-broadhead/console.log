@@ -19,13 +19,14 @@ import Logout from './pages/Logout'
 import { useContext, useEffect, useState } from 'react'
 import UserContext from './utils/UserContext'
 import Aboutus from './pages/Aboutus'
+import Topic from './pages/Topic'
 
 function App() {
 
   const [userState, setUserState] = useState({
     loggedIn: false,
     userData: {},
-    loading: true,
+    loading: true
   })
 
   const setLoggedIn = (loggedIn) => {
@@ -43,20 +44,21 @@ function App() {
   return (
     <>
       <UserContext.Provider value={{ ...userState, setLoggedIn: setLoggedIn }}>
-        {userState.loading ? <></> :
-          <Router>
-            <Routes>
-              <Route exact path='/' element={userState.loggedIn ? <Home /> : <Landing />} />
-              <Route exact path="/logout" element={<Logout />} />
-              <Route exact path='/profile' element={<Profile />} />
-              <Route exact path='/post' element={<Post />} />
-              <Route exact path='/login' element={userState.loggedIn ? <Navigate to="/" /> : <Login />} />
-              <Route exact path='/register' element={<Register />} />
-              <Route exact path='/admin' element={<Admin />} />
-              <Route exact path='/about' element={<Aboutus />} />
-            </Routes>
-          </Router>
-        }
+      {userState.loading ? <></> : 
+        <Router>
+          <Routes>
+            <Route exact path='/' element={userState.loggedIn ? <Home /> : <Landing />} />
+            <Route exact path="/logout" element={<Logout />} />
+            <Route exact path='/profile' element={<Profile />} />
+            <Route exact path='/post/:id' element={<Post />} />
+            <Route exact path='/login' element={userState.loggedIn ? <Navigate to="/" /> : <Login /> } />
+            <Route exact path='/register' element={<Register />} />
+            <Route exact path='/admin' element={<Admin />} />
+            <Route exact path='/about' element={<Aboutus />} />
+            <Route exact path="/topic/:topic" element={<Topic />} />
+          </Routes>
+        </Router>
+      }
       </UserContext.Provider>
     </>
   )

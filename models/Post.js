@@ -7,6 +7,10 @@ const Post = new Schema({
         maxlength: 280,
         minlength: 1
     },
+    topics: [{
+        type: String,
+        required: true
+    }],
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',

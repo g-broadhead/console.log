@@ -12,13 +12,11 @@ router.post('/user/register', (req, res) => {
 })
 
 router.post('/user/login', (req, res) => {
-    User.authenticate()(req.body.username, req.body.password, (err, user) => {
-    if (err) { console.log(err) }
-    res.json(user ? jwt.sign({ id: user._id }, process.env.SECRET) : null)
-    if (err) { 
+  User.authenticate()(req.body.username, req.body.password, (err, user) => {
+    if (err) {
       console.log(err)
-     }
-    if(user) {
+    }
+    if (user) {
       res.json(jwt.sign({ id: user._id }, process.env.SECRET))
     } else {
       res.sendStatus(500);
@@ -31,7 +29,7 @@ router.get('/user', passport.authenticate('jwt'), (req, res) => {
 })
 
 router.put('/user', passport.authenticate('jwt'), (req, res) => {
-  User.findByIdAndUpdate(req.user._id, { ...req.body })
+  User.findByIdAndUpdate(req.user._id, { ...req.body }, { new: true })
     .then(update => {
       res.json(update)
     })
