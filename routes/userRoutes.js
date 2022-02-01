@@ -12,11 +12,11 @@ router.post('/user/register', (req, res) => {
 })
 
 router.post('/user/login', (req, res) => {
-    User.authenticate()(req.body.username, req.body.password, (err, user) => {
-    if (err) { 
+  User.authenticate()(req.body.username, req.body.password, (err, user) => {
+    if (err) {
       console.log(err)
-     }
-    if(user) {
+    }
+    if (user) {
       res.json(jwt.sign({ id: user._id }, process.env.SECRET))
     } else {
       res.sendStatus(500);

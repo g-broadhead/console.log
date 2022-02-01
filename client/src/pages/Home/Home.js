@@ -1,12 +1,21 @@
-import AppHeader from '../../components/AppHeader'
-import AppFooter from '../../components/AppFooter'
-import Container from '@mui/material/Container'
-import MainSidebar from '../../components/MainSidebar'
-import RightSidebar from '../../components/RightSidebar'
-import UserHomepage from '../../components/UserHomepage'
-import Box from '@mui/material/Box'
-import { spacing, flexbox, palette } from '@mui/system'
-import Grid from '@mui/material/Grid'
+import AppHeader from "../../components/AppHeader";
+import AppFooter from "../../components/AppFooter";
+import Container from "@mui/material/Container";
+import MainSidebar from "../../components/MainSidebar";
+import RightSidebar from "../../components/RightSidebar"
+import UserHomepage from "../../components/UserHomepage";
+import Box from '@mui/material/Box';
+import { spacing } from '@mui/system';
+import { flexbox } from '@mui/system';
+import Grid from '@mui/material/Grid';
+import { palette } from '@mui/system';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+// Axios
+import {useEffect, useState} from 'react';
+import {useNavigate, useLocation} from 'react-router-dom'
+import axios from "axios";
+
 
 const Home = (props) => {
   const mainBox = {
@@ -34,32 +43,23 @@ const Home = (props) => {
 
   }
 
-  // const backgroundStyle= {
-  //     bgcolor: "warning.main",
-  //     // display: "block",
-  //     width: "100%",
-  //     height: "100%",
-  //     // position: "absolute"
-  // }
-  return (
-    <>
-      <Box>
-        <Grid container spacing={1} sx={mainBox}>
-          <AppHeader />
-          <Grid item xs={2}>
-            <MainSidebar sx={sidebarStyle} />
-          </Grid>
-          <Grid item xs={8}>
-            <UserHomepage sx={homepageStyle} />
-          </Grid>
-          <Grid item xs={2}>
-            <RightSidebar sx={rightbarStyle} />
-          </Grid>
-        </Grid>
-      </Box>
-      <AppFooter />
-    </>
-  )
+    return (
+        <Box>
+            <Grid container spacing={1} sx={mainBox}>
+                <AppHeader />
+                <Grid item xs={2}>
+                    <MainSidebar sx={sidebarStyle}/>
+                </Grid>
+                <Grid item xs={8}>
+                    <UserHomepage sx={homepageStyle} />
+                </Grid>
+                <Grid item xs={2}>
+                <RightSidebar sx={rightbarStyle}/>
+                </Grid>
+                <AppFooter />
+            </Grid>
+        </Box>
+    );
 }
 
 export default Home

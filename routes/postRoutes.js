@@ -7,8 +7,18 @@ const { Post, User, Comment } = require('../models')
 // GET all posts
 // user must be logged in
 router.get('/post', passport.authenticate('jwt'), async function (req, res) {
-  const posts = await Post.findAll({ include: [User] })
-  res.json(posts)
+    const posts = await Post.find().populate('user');
+    res.json(posts)
+})
+
+router.get('/post/topic/:topic', passport.authenticate('jwt'), async (req, res) => {
+    Post.find({topics: req.params.topic}).populate('user').then(posts => {
+        res.json(posts);
+    }).catch(err => {
+        console.log(`!! ERROR: Failed to fetch posts for topic ${req.params.topic}`);
+        console.log(err);
+        res.status(500).json({error: `Cannot find posts with topic ${req.params.topic}`});
+    })
 })
 
 router.get('/post/:id', passport.authenticate('jwt'), async function (req, res) {
@@ -27,16 +37,20 @@ router.get('/post/:id', passport.authenticate('jwt'), async function (req, res) 
 
 // POST one post
 router.post('/post', passport.authenticate('jwt'), function ({ body, user }, res) {
-  console.log(user)
-  Post.create({
-    content: body.content,
-    user: user._id
-  }).then(post => {
-    User.findByIdAndUpdate(user._id, { $push: { posts: post._id } })
-      .then(update => {
-        res.json(post)
-      })
-  })
+    console.log(user);
+    console.log("ReachedAPIPost", body);
+    Post.create({
+        content: body.content,
+        topics: body.topics,
+        user: user.id
+    }).then(post => {
+        console.log("Post Callback", post)
+        User.findByIdAndUpdate(user._id, { $push: { posts: post._id } })
+            .then(update => {
+                res.json(post);
+            });
+
+    })
 })
 
 router.post('/post/comment', passport.authenticate('jwt'), (req, res) => {
@@ -61,5 +75,18 @@ router.delete('/posts/:id', passport.authenticate('jwt'), async function ({ para
   await Post.destroy({ where: { id } })
   res.sendStatus(200)
 })
+
+// Update a post
+router.put('/post/:id', passport.authenticate('jwt'), (req, res) => {
+  Post.findByIdAndUpdate(req.params.id, { ...req.body })
+    .then(update => {
+      res.json(update)
+    }).catch(err => {
+        console.log(`!! Error updating post with id ${req.params.id}`);
+        console.log(err);
+        res.status(500).json({error: "Failed to update post"});
+    })
+})
+
 
 module.exports = router
