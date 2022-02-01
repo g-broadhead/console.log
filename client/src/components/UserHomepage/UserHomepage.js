@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Box from "@mui/material/Box"
@@ -14,18 +14,19 @@ import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import { withTheme } from "@emotion/react";
+import { useLocation } from 'react-router-dom'
 
 const UserHomepage = (props) => {
     const outerBox = {
-        // mr: 2,
-        // bgcolor: "warning.main"
+        overflow: 'auto'
     }
 
     const navigate = useNavigate();
-    const [postState, setPostState] = useState({content:''});
-
+    const [postState, setPostState] = useState({ content: '' });
+    const [pagePosts, setPagePosts] = useState([]);
     const innerBox = {
         // ml: 6,
+        height: "80vh",
         mr: 6,
         mt: 6,
         bgcolor: "white"
@@ -34,41 +35,41 @@ const UserHomepage = (props) => {
         mt: 1,
     }
 
+    useEffect(() => {
+        console.log(pagePosts)
+    }, [pagePosts])
+
+
+
+
     const handlePostSubmit = (event) => {
         event.preventDefault();
         console.log(postState.content);
-        axios.post('/api/post', 
-        {
-            content:postState.content
-        },
-        { headers: {'Authorization': `Bearer ${localStorage.getItem('jwt')}`}
-        }).then(() =>{
-            setPostState({...postState, content: ''});
-            navigate('/home');
-        }).catch(err => {
-            alert("Failed to make post.");
-        })
+        axios.post('/api/post',
+            {
+                content: postState.content
+            },
+            {
+                headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` }
+            }).then((res) => {
+                console.log("content", res.data.content)
+                setPostState({ ...postState, content: '' });
+                setPagePosts([...pagePosts, res.data.content]);
+                navigate('/');
+            }).catch(err => {
+                console.log(err)
+                alert("Failed to make post.");
+            })
     }
 
-    const handlePostChange = ({target: {name, value}}) => setPostState({content:value})
-
-    /*
-    //
-    /// This is how to navigate to a new post.
-    /// must use navigate and pass in the postId
-    //
-    const testOnClick = (event) => {
-        event.preventDefault();
-        navigate('/post', {state: {postId: "61f48ab96e106fd86e689168"}});
-    }
-    */
+    const handlePostChange = ({ target: { name, value } }) => setPostState({ content: value })
 
     return (
         <Box sx={outerBox}>
             <Stack sx={innerBox}>
-                <Grid container spacing={2} sx={{ justifyContent: 'flex-end'}}>
+                <Grid container spacing={2} sx={{ justifyContent: 'flex-end' }}>
                     <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
-                            <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
+                        <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
                     </Grid>
                     <Grid item xs={10}>
                         <TextField fullWidth
@@ -84,39 +85,31 @@ const UserHomepage = (props) => {
                         Send
                     </Button>
                 </Grid>
-                
-                <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
-                    <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
-                            <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
-                    </Grid>
-                    <Grid item xs={10}>
-                        <TextField fullWidth
-                            disabled
-                            id="outlined-textarea fullWidth"
-                            label="Post Text Goes Here"
-                            multiline
-                            rows={4}
-                            placeholder="Text"
-                        />
-                    </Grid>
-                </Grid>
 
-                <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
-                    <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
-                        <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
-                    </Grid>
-                    <Grid item xs={10}>
-                        <TextField fullWidth
-                            disabled
-                            id="outlined-textarea fullWidth"
-                            label="Post Text Goes Here"
-                            multiline
-                            rows={4}
-                            placeholder="Text"
-                        />
-                    </Grid>                   
-                </Grid>
-                
+                {pagePosts.map((elem, i) => {
+                    return (
+                        <Grid container key={i} spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
+                            <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
+                                <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
+                            </Grid>
+                            <Grid item xs={10}>
+                                <TextField fullWidth
+                                    id="filled-read-only-input fullWidth"
+                                    // label= {elem}
+                                    multiline
+                                    rows={4}
+                                    // placeholder= {elem}
+                                    InputProps={{
+                                        readOnly: true,
+                                    }}
+                                    variant="filled"
+                                    defaultValue={elem}
+                                />
+                            </Grid>
+                        </Grid>
+                    )
+                }).reverse()}
+
             </Stack>
         </Box>
     )
