@@ -76,10 +76,8 @@ const UserHomepage = (props) => {
             {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` }
             }).then((res) => {
-                //console.log("content", res.data.content)
                 setPostState({ ...postState, content: '' });
-                setPagePosts([...pagePosts, res.data.content]);
-                navigate('/');
+                window.location = '/';
             }).catch(err => {
                 console.log(err)
                 alert("Failed to make post.");

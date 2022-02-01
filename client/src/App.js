@@ -26,24 +26,24 @@ function App () {
   const [userState, setUserState] = useState({
     loggedIn: false,
     userData: {},
-    loading: true,
+    loading: true
   })
 
   const setLoggedIn = (loggedIn) => {
-    setUserState({...userState, loggedIn: loggedIn})
-  } 
+    setUserState({ ...userState, loggedIn: loggedIn })
+  }
 
   useEffect(() => {
     UserAPI.getUser().then(user => {
-      setUserState({loggedIn: true, userData: user, loading: false});
+      setUserState({ loggedIn: true, userData: user, loading: false });
     }).catch(err => {
-      setUserState({...userState, loading: false});
+      setUserState({ ...userState, loading: false });
     });
   }, [])
 
   return (
     <>
-      <UserContext.Provider value={{...userState, setLoggedIn: setLoggedIn}}>
+      <UserContext.Provider value={{ ...userState, setLoggedIn: setLoggedIn }}>
       {userState.loading ? <></> : 
         <Router>
           <Routes>
