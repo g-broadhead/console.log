@@ -13,7 +13,7 @@ import {
 
 
 const PostCard = (props) => {
-    const {user, date, content, avatar} = props;
+    const {user, date, content, avatar, topics, commentCount, id} = props.post;
 
     const postStyle = {
         border: "1px solid black",
@@ -25,13 +25,14 @@ const PostCard = (props) => {
     return (
         <Box sx={postStyle}>
             <Box align-items="flex-start" sx={{display: "flex"}}>
-                <Avatar sx={{margin: "0.5em"}} src={avatar}>{user[0]}</Avatar>
+                <Avatar sx={{margin: "0.5em"}} src={avatar}>{user.name[0]}</Avatar>
                 <Box sx={{display: "flex", flexDirection: "column"}}>
-                    <Typography variant="h5">{user}</Typography>
+                    <Typography variant="h5">{user.name}</Typography>
                     <Typography variant="sub">at {date}</Typography>
                 </Box>
             </Box>
             <p>{content}</p>
+            <a href="/post/{id}">{commentCount} comments</a>
         </Box>
     )
 }

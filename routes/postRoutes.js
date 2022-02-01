@@ -11,6 +11,16 @@ router.get('/post', passport.authenticate('jwt'), async function (req, res) {
     res.json(posts)
 })
 
+router.get('/post/topic/:topic', passport.authenticate('jwt', async (req, res) => {
+    Post.find({topics: req.params.topic}).populate('user').then(posts => {
+        res.json(posts);
+    }).catch(err => {
+        console.log(`!! ERROR: Failed to fetch posts for topic ${req.params.topic}`);
+        console.log(err);
+        res.status(500).json({error: `Cannot find posts with topic ${req.params.topic}`});
+    })
+}))
+
 router.get('/post/:id', passport.authenticate('jwt'), async function (req, res) {
     try {
         const post = await Post.findById(req.params.id)
