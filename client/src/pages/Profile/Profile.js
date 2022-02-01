@@ -133,22 +133,7 @@ const Profile = (props) => {
     setPostState({ avatar: value })
   }
 
-  async function renderPost({ title, body, id }) {
-    const postElem = document.createElement('div')
-    postElem.innerHTML = `
-              <div class="row bg-light p-5 rounded-md mb-2 mt-2">
-                <h3>${title}</h3>
-                <p class="lead">${body}</p>
-                <hr class="my-4">
-              </div>
-            `
-    document.getElementById('posts').prepend(postElem)
-  }
-
-  async function renderPosts() {
-    posts.forEach(post => renderPost(post))
-  }
-  renderPosts()
+  // Get and display user posts
 
   return (
     <>
@@ -187,7 +172,7 @@ const Profile = (props) => {
         >
           <Item>
             <h1>User Posts</h1>
-            <div id="posts"></div>
+            
           </Item>
         </Box>
         <Box
