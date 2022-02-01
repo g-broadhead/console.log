@@ -27,16 +27,19 @@ router.get('/post/:id', passport.authenticate('jwt'), async function (req, res) 
 
 // POST one post
 router.post('/post', passport.authenticate('jwt'), function ({ body, user }, res) {
-  console.log(user)
-  Post.create({
-    content: body.content,
-    user: user._id
-  }).then(post => {
-    User.findByIdAndUpdate(user._id, { $push: { posts: post._id } })
-      .then(update => {
-        res.json(post)
-      })
-  })
+    console.log(user);
+    console.log("ReachedAPIPost", body);
+    Post.create({
+        content: body.content,
+        user: user.id
+    }).then(post => {
+        console.log("Post Callback", post)
+        User.findByIdAndUpdate(user._id, { $push: { posts: post._id } })
+            .then(update => {
+                res.json(post);
+            });
+
+    })
 })
 
 router.post('/post/comment', passport.authenticate('jwt'), (req, res) => {

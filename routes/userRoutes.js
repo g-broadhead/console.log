@@ -17,9 +17,20 @@ router.post('/user/login', (req, res) => {
   User.authenticate()(req.body.username, req.body.password, (err, user) => {
 =======
     User.authenticate()(req.body.username, req.body.password, (err, user) => {
+<<<<<<< HEAD
 >>>>>>> b71097278c252b910ed0d06da61f4edf836a838b
     if (err) { console.log(err) }
     res.json(user ? jwt.sign({ id: user._id }, process.env.SECRET) : null)
+=======
+    if (err) { 
+      console.log(err)
+     }
+    if(user) {
+      res.json(jwt.sign({ id: user._id }, process.env.SECRET))
+    } else {
+      res.sendStatus(500);
+    }
+>>>>>>> 308b6bad5c469a4671215de5513b8d3bef088c05
   })
 })
 

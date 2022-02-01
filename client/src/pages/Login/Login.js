@@ -17,127 +17,129 @@ import AuthContext from '../../utils/AuthContext'
 import axios from 'axios'
 import UserContext from '../../utils/UserContext'
 import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { BrowserRouter, useNavigate } from 'react-router-dom'
 import loginImages from '../../images/login.jpg'
 
-function Copyright (props) {
-  return (
-    <Typography variant='body2' color='text.secondary' align='center' {...props}>
-      {'Copyright © '}
-      <Link color='inherit' href='https://mui.com/'>
-        Console.log
-      </Link>{' '}
-      {new Date().getFullYear()}
-      .
-    </Typography>
-  )
+function Copyright(props) {
+    return (
+        <Typography variant='body2' color='text.secondary' align='center' {...props}>
+            {'Copyright © '}
+            <Link color='inherit' href='https://mui.com/'>
+                Consoledotlog.com
+            </Link>{' '}
+            {new Date().getFullYear()}
+            .
+        </Typography>
+    )
 }
 
 const theme = createTheme()
 
-export default function SignInSide () {
-  const navigate = useNavigate()
-  const userContext = useContext(UserContext);
+export default function SignInSide() {
+    const navigate = useNavigate()
+    const userContext = useContext(UserContext);
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const formData = new FormData(event.currentTarget)
-    const userData = {
-      username: formData.get('username'),
-      password: formData.get('password')
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        const formData = new FormData(event.currentTarget)
+        const userData = {
+            username: formData.get('username'),
+            password: formData.get('password')
+        }
+        /*
+        console.log({
+          username: data.get('username'),
+          password: data.get('password'),
+        }); */
+        axios.post('/api/user/login', userData).then(res => {
+            localStorage.setItem('jwt', res.data)
+            userContext.setLoggedIn(true)
+            window.location = '/';
+        }).catch(err => {
+            alert("Invalid username or password");
+        })
     }
-    /*
-    console.log({
-      username: data.get('username'),
-      password: data.get('password'),
-    }); */
-    axios.post('/api/user/login', userData).then(res => {
-      localStorage.setItem('jwt', res.data)
-      userContext.setLoggedIn(true)
-      navigate('/', { replace: true })
-    })
-  }
 
-  return (
-    <ThemeProvider theme={theme}>
-      <Grid container component='main' sx={{ height: '100vh' }}>
-        <CssBaseline />
-        <Grid
-          item
-          xs={false}
-          sm={4}
-          md={7}
-          sx={{
-            backgroundImage: `url(${loginImages})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <Box
-            sx={{
-              my: 8,
-              mx: 4,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center'
-            }}
-          >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component='h1' variant='h5'>
-              Log In
-            </Typography>
-            <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-              <TextField
-                margin='normal'
-                required
-                fullWidth
-                id='username'
-                label='Username'
-                name='username'
-                autoComplete='email'
-                autoFocus
-              />
-              <TextField
-                margin='normal'
-                required
-                fullWidth
-                name='password'
-                label='Password'
-                type='password'
-                id='password'
-                autoComplete='current-password'
-              />
-              <FormControlLabel
-                control={<Checkbox value='remember' color='primary' />}
-                label='Remember me'
-              />
-              <Button
-                type='submit'
-                fullWidth
-                variant='contained'
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Log In
-              </Button>
-              <Grid container>
-                <Grid item xs />
-                <Grid item>
-                  <Link href='#' variant='body2'>
-                    Register now
-                  </Link>
+    return (
+        <ThemeProvider theme={theme}>
+            <Grid container component='main' sx={{ height: '100vh' }}>
+                <CssBaseline />
+                <Grid
+                    item
+                    xs={false}
+                    sm={4}
+                    md={7}
+                    sx={{
+                        backgroundImage: `url(${loginImages})`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundColor: (t) =>
+                            t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                    }}
+                />
+                <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+                    <Box
+                        sx={{
+                            my: 8,
+                            mx: 4,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center'
+                        }}
+                    >
+                        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                            <LockOutlinedIcon />
+                        </Avatar>
+                        <Typography component='h1' variant='h5'>
+                            Log In
+                        </Typography>
+                        <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+                            <TextField
+                                margin='normal'
+                                required
+                                fullWidth
+                                id='username'
+                                label='Username'
+                                name='username'
+                                autoComplete='email'
+                                autoFocus
+                            />
+                            <TextField
+                                margin='normal'
+                                required
+                                fullWidth
+                                name='password'
+                                label='Password'
+                                type='password'
+                                id='password'
+                                autoComplete='current-password'
+                            />
+                            <FormControlLabel
+                                control={<Checkbox value='remember' color='primary' />}
+                                label='Remember me'
+                            />
+                            <Button
+                                type='submit'
+                                fullWidth
+                                variant='contained'
+                                sx={{ mt: 3, mb: 2 }}
+                            >
+                                Log In
+                            </Button>
+                            <Grid container>
+                                <Grid item xs />
+                                <Grid item>
+                                    <Link href='/register' variant='body2'>
+                                        Register now
+                                    </Link>
+                                </Grid>
+                            </Grid>
+                            <Copyright sx={{ mt: 5 }} />
+                        </Box>
+                    </Box>
                 </Grid>
-              </Grid>
-              <Copyright sx={{ mt: 5 }} />
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
-    </ThemeProvider>
-  )
+            </Grid>
+        </ThemeProvider>
+    )
 }

@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-import { useState } from 'react'
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import Menu from '@mui/material/Menu'
-import MenuIcon from '@mui/icons-material/Menu'
-import Container from '@mui/material/Container'
-import Avatar from '@mui/material/Avatar'
-import Button from '@mui/material/Button'
-import Tooltip from '@mui/material/Tooltip'
-import MenuItem from '@mui/material/MenuItem'
-
-const pages = ['Home', 'Profile', 'Admin']
-const settings = ['Logout']
-
-const AppHeader = (props) => {
-  const [anchorElNav, setAnchorElNav] = useState(null)
-  const [anchorElUser, setAnchorElUser] = useState(null)
-=======
 import {useState, useContext} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -37,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 
 import UserContext from '../../utils/UserContext';
 
-const pages = ['Home', 'Profile', 'Admin'];
+const pages = ['Home', 'Profile', 'Admin', 'About Us'];
 
 const AppHeader = (props) => {
   const navigate = useNavigate();
@@ -45,7 +23,6 @@ const AppHeader = (props) => {
 
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
->>>>>>> b71097278c252b910ed0d06da61f4edf836a838b
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget)
@@ -156,7 +133,10 @@ const AppHeader = (props) => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title='Open settings'>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt='Remy Sharp' src='#' />
+                <Avatar alt="Remy Sharp" src={userContext.userData.avatar}>{userContext.userData.name[0]}</Avatar>
+                <Typography sx={{color: "white", padding: "0.5em"}}>
+                  {userContext.userData.username}
+                </Typography>
               </IconButton>
             </Tooltip>
             <Menu
@@ -175,14 +155,8 @@ const AppHeader = (props) => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-<<<<<<< HEAD
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign='center'>{setting}</Typography>
-=======
                 <MenuItem key="logout" onClick={handleCloseUserMenu}>
                   <Typography textAlign="center" onClick={handleLogoutClick}>Logout</Typography>
->>>>>>> b71097278c252b910ed0d06da61f4edf836a838b
                 </MenuItem>
             </Menu>
           </Box>

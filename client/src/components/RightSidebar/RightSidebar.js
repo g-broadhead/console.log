@@ -18,15 +18,15 @@ import ChatIcon from '@mui/icons-material/Chat'
 import SearchIcon from '@mui/icons-material/Search'
 
 const RightSidebar = (props) => {
-  const rightbarStyle = {
-    flexDirection: 'column',
-    height: '100%',
-    alignItems: 'center',
-    marginTop: '1em',
-    boxShadow: '3',
-    bgcolor: 'primary.main',
-    display: 'flex'
-  }
+    const rightbarStyle = {
+        flexDirection: "column",
+        height: "80vh",
+        alignItems: "center",
+        marginTop: "1em",
+        boxShadow: "3",
+        bgcolor: "primary.main",
+        display: "flex"
+    }
 
   const listStyle = {
     width: '100%'
