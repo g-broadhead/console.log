@@ -14,7 +14,6 @@ import {
 
 const PostCard = (props) => {
     const {user, createdAt, content, avatar, topics, comments, _id} = props.post;
-    console.log(props);
 
     const postStyle = {
         border: "1px solid black",

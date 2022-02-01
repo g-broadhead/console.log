@@ -5,6 +5,8 @@ import {
 } from "@mui/material"
 import axios from 'axios';
 import PostCard from '../../components/PostCard';
+import AppHeader from '../../components/AppHeader';
+import AppFooter from '../../components/AppFooter';
 
 const Topic = (props) => {
     const params = useParams();
@@ -16,11 +18,12 @@ const Topic = (props) => {
     })
 
     useEffect(() => {
-        axios.get(`/api/posts/topic/${params.topic}`, {
+        axios.get(`/api/post/topic/${params.topic}`, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('jwt')}`
             }
         }).then(({data}) => {
+            console.log(data);
             setTopicState({...topicState, posts: data, loading:false});
         }).catch(err => {
             setTopicState({...topicState, loading: false, error: 'Failed to load posts for this topic.'})
@@ -36,7 +39,7 @@ const Topic = (props) => {
                 <h1>{params.topic}</h1>
                 {topicState.error.length > 0 ? <p>Failed to load posts for this topic</p> :
                     topicState.posts.map((post, index) => {
-                        <PostCard key={index} post={post} />
+                        return <PostCard key={index} post={post} />
                     })
                 }
             </>
@@ -45,11 +48,13 @@ const Topic = (props) => {
 
     return (
         <>
+            <AppHeader />
             <Container>
                 {topicState.loading ? <h1>Loading topic {params.topic}</h1> :
                     <RenderPosts />
                 }
             </Container>
+            <AppFooter />
         </>
     );
 
