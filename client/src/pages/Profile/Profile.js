@@ -224,7 +224,6 @@ const Profile = (props) => {
                   <TextField id="linkedIn" label="LinkedIn Url" variant="standard" />
                   <TextField id="instagram" label="Instagram" variant="standard" />
                   <TextField id="twitter" label="Twitter Url" variant="standard" />
-                  
                   <Button
                     type='submit'
                     onClick={profilehandleClose}
@@ -242,8 +241,8 @@ const Profile = (props) => {
             </>
           </Item>
         </Box>
-        <AppFooter />
       </Box>
+      <AppFooter />
     </>
   );
 }
