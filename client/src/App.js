@@ -26,7 +26,7 @@ function App() {
   const [userState, setUserState] = useState({
     loggedIn: false,
     userData: {},
-    loading: true,
+    loading: true
   })
 
   const setLoggedIn = (loggedIn) => {
@@ -43,7 +43,7 @@ function App() {
 
   return (
     <>
-      <UserContext.Provider value={{...userState, setLoggedIn: setLoggedIn}}>
+      <UserContext.Provider value={{ ...userState, setLoggedIn: setLoggedIn }}>
       {userState.loading ? <></> : 
         <Router>
           <Routes>

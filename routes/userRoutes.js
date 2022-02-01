@@ -29,7 +29,7 @@ router.get('/user', passport.authenticate('jwt'), (req, res) => {
 })
 
 router.put('/user', passport.authenticate('jwt'), (req, res) => {
-  User.findByIdAndUpdate(req.user._id, { ...req.body })
+  User.findByIdAndUpdate(req.user._id, { ...req.body }, { new: true })
     .then(update => {
       res.json(update)
     })

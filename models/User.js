@@ -27,7 +27,7 @@ const User = new Schema({
         required: false,
         unique: false,
     },
-    linkedin: {
+    linkedIn: {
         type: String,
         required: false,
         unique: false,
@@ -38,6 +38,16 @@ const User = new Schema({
         unique: false,
     },
     twitter: {
+        type: String,
+        required: false,
+        unique: false,
+    },
+    workname: {
+        type: String,
+        required: false,
+        unique: false,
+    },
+    positionTitle: {
         type: String,
         required: false,
         unique: false,
