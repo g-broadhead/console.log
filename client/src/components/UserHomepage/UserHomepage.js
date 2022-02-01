@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Box from "@mui/material/Box"
@@ -17,14 +17,19 @@ import { withTheme } from "@emotion/react";
 import { useLocation } from 'react-router-dom'
 import ReportIcon from '@mui/icons-material/Report';
 import Report from "@mui/icons-material/Report";
+import UserContext from "../../utils/UserContext";
+import PostCard from "../PostCard";
+import { Checkbox, FormControlLabel } from "@mui/material";
 
 const UserHomepage = (props) => {
     const outerBox = {
         overflow: 'auto'
     }
 
+    const userContext = useContext(UserContext);
+
     const navigate = useNavigate();
-    const [postState, setPostState] = useState({ content: '' });
+    const [postState, setPostState] = useState({ content: '', topics:[] });
     const [pagePosts, setPagePosts] = useState([]);
     const innerBox = {
         // ml: 6,
@@ -38,23 +43,40 @@ const UserHomepage = (props) => {
     }
 
     useEffect(() => {
-        console.log(pagePosts)
-    }, [pagePosts])
+        //console.log(pagePosts)
+        axios.get('/api/post', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+            }}).then(({data}) => {
+                setPagePosts(data);
+            })
+    }, [])
 
 
 
 
     const handlePostSubmit = (event) => {
         event.preventDefault();
-        console.log(postState.content);
+        if(postState.topics.length == 0) {
+            alert("Must select atleast 1 topic before posting.");
+            return;
+        }
+
+        if(postState.content.length == 0) {
+            alert("Post must include some text.");
+            return;
+        }
+
+        //console.log(postState.content);
         axios.post('/api/post',
             {
-                content: postState.content
+                content: postState.content,
+                topics: postState.topics
             },
             {
                 headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` }
             }).then((res) => {
-                console.log("content", res.data.content)
+                //console.log("content", res.data.content)
                 setPostState({ ...postState, content: '' });
                 setPagePosts([...pagePosts, res.data.content]);
                 navigate('/');
@@ -64,16 +86,27 @@ const UserHomepage = (props) => {
             })
     }
 
-    const handlePostChange = ({ target: { name, value } }) => setPostState({ content: value })
+    const handlePostChange = ({ target: { name, value } }) => setPostState({...postState, content: value })
+
+    const handleTopicChange = ({target: {name, value}}) => {
+        let topicsCopy = JSON.parse(JSON.stringify(postState.topics));
+        let item = topicsCopy.find((item) => item === name)
+        if(item) {
+            topicsCopy.splice(topicsCopy.indexOf(name), 1);
+        } else {
+            topicsCopy.push(name);
+        }
+        setPostState({...postState, topics: topicsCopy});
+    }
 
     return (
         <Box sx={outerBox}>
             <Stack sx={innerBox}>
-                <Grid container spacing={2} sx={{ justifyContent: 'flex-end' }}>
-                    <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
-                        <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
+                <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mb:"2em" }}>
+                    <Grid item xs={1} sx={{ justifyContent: "flex-end", display: "flex" }}>
+                        <Avatar sx={{ width: 56, height: 56 }} src={userContext.userData.avatar}>{userContext.userData.name[0]}</Avatar>
                     </Grid>
-                    <Grid item xs={10}>
+                    <Grid item xs={11}>
                         <TextField fullWidth
                             id="outlined-textarea fullWidth"
                             label="Send a Post"
@@ -83,6 +116,12 @@ const UserHomepage = (props) => {
                             onChange={handlePostChange}
                         />
                     </Grid>
+                    <FormControlLabel label="APIs" control={<Checkbox name="APIs" onChange={handleTopicChange} />} />
+                    <FormControlLabel label="React" control={<Checkbox name="React" onChange={handleTopicChange} />} />
+                    <FormControlLabel label="Javascript" control={<Checkbox name="Javascript" onChange={handleTopicChange} />} />
+                    <FormControlLabel label="MongoDB" control={<Checkbox name="MongoDB" onChange={handleTopicChange} />} />
+
+
                     <Button sx={buttonStyle} variant="contained" endIcon={<SendIcon />} onClick={handlePostSubmit}>
                         Send
                     </Button>
@@ -90,6 +129,8 @@ const UserHomepage = (props) => {
 
                 {pagePosts.map((elem, i) => {
                     return (
+                        <PostCard key={i} post={elem} />
+                        /*
                         <Grid container key={i} spacing={2} sx={{ justifyContent: 'flex-end', mt: 2 }}>
                             <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
                                 <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
@@ -108,10 +149,7 @@ const UserHomepage = (props) => {
                                     defaultValue={elem}
                                 />
                             </Grid>
-                            <Button sx={buttonStyle} variant="contained"  color="error" endIcon={<ReportIcon />} onClick={handlePostSubmit}>
-                                Report
-                            </Button>
-                        </Grid>
+                        </Grid>*/
                     )
                 }).reverse()}
 
