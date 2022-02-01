@@ -25,7 +25,7 @@ const RyanC = (props) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button href='' size="small">LinkedIn</Button>
+          <Button href='https://www.linkedin.com/in/ryan-capote-52a83622/' size="small">LinkedIn</Button>
           <Button href='https://github.com/rytc' size="small">Github</Button>
         </CardActions>
       </Card>
