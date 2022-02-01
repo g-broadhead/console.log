@@ -25,7 +25,7 @@ const HaoyangY = (props) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button href='' size="small">LinkedIn</Button>
+          <Button href='https://www.linkedin.com/in/haoyang-yu-692641226' size="small">LinkedIn</Button>
           <Button href='https://github.com/hvoyvng' size="small">Github</Button>
         </CardActions>
       </Card>
