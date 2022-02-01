@@ -3,6 +3,8 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import CardActions from '@mui/material/CardActions';
+import Button from '@mui/material/Button';
 
 const HaoyangY = (props) => {
   return (
@@ -22,6 +24,10 @@ const HaoyangY = (props) => {
             Links to Team Member's contact info
           </Typography>
         </CardContent>
+        <CardActions>
+          <Button href='' size="small">LinkedIn</Button>
+          <Button href='https://github.com/hvoyvng' size="small">Github</Button>
+        </CardActions>
       </Card>
     </>
   );
