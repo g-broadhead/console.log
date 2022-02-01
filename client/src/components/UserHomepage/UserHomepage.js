@@ -76,8 +76,8 @@ const UserHomepage = (props) => {
             }).then((res) => {
                 //console.log("content", res.data.content)
                 setPostState({ ...postState, content: '' });
-                setPagePosts([...pagePosts, res.data.content]);
-                navigate('/');
+                //setPagePosts([...pagePosts, res.data.content]);
+                window.location = '/';
             }).catch(err => {
                 console.log(err)
                 alert("Failed to make post.");
