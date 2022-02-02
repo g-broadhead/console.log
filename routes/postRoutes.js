@@ -37,18 +37,18 @@ router.get('/post/:id', passport.authenticate('jwt'), async function (req, res) 
 
 // Get Posts by User ID
 router.get('/post/user/:id', passport.authenticate('jwt'), async function (req, res) {
-  try {
-    const post = await Post.find({ user: req.user._id }).populate('user')
-      .populate('user')
-      .populate('comments')
-      .populate({ path: 'comments', populate: { path: 'user' } })
-    res.json(post)
-  } catch (err) {
-    console.log(`!! ERROR: Failed to fetch post with id ${req.params.id}`)
-    console.log(err)
-    res.status(500).json({ error: `Failed to fetch post with id ${req.params.id}` })
-  }
-})
+    try {
+        const post = await Post.find({ user: req.params.id }).populate('user')
+            .populate('user')
+            .populate('comments')
+            .populate({ path: 'comments', populate: { path: 'user' } });
+        res.json(post);
+    } catch (err) {
+        console.log(`!! ERROR: Failed to fetch post with id ${req.params.id}`);
+        console.log(err);
+        res.status(500).json({ error: `Failed to fetch post with id ${req.params.id}` })
+    }
+});
 
 // POST one post
 router.post('/post', passport.authenticate('jwt'), function ({ body, user }, res) {
