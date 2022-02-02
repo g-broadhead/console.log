@@ -18,8 +18,6 @@ import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import { sizing } from '@mui/system';
 
-
-
 const Profile = (props) => {
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
