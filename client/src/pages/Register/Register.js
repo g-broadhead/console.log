@@ -18,7 +18,7 @@ function Copyright (props) {
   return (
     <Typography variant='body2' color='text.secondary' align='center' {...props}>
       {'Copyright © '}
-      <Link color='inherit' href='https://mui.com/'>
+      <Link color='inherit'>
         Console.log
       </Link>{' '}
       {new Date().getFullYear()}
@@ -132,13 +132,13 @@ const Register = () => {
                 variant='contained'
                 sx={{ mt: 3, mb: 2 }}
               >
-                Signup
+                Register
               </Button>
               <Grid container>
                 <Grid item xs />
                 <Grid item>
-                  <Link href='#' variant='body2'>
-                    Register now
+                  <Link href='/login' variant='body2'>
+                    Login now
                   </Link>
                 </Grid>
               </Grid>
