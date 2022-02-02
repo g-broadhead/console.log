@@ -17,6 +17,9 @@ import { withTheme } from "@emotion/react";
 import { useLocation } from 'react-router-dom'
 
 const AdminHomepage = (props) => {
+    const deletePost = (event) => {
+        
+    }
     return (
         <Box>
 
