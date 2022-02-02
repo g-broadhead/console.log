@@ -101,10 +101,10 @@ const UserHomepage = (props) => {
         <Box sx={outerBox}>
             <Stack sx={innerBox}>
                 <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mb:"2em" }}>
-                    <Grid item xs={1} sx={{ justifyContent: "flex-end", display: "flex" }}>
+                    <Grid item xs={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
                         <Avatar sx={{ width: 56, height: 56 }} src={userContext.userData.avatar}>{userContext.userData.name[0]}</Avatar>
                     </Grid>
-                    <Grid item xs={11}>
+                    <Grid item xs={10}>
                         <TextField fullWidth
                             id="outlined-textarea fullWidth"
                             label="Send a Post"

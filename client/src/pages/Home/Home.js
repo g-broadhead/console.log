@@ -22,13 +22,8 @@ const Home = (props) => {
     display: 'inline-flex',
     width: '100%',
     height: '100%',
-    justifyContent: 'flex-end'
-  }
-
-  const sidebarStyle = {
-    // ml: 0,
-    margin: 'auto',
-    bgcolor: 'primary.main'
+    justifyContent: 'flex-end',
+    mt:1
   }
 
   const rightbarStyle = {
