@@ -138,7 +138,7 @@ const Register = () => {
                 <Grid item xs />
                 <Grid item>
                   <Link href='/login' variant='body2'>
-                    Login now
+                    Login Now
                   </Link>
                 </Grid>
               </Grid>
