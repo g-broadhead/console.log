@@ -86,9 +86,9 @@ router.post('/post/comment', passport.authenticate('jwt'), (req, res) => {
 
 // DELETE one post
 // user must be logged in
-router.delete('/posts/:id', passport.authenticate('jwt'), async function ({ params: { id } }, res) {
-  await Post.destroy({ where: { id } })
-  res.sendStatus(200)
+router.delete('/posts/:id', passport.authenticate('jwt'), async function (req, res) {
+    await Post.findByIdAndDelete(req.params.id)
+    res.sendStatus(200)
 })
 
 // Update a post

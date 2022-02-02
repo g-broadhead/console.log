@@ -1,36 +1,39 @@
-import {useEffect, useState} from 'react';
-import {useNavigate, useLocation, useParams} from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { useNavigate, useLocation, useParams } from 'react-router-dom'
 import axios from 'axios';
 import AppFooter from '../../components/AppFooter'
 import AppHeader from '../../components/AppHeader'
 import {
-  Container,
-  Box,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemAvatar,
-  Avatar,
-  Typography,
-  Input,
-  Button
+    Container,
+    Box,
+    List,
+    ListItem,
+    ListItemText,
+    ListItemAvatar,
+    Avatar,
+    Typography,
+    Input,
+    Button,
+    TextField,
+    Alert
 } from '@mui/material'
 import PostCard from '../../components/PostCard'
+import Home from '@mui/icons-material/Home';
 
 const Post = (props) => {
     const navState = useLocation();
     const navigate = useNavigate();
     const params = useParams();
 
-    const [postState, setPostState] = useState({loading: true, err:"", postData: {}});
-    const [commentState, setCommentState] = useState({content: ''});
+    const [postState, setPostState] = useState({ loading: true, err: "", postData: {} });
+    const [commentState, setCommentState] = useState({ content: '' });
     const [refresh, setRefresh] = useState(true);
-
+    const postId = params.id;
     useEffect(() => {
-        const postId = params.id;
+        
         setRefresh(false);
-        if(postId.length == 0) {
-            setPostState({...postState, err:"Error: No post id was specified"});
+        if (postId.length == 0) {
+            setPostState({ ...postState, err: "Error: No post id was specified" });
             return;
         }
 
@@ -39,15 +42,17 @@ const Post = (props) => {
                 'Authorization': `Bearer ${localStorage.getItem('jwt')}`
             }
         })
-        .then(({data}) => {
-            setPostState({...postState, postId:postId, loading: false, postData: data});
-            console.log(data);
-        }).catch(err => {
-            setPostState({...postState, err: err});
-        })
+            .then(({ data }) => {
+                setPostState({ ...postState, postId: postId, loading: false, postData: data });
+                console.log(data);
+            }).catch(err => {
+                setPostState({ ...postState, err: err });
+            })
     }, [refresh])
 
-    const handleCommentChange = ({target: {name, value}}) => setCommentState({content: value});
+
+
+    const handleCommentChange = ({ target: { name, value } }) => setCommentState({ content: value });
     const handleCommentSubmit = (event) => {
         event.preventDefault();
         axios.post('/api/post/comment', {
@@ -58,7 +63,7 @@ const Post = (props) => {
                 'Authorization': `Bearer ${localStorage.getItem('jwt')}`
             }
         }).then(() => {
-            setCommentState({content: ''});
+            setCommentState({ content: '' });
             //navigate('/post', {state: {postId: postState.postId}, replace:true});
             setRefresh(true);
         }).catch(err => {
@@ -67,6 +72,22 @@ const Post = (props) => {
         })
 
     }
+    const handlePostDelete = (event) => {
+            console.log("hi")
+        event.preventDefault();
+        axios.delete(`/api/posts/${postId}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+            }
+        })
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+                window.location = "/"
+    })
+}
+
+
 
     const commentStyle = {
         borderBottom: "1px solid black"
@@ -89,8 +110,8 @@ const Post = (props) => {
     const Loading = (props) => {
         return (
             <>
-            <h2>Loading post...</h2>
-            {postState.err.length > 0 && <Alert severity="error">{postState.err}</Alert> }
+                <h2>Loading post...</h2>
+                {postState.err.length > 0 && <Alert severity="error">{postState.err}</Alert>}
             </>
         )
     }
@@ -100,39 +121,44 @@ const Post = (props) => {
 
         return (
             <List>
-                    {comments.map((comment, index) => <CommentCard key={index} comment={comment} />)}
+                {comments.map((comment, index) => <CommentCard key={index} comment={comment} />)}
             </List>
 
         )
     }
 
     return (
-            <>
+        <>
             <AppHeader />
-            <Container sx={{marginTop: "2em"}}>
-                            {postState.loading ? <Loading /> : 
-            <PostCard key="post-card" post={postState.postData} />}
-            
-            <Box component="form">
-                <h2>Leave a comment</h2>
-                <TextField 
-                    key="comment-field"
-                    label="Leave a comment" 
-                    sx={{ width: '90%' }} 
-                    value={commentState.content} 
-                    onChange={handleCommentChange} />
+            <Container sx={{ marginTop: "2em" }}>
+                {postState.loading ? <Loading /> :
+                    <PostCard key="post-card" post={postState.postData} />}
 
-                <Button 
-                    variant="contained" 
-                    sx={{ margin: "1em" }}
-                    onClick={handleCommentSubmit}>Reply</Button>
-            </Box>
-            <h2>Comments</h2>
-            {!postState.loading && <CommentList />}
+                <Box component="form">
+                    <h2>Leave a comment</h2>
+                    <TextField
+                        key="comment-field"
+                        label="Leave a comment"
+                        sx={{ width: '90%' }}
+                        value={commentState.content}
+                        onChange={handleCommentChange} />
+
+                    <Button
+                        variant="contained"
+                        sx={{ margin: "1em" }}
+                        onClick={handleCommentSubmit}>Reply</Button>
+                    <Button
+                        variant="contained"
+                        sx={{ margin: "1em" }}
+                        onClick={handlePostDelete}>Delete</Button>
+
+                </Box>
+                <h2>Comments</h2>
+                {!postState.loading && <CommentList />}
             </Container>
             <AppFooter />
-            </>
-        );
+        </>
+    );
 
 
 }
