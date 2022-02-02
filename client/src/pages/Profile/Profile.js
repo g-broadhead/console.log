@@ -135,8 +135,8 @@ const Profile = (props) => {
   const [postState, setPostState] = useState({ avatar: '' });
   const handlePostSubmit = (event) => {
     event.preventDefault()
-    console.log(postState.avatar)
-    axios.put(`/api/user`,
+    // console.log(postState.avatar)
+    axios.put('/api/user',
       {
         avatar: postState.avatar
       },
@@ -244,10 +244,10 @@ const Profile = (props) => {
         onClose={handleClose}
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
-        className='myModal'
+        // className='myModal'
       >
         <Box sx={style}
-          className='myModal'
+          // className='myModal'
           justifyContent="center">
           <Typography
             id='modal-modal-title'
