@@ -24,8 +24,8 @@ function Copyright(props) {
     return (
         <Typography variant='body2' color='text.secondary' align='center' {...props}>
             {'Copyright © '}
-            <Link color='inherit' href='https://mui.com/'>
-                Consoledotlog.com
+            <Link color='inherit'>
+                Console.log
             </Link>{' '}
             {new Date().getFullYear()}
             .
@@ -92,7 +92,7 @@ export default function SignInSide() {
                             <LockOutlinedIcon />
                         </Avatar>
                         <Typography component='h1' variant='h5'>
-                            Log In
+                            <h3>Log In</h3>
                         </Typography>
                         <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
                             <TextField
@@ -139,13 +139,7 @@ export default function SignInSide() {
                         </Box>
                     </Box>
                 </Grid>
-              </Grid>
-              <Copyright sx={{ mt: 5 }} />
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
-    </ThemeProvider>
-  );
+            </Grid>
+        </ThemeProvider>
+    )
 }
-

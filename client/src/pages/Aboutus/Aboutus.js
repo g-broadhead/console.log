@@ -8,6 +8,7 @@ import ChanwooH from '../../components/AboutusCard/ChanW';
 import GarrettB from '../../components/AboutusCard/GarretB';
 import HaoyangY from '../../components/AboutusCard/Haoyang';
 import HarrisonR from '../../components/AboutusCard/HarrisonR';
+import './Aboutus.css'
 
 const Aboutus = (props) => {
   return (
