@@ -1,1 +1,1 @@
-export { default } from "./RightSidebar.js"
+export { default } from './RightSidebar.js'

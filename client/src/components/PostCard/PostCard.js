@@ -13,6 +13,7 @@ import {
 } from "@mui/material"
 
 
+
 const PostCard = (props) => {
     const {user, createdAt, content, topics, comments, _id} = props.post;
 
@@ -45,7 +46,7 @@ const PostCard = (props) => {
                 })}
             </Box>
         </Box>
-    )
+  )
 }
 
-export default PostCard;
+export default PostCard
