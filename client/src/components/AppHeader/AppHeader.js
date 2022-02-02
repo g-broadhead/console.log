@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import {useState, useContext} from 'react';
-=======
 import { useState, useContext } from 'react';
->>>>>>> deb22d5b51971c6b5771cbe148207dfbfd2f884f
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
