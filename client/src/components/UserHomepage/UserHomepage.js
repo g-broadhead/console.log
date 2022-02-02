@@ -107,6 +107,7 @@ const UserHomepage = (props) => {
           </Grid>
           <Grid item xs={8} md={10} mt={1}>
             <TextField fullWidth
+                sx={{mt: "1em"}}
               id="outlined-textarea fullWidth"
               label="Send a Post"
               multiline
