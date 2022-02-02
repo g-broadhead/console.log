@@ -14,7 +14,10 @@
     "passport-local-mongoose": "^6.1.0",
     "react-scripts": "^5.0.0",
     "reactstrap": "^9.0.1",
-    "yocto-queue": "^1.0.0"
+    "yocto-queue": "^1.0.0",
+    "concurrently": "^7.0.0",
+    "if-env": "^1.0.4"
+
   },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -25,9 +28,7 @@
     "build": "cd client && npm run build"
   },
   "devDependencies": {
-    "concurrently": "^7.0.0",
-    "if-env": "^1.0.4",
-    "nodemon": "^2.0.15",
+        "nodemon": "^2.0.15",
     "web-vitals": "^2.1.4"
   }
 }
