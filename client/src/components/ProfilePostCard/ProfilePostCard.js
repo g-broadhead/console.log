@@ -11,6 +11,8 @@ import {
     Button,
     Chip,
 } from "@mui/material"
+import axios from "axios";
+
 
 
 
@@ -24,7 +26,17 @@ const PostCard = (props) => {
         padding: "1em",
         marginBottom: "2em"
     }
-
+    const handlePostDelete = (event) => {
+        console.log("hi")
+        axios.delete(`/api/posts/${_id}`, {
+            headers: {
+                Authorization: `Bearer ${ localStorage.getItem('jwt')}`
+    }
+}).then(res => {
+    console.log(res)
+    window.location.reload()
+})
+}
     return (
         <Box sx={postStyle}>
             
@@ -45,6 +57,10 @@ const PostCard = (props) => {
                     return (<Chip key={index} label={topic} size="small" color="primary" onClick={() => window.location="/topic/" + topic} /> )
                 })}
             </Box>
+            <Button
+                variant="contained"
+                sx={{ margin: "1em" }}
+                onClick={handlePostDelete}>Delete</Button>
         </Box>
   )
 }

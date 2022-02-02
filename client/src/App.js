@@ -21,7 +21,7 @@ import UserContext from './utils/UserContext'
 import Aboutus from './pages/Aboutus'
 import Topic from './pages/Topic'
 
-function App () {
+function App() {
 
   const [userState, setUserState] = useState({
     loggedIn: false,

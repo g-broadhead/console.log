@@ -36,7 +36,7 @@ router.get('/post/:id', passport.authenticate('jwt'), async function (req, res) 
 });
 
 // Get Posts by User ID
-router.get('/post/:id', passport.authenticate('jwt'), async function (req, res) {
+router.get('/post/user/:id', passport.authenticate('jwt'), async function (req, res) {
     try {
         const post = await Post.find({ user: req.user._id }).populate('user')
             .populate('user')
@@ -85,9 +85,9 @@ router.post('/post/comment', passport.authenticate('jwt'), (req, res) => {
 })
 
 // DELETE one post
-//user must be logged in
-router.delete('/posts/:id', passport.authenticate('jwt'), async function ({ params: { id } }, res) {
-    await Post.destroy({ where: { id } })
+// user must be logged in
+router.delete('/posts/:id', passport.authenticate('jwt'), async function (req, res) {
+    await Post.findByIdAndDelete(req.params.id)
     res.sendStatus(200)
 })
 

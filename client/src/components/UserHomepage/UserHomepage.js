@@ -15,6 +15,8 @@ import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import { withTheme } from "@emotion/react";
 import { useLocation } from 'react-router-dom'
+import ReportIcon from '@mui/icons-material/Report';
+import Report from "@mui/icons-material/Report";
 import UserContext from "../../utils/UserContext";
 import PostCard from "../PostCard";
 import { Checkbox, FormControlLabel } from "@mui/material";

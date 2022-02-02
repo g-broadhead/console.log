@@ -1,1 +1,1 @@
-export { default } from "./AppFooter.js"
+export { default } from './AppFooter.js'
