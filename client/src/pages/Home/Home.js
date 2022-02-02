@@ -22,13 +22,8 @@ const Home = (props) => {
     display: 'inline-flex',
     width: '100%',
     height: '100%',
-    justifyContent: 'flex-end'
-  }
-
-  const sidebarStyle = {
-    // ml: 0,
-    margin: 'auto',
-    bgcolor: 'primary.main'
+    justifyContent: 'flex-end',
+    mt:1
   }
 
   const rightbarStyle = {
@@ -48,10 +43,10 @@ const Home = (props) => {
         <Box>
             <AppHeader />
             <Grid container spacing={1} sx={mainBox}>
-                <Grid item xs={9}>
+                <Grid item xs={11} sm={8} md={9}>
                     <UserHomepage sx={homepageStyle} />
                 </Grid>
-                <Grid item xs={2}>
+                <Grid item md={2} sm={3} sx={{ display: { xs: 'none', sm: 'block' } }}>
                 <RightSidebar sx={rightbarStyle}/>
                 </Grid>
             </Grid>
