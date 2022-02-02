@@ -64,7 +64,7 @@ const AppHeader = (props) => {
             component='div'
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            console.log
+            <h3>Console.log</h3>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
