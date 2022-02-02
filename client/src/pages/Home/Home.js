@@ -22,13 +22,8 @@ const Home = (props) => {
     display: 'inline-flex',
     width: '100%',
     height: '100%',
-    justifyContent: 'space-between'
-  }
-
-  const sidebarStyle = {
-    // ml: 0,
-    margin: 'auto',
-    bgcolor: 'primary.main'
+    justifyContent: 'flex-end',
+    mt:1
   }
 
   const rightbarStyle = {
@@ -38,26 +33,24 @@ const Home = (props) => {
   }
   const homepageStyle = {
     width: '100%',
-    margin: 'auto',
-    mt: 4
+    // margin: 'auto',
+    // mt: 4
+    ml: 6
 
   }
 
     return (
         <Box>
+            <AppHeader />
             <Grid container spacing={1} sx={mainBox}>
-                <AppHeader />
-                <Grid item xs={2}>
-                    <MainSidebar sx={sidebarStyle}/>
-                </Grid>
-                <Grid item xs={8}>
+                <Grid item xs={11} sm={8} md={9}>
                     <UserHomepage sx={homepageStyle} />
                 </Grid>
-                <Grid item xs={2}>
+                <Grid item md={2} sm={3} sx={{ display: { xs: 'none', sm: 'block' } }}>
                 <RightSidebar sx={rightbarStyle}/>
                 </Grid>
-                <AppFooter />
             </Grid>
+            <AppFooter />
         </Box>
     );
 }

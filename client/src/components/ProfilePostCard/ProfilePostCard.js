@@ -12,11 +12,14 @@ import {
     Chip,
 } from "@mui/material"
 import axios from "axios";
+import {useContext} from 'react';
+import UserContext from "../../utils/UserContext";
 
 
 
 
 const PostCard = (props) => {
+    const userContext = useContext(UserContext);
     const {user, createdAt, content, topics, comments, _id} = props.post;
 
     const postStyle = {
@@ -57,10 +60,14 @@ const PostCard = (props) => {
                     return (<Chip key={index} label={topic} size="small" color="primary" onClick={() => window.location="/topic/" + topic} /> )
                 })}
             </Box>
+            {/*This conditional is to make sure the delete button only shows
+            for the currently logged in user's posts */}
+            {user._id == userContext.userData._id && 
             <Button
                 variant="contained"
                 sx={{ margin: "1em" }}
                 onClick={handlePostDelete}>Delete</Button>
+            }
         </Box>
   )
 }

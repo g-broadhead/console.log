@@ -15,6 +15,8 @@ import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import { withTheme } from "@emotion/react";
 import { useLocation } from 'react-router-dom'
+import ReportIcon from '@mui/icons-material/Report';
+import Report from "@mui/icons-material/Report";
 import UserContext from "../../utils/UserContext";
 import PostCard from "../PostCard";
 import { Checkbox, FormControlLabel } from "@mui/material";
@@ -32,8 +34,8 @@ const UserHomepage = (props) => {
     const innerBox = {
         // ml: 6,
         height: "80vh",
-        mr: 6,
-        mt: 6,
+        // mr: 6,
+        // mt: 6,
         bgcolor: "white"
     }
     const buttonStyle = {
@@ -99,10 +101,10 @@ const UserHomepage = (props) => {
         <Box sx={outerBox}>
             <Stack sx={innerBox}>
                 <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mb:"2em" }}>
-                    <Grid item xs={1} sx={{ justifyContent: "flex-end", display: "flex" }}>
+                    <Grid item xs={3} md={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
                         <Avatar sx={{ width: 56, height: 56 }} src={userContext.userData.avatar}>{userContext.userData.name[0]}</Avatar>
                     </Grid>
-                    <Grid item xs={11}>
+                    <Grid item xs={8} md={10}>
                         <TextField fullWidth
                             id="outlined-textarea fullWidth"
                             label="Send a Post"

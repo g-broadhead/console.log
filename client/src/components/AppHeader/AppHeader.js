@@ -46,7 +46,7 @@ const AppHeader = (props) => {
 
   const handleProfileClick = (event) => {
     event.preventDefault();
-    navigate('/profile');
+    navigate('/profile/' + userContext.userData._id);
   }
 
 
@@ -97,14 +97,17 @@ const AppHeader = (props) => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {/* Mobile View */}
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key="mob-home" onClick={handleHomeClick}>
+                  <Typography textAlign="center">Home</Typography>
                   <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                   </Box>
                 </MenuItem>
-              ))}
+                <MenuItem key="mob-profile" onClick={handleProfileClick}>
+                  <Typography textAlign="center">Profile</Typography>
+                  <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                  </Box>
+                </MenuItem>
+
             </Menu>
           </Box>
           <Typography
