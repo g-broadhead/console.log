@@ -78,7 +78,7 @@ const Profile = (props) => {
           twitter: ''
         });
         profileHandleClose();
-        window.location = '/profile';
+        window.location = `/profile/${params.id}`;
       }).catch(err => {
         alert("Failed to update.");
       })
@@ -145,7 +145,7 @@ const Profile = (props) => {
       }).then(() => {
         setPostState({ ...postState, avatar: '' });
         handleClose();
-        window.location = '/profile';
+        window.location = `/profile/${params.id}`;
       }).catch(err => {
         alert('Failed to upload avatar.');
       })
