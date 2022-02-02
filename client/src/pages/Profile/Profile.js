@@ -2,6 +2,7 @@ import AppHeader from '../../components/AppHeader';
 import AppFooter from '../../components/AppFooter';
 import UserAPI from '../../utils/UserAPI';
 import PostCard from '../../components/PostCard';
+import './Profile.css'
 import * as React from 'react';
 import axios from 'axios';
 import { useEffect, useState } from 'react'
@@ -15,6 +16,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
+import { sizing } from '@mui/system';
 
 
 
@@ -163,6 +165,8 @@ const Profile = (props) => {
         gridTemplateColumns='repeat(12, 1fr)'
         gap={3}
         sx={{ mt: '15px' }}
+        component='div'
+      // sx={{ overflow:'auto' }}
       >
         <Box
           gridColumn='span 5'
@@ -179,7 +183,7 @@ const Profile = (props) => {
               <Avatar
                 alt='Avatar'
                 src={profileState.userData.avatar}
-                sx={{ width: 175, height: 175, border: '2px solid #000', cursor: 'pointer' }}
+                sx={{ width: 115, height: 115, border: '2px solid #000', cursor: 'pointer' }}
                 onClick={handleOpen}
               >
                 {profileState.userData.name[0]}
@@ -191,17 +195,18 @@ const Profile = (props) => {
             <h3>Position Title: {profileState.userData.positionTitle}</h3>
           </Item>
         </Box>
+        {/* Personal Information */}
         <Box
           gridColumn='span 5'
           gap={10}
         >
           <Item>
-            <h1>Personal Information</h1>
-            <h3>Email: {profileState.userData.email}</h3>
-            <h3>Github: {profileState.userData.github}</h3>
-            <h3>LinkedIn: {profileState.userData.linkedIn}</h3>
-            <h3>Instagram: {profileState.userData.instagram}</h3>
-            <h3>Twitter: {profileState.userData.twitter}</h3>
+            <h2>Personal Information</h2>
+            <h4>Email: {profileState.userData.email}</h4>
+            <h4>Github: {profileState.userData.github}</h4>
+            <h4>LinkedIn: {profileState.userData.linkedIn}</h4>
+            <h4>Instagram: {profileState.userData.instagram}</h4>
+            <h4>Twitter: {profileState.userData.twitter}</h4>
             <>
               <Button
                 onClick={profileHandleOpen}
@@ -214,9 +219,16 @@ const Profile = (props) => {
         </Box>
       </Box>
       {/* Container for User Posts */}
-      <Container sx={{ mt: '15px' }}>
+      <Container
+        component='div'
+        sx={{ mt: '45px' }}
+      >
         <h1>User Posts</h1>
-        <Box gridColumn='span 6'>
+        <Box
+          component='div'
+          gridColumn='span 6'
+          sx={{ overflow: 'scroll', minHeight: '80vh', height: '100px' }}
+        >
           {topicState.posts.map((post, index) => {
             return <PostCard key={index} post={post} />
           })}
@@ -229,8 +241,11 @@ const Profile = (props) => {
         onClose={handleClose}
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
+        className='myModal'
       >
-        <Box sx={style}>
+        <Box sx={style}
+          className='myModal'
+          justifyContent="center">
           <Typography
             id='modal-modal-title'
             variant='h6'
