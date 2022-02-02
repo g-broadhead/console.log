@@ -88,14 +88,14 @@ const Profile = (props) => {
   useEffect(() => {
     UserAPI.getUser()
       .then(user => {
-        console.log(user)
+        // console.log(user)
         setProfileState({ ...profileState, userData: user })
         axios.get(`/api/post/user/${user._id}`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('jwt')}`
           }
         }).then(({ data }) => {
-          console.log(data);
+          // console.log(data);
           setTopicState({ ...topicState, posts: data, loading: false });
         })
           .catch(err => {
@@ -130,7 +130,7 @@ const Profile = (props) => {
   const [postState, setPostState] = useState({ avatar: '' });
   const handlePostSubmit = (event) => {
     event.preventDefault()
-    console.log(postState.avatar)
+    // console.log(postState.avatar)
     axios.put('/api/user',
       {
         avatar: postState.avatar
@@ -239,10 +239,10 @@ const Profile = (props) => {
         onClose={handleClose}
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
-        className='myModal'
+        // className='myModal'
       >
         <Box sx={style}
-          className='myModal'
+          // className='myModal'
           justifyContent="center">
           <Typography
             id='modal-modal-title'
