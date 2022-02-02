@@ -1,21 +1,18 @@
-import AppHeader from "../../components/AppHeader";
-import AppFooter from "../../components/AppFooter";
-import Container from "@mui/material/Container";
-import MainSidebar from "../../components/MainSidebar";
-import RightSidebar from "../../components/RightSidebar"
-import UserHomepage from "../../components/UserHomepage";
-import Box from '@mui/material/Box';
-import { spacing } from '@mui/system';
-import { flexbox } from '@mui/system';
-import Grid from '@mui/material/Grid';
-import { palette } from '@mui/system';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import AppHeader from '../../components/AppHeader'
+import AppFooter from '../../components/AppFooter'
+import Container from '@mui/material/Container'
+import MainSidebar from '../../components/MainSidebar'
+import RightSidebar from '../../components/RightSidebar'
+import UserHomepage from '../../components/UserHomepage'
+import Box from '@mui/material/Box'
+import { spacing, flexbox, palette } from '@mui/system'
+import Grid from '@mui/material/Grid'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 // Axios
-import {useEffect, useState} from 'react';
-import {useNavigate, useLocation} from 'react-router-dom'
-import axios from "axios";
-
+import { useEffect, useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import axios from 'axios'
 
 const Home = (props) => {
   const mainBox = {
