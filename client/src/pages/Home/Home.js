@@ -18,30 +18,30 @@ import axios from "axios";
 
 
 const Home = (props) => {
-    const mainBox = {
-        display: "inline-flex",
-        width: "100%",
-        height: "100%",
-        justifyContent: 'space-between',
-    };
+  const mainBox = {
+    display: 'inline-flex',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'space-between'
+  }
 
-    const sidebarStyle= {
-        // ml: 0,
-        margin: "auto",
-        bgcolor: "primary.main",
-    };
+  const sidebarStyle = {
+    // ml: 0,
+    margin: 'auto',
+    bgcolor: 'primary.main'
+  }
 
-    const rightbarStyle = {
-        // mr: 0,
-        margin: "auto",
-        bgcolor: "primary.main",
-    };
-    const homepageStyle = {
-        width: "100%",
-        margin: "auto",
-        mt: 4,
+  const rightbarStyle = {
+    // mr: 0,
+    margin: 'auto',
+    bgcolor: 'primary.main'
+  }
+  const homepageStyle = {
+    width: '100%',
+    margin: 'auto',
+    mt: 4
 
-    }
+  }
 
     return (
         <Box>
@@ -62,4 +62,4 @@ const Home = (props) => {
     );
 }
 
-export default Home;
+export default Home

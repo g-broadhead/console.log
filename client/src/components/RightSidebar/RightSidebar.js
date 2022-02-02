@@ -1,24 +1,21 @@
-import Stack from '@mui/material/Stack';
-import { bgcolor, display, flexbox } from '@mui/system';
-import Box from "@mui/material/Box"
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import { palette } from '@mui/system';
-import Divider from '@mui/material/Divider';
-import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-
-
+import Stack from '@mui/material/Stack'
+import { bgcolor, display, flexbox, palette } from '@mui/system'
+import Box from '@mui/material/Box'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ListItemText from '@mui/material/ListItemText'
+import Divider from '@mui/material/Divider'
+import Link from '@mui/material/Link'
+import Typography from '@mui/material/Typography'
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
 
 // Icons
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import ChatIcon from '@mui/icons-material/Chat';
-import SearchIcon from '@mui/icons-material/Search';
+import AccountBoxIcon from '@mui/icons-material/AccountBox'
+import ChatIcon from '@mui/icons-material/Chat'
+import SearchIcon from '@mui/icons-material/Search'
 
 const RightSidebar = (props) => {
     const rightbarStyle = {
@@ -31,15 +28,15 @@ const RightSidebar = (props) => {
         display: "flex"
     }
 
-    const listStyle = {
-        width: "100%"
-    }
+  const listStyle = {
+    width: '100%'
+  }
 
-    const buttonStyle = {
-        display: "flex",
-        justifyContent: "center",
-        mt: 1,
-    }
+  const buttonStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    mt: 1
+  }
 
     const searchStyle = {
         display: "block",

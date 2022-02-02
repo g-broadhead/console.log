@@ -20,8 +20,8 @@ import MailIcon from '@mui/icons-material/Mail';
 
 
 // Icons
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import ChatIcon from '@mui/icons-material/Chat';
+import AccountBoxIcon from '@mui/icons-material/AccountBox'
+import ChatIcon from '@mui/icons-material/Chat'
 
 
 const MainSidebar = (props) => {
