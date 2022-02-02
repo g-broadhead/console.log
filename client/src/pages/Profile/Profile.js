@@ -5,7 +5,7 @@ import ProfilePostCard from '../../components/ProfilePostCard';
 import './Profile.css'
 import * as React from 'react';
 import axios from 'axios';
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -18,6 +18,7 @@ import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import { sizing } from '@mui/system';
 import { useParams } from 'react-router-dom';
+import UserContext from '../../utils/UserContext'
 
 const Profile = (props) => {
   const params = useParams();
@@ -94,8 +95,8 @@ const Profile = (props) => {
         'Authorization': `Bearer ${localStorage.getItem('jwt')}`
       }
     })
-    .then(res => {
-        setProfileState({ ...profileState, userData: {...profileState.userData, ...res.data} })
+      .then(res => {
+        setProfileState({ ...profileState, userData: { ...profileState.userData, ...res.data } })
         axios.get(`/api/post/user/${params.id}`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('jwt')}`
@@ -129,7 +130,11 @@ const Profile = (props) => {
 
   // Avatar Upload Function
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    if (params.id == userContext.userData._id) {
+      setOpen(true)
+    }
+  };
   const handleClose = () => setOpen(false);
 
   const [postState, setPostState] = useState({ avatar: '' });
@@ -159,6 +164,8 @@ const Profile = (props) => {
     error: '',
     posts: []
   })
+
+  const userContext = useContext(UserContext);
 
   return (
     <>
@@ -211,12 +218,14 @@ const Profile = (props) => {
             <h4>Instagram: {profileState.userData.instagram}</h4>
             <h4>Twitter: {profileState.userData.twitter}</h4>
             <>
-              <Button
-                onClick={profileHandleOpen}
-                sx={{ width: '100%' }}
-              >
-                Edit Profile
-              </Button>
+              {params.id == userContext.userData._id &&
+                <Button
+                  onClick={profileHandleOpen}
+                  sx={{ width: '100%' }}
+                >
+                  Edit Profile
+                </Button>
+              }
             </>
           </Item>
         </Box>
@@ -244,7 +253,7 @@ const Profile = (props) => {
         onClose={handleClose}
         aria-labelledby='modal-modal-title'
         aria-describedby='modal-modal-description'
-        // className='myModal'
+      // className='myModal'
       >
         <Box sx={style}
           // className='myModal'
