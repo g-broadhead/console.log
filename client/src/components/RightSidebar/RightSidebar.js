@@ -23,7 +23,7 @@ import SearchIcon from '@mui/icons-material/Search';
 const RightSidebar = (props) => {
     const rightbarStyle = {
         flexDirection: "column",
-        height: "100%",
+        height: "80vh",
         alignItems: "center",
         marginTop: "1em",
         boxShadow: "3",
@@ -50,37 +50,37 @@ const RightSidebar = (props) => {
             <div sx={listStyle}>
                 <List>
                     <ListItem>
-                        <ListItemIcon><ChatIcon /></ListItemIcon>
                         <ListItemText>Topics</ListItemText>
                     </ListItem>
                     <Divider/>
                     <Box>
                     <ListItem>
                         <ListItemIcon><ChatIcon /></ListItemIcon>
-                        <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>APIs</Link></ListItemText>
+                        <ListItemText><Link href="/topic/APIs" underline="none" sx={{ color: 'black' }}>APIs</Link></ListItemText>
                     </ListItem>
                     <Divider/>
                     <ListItem>
                         <ListItemIcon><ChatIcon /></ListItemIcon>
-                        <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>React</Link></ListItemText>
+                        <ListItemText><Link href="/topic/React" underline="none" sx={{ color: 'black' }}>React</Link></ListItemText>
                     </ListItem>
                     <Divider/>
                     <ListItem>
                         <ListItemIcon><ChatIcon /></ListItemIcon>
-                        <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>Javascript</Link></ListItemText>
+                        <ListItemText><Link href="/topic/Javascript" underline="none" sx={{ color: 'black' }}>Javascript</Link></ListItemText>
                     </ListItem>
                     <Divider/>
                     <ListItem>
                         <ListItemIcon><ChatIcon /></ListItemIcon>
-                        <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>MongoDB</Link></ListItemText>
+                        <ListItemText><Link href="/topic/MongoDB" underline="none" sx={{ color: 'black' }}>MongoDB</Link></ListItemText>
                     </ListItem>
                     </Box>
+                    {/*
                     <Box sx={searchStyle}>
                         <TextField id="filled-basic" label="Search" variant="filled" />
                         <Box sx={buttonStyle}>
                             <Button variant="contained"><SearchIcon />Search</Button>
                         </Box>
-                    </Box>
+                    </Box>*/}
                 </List>
             </div>
         </Box>

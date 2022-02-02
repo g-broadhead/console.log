@@ -11,6 +11,11 @@ import { shadows } from '@mui/system';
 import Divider from '@mui/material/Divider';
 import Link from '@mui/material/Link';
 
+import Drawer from '@mui/material/Drawer';
+import Toolbar from '@mui/material/Toolbar';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
+
 
 
 
@@ -18,11 +23,12 @@ import Link from '@mui/material/Link';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import ChatIcon from '@mui/icons-material/Chat';
 
+
 const MainSidebar = (props) => {
     const sidebarStyle = {
         display: "flex",
         flexDirection: "column",
-        height: "100%",
+        height: "80vh",
         bgcolor: "primary.main",
         alignItems: "center",
         marginTop: "1em",
@@ -37,22 +43,22 @@ const MainSidebar = (props) => {
                         <ListItemIcon><AccountBoxIcon /></ListItemIcon>
                         <ListItemText><Link href="/profile" underline="none" sx={{ color: 'black' }}>Profile</Link></ListItemText>
                     </ListItem>
-                    <Divider/>
+                    <Divider />
                     <ListItem>
                         <ListItemIcon><ChatIcon /></ListItemIcon>
                         <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>topics</Link></ListItemText>
                     </ListItem>
-                    <Divider/>
+                    <Divider />
                     <ListItem>
                         <ListItemIcon><ChatIcon /></ListItemIcon>
                         <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>topics</Link></ListItemText>
                     </ListItem>
-                    <Divider/>
+                    <Divider />
                     <ListItem>
                         <ListItemIcon><ChatIcon /></ListItemIcon>
                         <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>topics</Link></ListItemText>
                     </ListItem>
-                    <Divider/>
+                    <Divider />
                     <ListItem>
                         <ListItemIcon><ChatIcon /></ListItemIcon>
                         <ListItemText><Link href="/topics" underline="none" sx={{ color: 'black' }}>topics</Link></ListItemText>
