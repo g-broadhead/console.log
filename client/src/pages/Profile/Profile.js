@@ -95,14 +95,12 @@ const Profile = (props) => {
       }
     })
     .then(res => {
-        console.log(res.data)
         setProfileState({ ...profileState, userData: {...profileState.userData, ...res.data} })
         axios.get(`/api/post/user/${params.id}`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('jwt')}`
           }
         }).then(({ data }) => {
-          console.log(data);
           setTopicState({ ...topicState, posts: data, loading: false });
         })
           .catch(err => {
@@ -111,7 +109,7 @@ const Profile = (props) => {
           })
       })
       .catch(err => {
-        //window.location = '/login'
+        window.location = '/login'
         console.log(err)
       })
   }, [])
