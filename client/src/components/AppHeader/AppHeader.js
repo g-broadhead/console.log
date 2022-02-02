@@ -97,9 +97,12 @@ const AppHeader = (props) => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
+              {/* Mobile View */}
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
+                  <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                  </Box>
                 </MenuItem>
               ))}
             </Menu>
@@ -110,7 +113,7 @@ const AppHeader = (props) => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            LOGO
+            console.log
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Button
