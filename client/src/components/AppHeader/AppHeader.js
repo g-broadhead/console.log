@@ -46,7 +46,7 @@ const AppHeader = (props) => {
 
   const handleProfileClick = (event) => {
     event.preventDefault();
-    navigate('/profile/' + userContext.userData._id);
+    window.location = '/profile/' + userContext.userData._id;
   }
 
 

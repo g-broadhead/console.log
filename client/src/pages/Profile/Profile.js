@@ -17,8 +17,11 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import { sizing } from '@mui/system';
+import { useParams } from 'react-router-dom';
 
 const Profile = (props) => {
+  const params = useParams();
+
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
@@ -51,7 +54,7 @@ const Profile = (props) => {
 
   const handleProfileSubmit = (event) => {
     event.preventDefault();
-    axios.put('/api/user',
+    axios.put('/api/user/',
       {
         workname: profileState.workname,
         positionTitle: profileState.positionTitle,
@@ -86,16 +89,18 @@ const Profile = (props) => {
   }
 
   useEffect(() => {
-    UserAPI.getUser()
-      .then(user => {
-        console.log(user)
-        setProfileState({ ...profileState, userData: user })
-        axios.get(`/api/post/user/${user._id}`, {
+    axios.get(`/api/user/${params.id}`, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+      }
+    })
+    .then(res => {
+        setProfileState({ ...profileState, userData: {...profileState.userData, ...res.data} })
+        axios.get(`/api/post/user/${params.id}`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('jwt')}`
           }
         }).then(({ data }) => {
-          console.log(data);
           setTopicState({ ...topicState, posts: data, loading: false });
         })
           .catch(err => {
@@ -131,7 +136,7 @@ const Profile = (props) => {
   const handlePostSubmit = (event) => {
     event.preventDefault()
     console.log(postState.avatar)
-    axios.put('/api/user',
+    axios.put(`/api/user`,
       {
         avatar: postState.avatar
       },

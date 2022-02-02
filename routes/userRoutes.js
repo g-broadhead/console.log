@@ -28,6 +28,19 @@ router.get('/user', passport.authenticate('jwt'), (req, res) => {
   res.json(req.user)
 })
 
+router.get('/user/:id', passport.authenticate('jwt'), (req, res) => {
+  User.findById(req.params.id)
+  .then(user => {
+    res.json(user)
+  }).catch(err => {
+    console.log(`!! Error fetching user with id ${req.param.id}`)
+    console.log(err);
+    res.status(500).json({error: "Failed to fetch user with this id"});
+  })
+})
+
+
+
 router.put('/user', passport.authenticate('jwt'), (req, res) => {
   User.findByIdAndUpdate(req.user._id, { ...req.body }, { new: true })
     .then(update => {
