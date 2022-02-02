@@ -35,30 +35,30 @@ function Copyright(props) {
 
 const theme = createTheme()
 
-export default function SignInSide() {
-    const navigate = useNavigate()
-    const userContext = useContext(UserContext);
+export default function SignInSide () {
+  const navigate = useNavigate()
+  const userContext = useContext(UserContext)
 
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        const formData = new FormData(event.currentTarget)
-        const userData = {
-            username: formData.get('username'),
-            password: formData.get('password')
-        }
-        /*
-        console.log({
-          username: data.get('username'),
-          password: data.get('password'),
-        }); */
-        axios.post('/api/user/login', userData).then(res => {
-            localStorage.setItem('jwt', res.data)
-            userContext.setLoggedIn(true)
-            window.location = '/';
-        }).catch(err => {
-            alert("Invalid username or password");
-        })
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    const userData = {
+      username: formData.get('username'),
+      password: formData.get('password')
     }
+    /*
+            console.log({
+              username: data.get('username'),
+              password: data.get('password'),
+            }); */
+    axios.post('/api/user/login', userData).then(res => {
+      localStorage.setItem('jwt', res.data)
+      userContext.setLoggedIn(true)
+      window.location = '/'
+    }).catch(err => {
+      alert('Invalid username or password')
+    })
+  }
 
     return (
         <ThemeProvider theme={theme}>
@@ -139,7 +139,12 @@ export default function SignInSide() {
                         </Box>
                     </Box>
                 </Grid>
-            </Grid>
-        </ThemeProvider>
-    )
+              </Grid>
+              <Copyright sx={{ mt: 5 }} />
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
+    </ThemeProvider>
+  )
 }

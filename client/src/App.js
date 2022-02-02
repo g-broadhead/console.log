@@ -21,8 +21,7 @@ import UserContext from './utils/UserContext'
 import Aboutus from './pages/Aboutus'
 import Topic from './pages/Topic'
 
-function App() {
-
+function App () {
   const [userState, setUserState] = useState({
     loggedIn: false,
     userData: {},
@@ -35,30 +34,30 @@ function App() {
 
   useEffect(() => {
     UserAPI.getUser().then(user => {
-      setUserState({ loggedIn: true, userData: user, loading: false });
+      setUserState({ loggedIn: true, userData: user, loading: false })
     }).catch(err => {
-      setUserState({ ...userState, loading: false });
-    });
+      setUserState({ ...userState, loading: false })
+    })
   }, [])
 
   return (
     <>
       <UserContext.Provider value={{ ...userState, setLoggedIn: setLoggedIn }}>
-      {userState.loading ? <></> : 
-        <Router>
+        {userState.loading
+? <></> 
+        : <Router>
           <Routes>
             <Route exact path='/' element={userState.loggedIn ? <Home /> : <Landing />} />
-            <Route exact path="/logout" element={<Logout />} />
+            <Route exact path='/logout' element={<Logout />} />
             <Route exact path='/profile' element={<Profile />} />
             <Route exact path='/post/:id' element={<Post />} />
-            <Route exact path='/login' element={userState.loggedIn ? <Navigate to="/" /> : <Login /> } />
+            <Route exact path='/login' element={userState.loggedIn ? <Navigate to='/' /> : <Login />} />
             <Route exact path='/register' element={<Register />} />
             <Route exact path='/admin' element={<Admin />} />
             <Route exact path='/about' element={<Aboutus />} />
-            <Route exact path="/topic/:topic" element={<Topic />} />
+            <Route exact path='/topic/:topic' element={<Topic />} />
           </Routes>
-        </Router>
-      }
+        </Router>}
       </UserContext.Provider>
     </>
   )

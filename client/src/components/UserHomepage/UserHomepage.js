@@ -22,8 +22,42 @@ import PostCard from "../PostCard";
 import { Checkbox, FormControlLabel } from "@mui/material";
 
 const UserHomepage = (props) => {
-    const outerBox = {
-        overflow: 'auto'
+  const outerBox = {
+    overflow: 'auto'
+  }
+
+  const userContext = useContext(UserContext)
+
+  const navigate = useNavigate()
+  const [postState, setPostState] = useState({ content: '', topics: [] })
+  const [pagePosts, setPagePosts] = useState([])
+  const innerBox = {
+    // ml: 6,
+    height: '80vh',
+    mr: 6,
+    mt: 6,
+    bgcolor: 'white'
+  }
+  const buttonStyle = {
+    mt: 1
+  }
+
+  useEffect(() => {
+    // console.log(pagePosts)
+    axios.get('/api/post', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`
+      }
+    }).then(({ data }) => {
+      setPagePosts(data)
+    })
+  }, [])
+
+  const handlePostSubmit = (event) => {
+    event.preventDefault()
+    if (postState.topics.length == 0) {
+      alert('Must select atleast 1 topic before posting.')
+      return
     }
 
     const userContext = useContext(UserContext);
@@ -42,46 +76,32 @@ const UserHomepage = (props) => {
         mt: 1,
     }
 
-    useEffect(() => {
-        //console.log(pagePosts)
-        axios.get('/api/post', {
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('jwt')}`
-            }}).then(({data}) => {
-                setPagePosts(data);
-            })
-    }, [])
+    // console.log(postState.content);
+    axios.post('/api/post',
+      {
+        content: postState.content,
+        topics: postState.topics
+      },
+      {
+        headers: { Authorization: `Bearer ${localStorage.getItem('jwt')}` }
+      }).then((res) => {
+      setPostState({ ...postState, content: '' })
+      window.location = '/'
+    }).catch(err => {
+      console.log(err)
+      alert('Failed to make post.')
+    })
+  }
 
+  const handlePostChange = ({ target: { name, value } }) => setPostState({ ...postState, content: value })
 
-
-
-    const handlePostSubmit = (event) => {
-        event.preventDefault();
-        if(postState.topics.length == 0) {
-            alert("Must select atleast 1 topic before posting.");
-            return;
-        }
-
-        if(postState.content.length == 0) {
-            alert("Post must include some text.");
-            return;
-        }
-
-        //console.log(postState.content);
-        axios.post('/api/post',
-            {
-                content: postState.content,
-                topics: postState.topics
-            },
-            {
-                headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` }
-            }).then((res) => {
-                setPostState({ ...postState, content: '' });
-                window.location = '/';
-            }).catch(err => {
-                console.log(err)
-                alert("Failed to make post.");
-            })
+  const handleTopicChange = ({ target: { name, value } }) => {
+    const topicsCopy = JSON.parse(JSON.stringify(postState.topics))
+    const item = topicsCopy.find((item) => item === name)
+    if (item) {
+      topicsCopy.splice(topicsCopy.indexOf(name), 1)
+    } else {
+      topicsCopy.push(name)
     }
 
     const handlePostChange = ({ target: { name, value } }) => setPostState({...postState, content: value })
@@ -147,13 +167,13 @@ const UserHomepage = (props) => {
                                     defaultValue={elem}
                                 />
                             </Grid>
-                        </Grid>*/
-                    )
-                }).reverse()}
+                        </Grid> */
+          )
+        }).reverse()}
 
-            </Stack>
-        </Box>
-    )
+      </Stack>
+    </Box>
+  )
 }
 
 export default UserHomepage
