@@ -1,7 +1,7 @@
 import AppHeader from '../../components/AppHeader';
 import AppFooter from '../../components/AppFooter';
 import UserAPI from '../../utils/UserAPI';
-import PostCard from '../../components/PostCard';
+import ProfilePostCard from '../../components/ProfilePostCard';
 import './Profile.css'
 import * as React from 'react';
 import axios from 'axios';
@@ -17,8 +17,6 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import { sizing } from '@mui/system';
-
-
 
 const Profile = (props) => {
   const Item = styled(Paper)(({ theme }) => ({
@@ -230,7 +228,7 @@ const Profile = (props) => {
           sx={{ overflow: 'scroll', minHeight: '80vh', height: '100px' }}
         >
           {topicState.posts.map((post, index) => {
-            return <PostCard key={index} post={post} />
+            return <ProfilePostCard key={index} post={post} />
           })}
         </Box>
       </Container>

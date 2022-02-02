@@ -72,20 +72,7 @@ const Post = (props) => {
         })
 
     }
-    const handlePostDelete = (event) => {
-            console.log("hi")
-        event.preventDefault();
-        axios.delete(`/api/posts/${postId}`, {
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('jwt')}`
-            }
-        })
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-                window.location = "/"
-    })
-}
+  
 
 
 
@@ -147,10 +134,7 @@ const Post = (props) => {
                         variant="contained"
                         sx={{ margin: "1em" }}
                         onClick={handleCommentSubmit}>Reply</Button>
-                    <Button
-                        variant="contained"
-                        sx={{ margin: "1em" }}
-                        onClick={handlePostDelete}>Delete</Button>
+              
 
                 </Box>
                 <h2>Comments</h2>
