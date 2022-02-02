@@ -13,18 +13,18 @@ import { ClassNames, ThemeContext } from "@emotion/react";
 import { createTheme } from '@mui/material/styles';
 
 const Home = (props) => {
-    const mainBox = {
-        display: "inline-flex",
-        width: "100%",
-        height: "100%",
-        justifyContent: 'space-between',
-    };
+  const mainBox = {
+    display: 'inline-flex',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'space-between'
+  }
 
-    const sidebarStyle= {
-        // ml: 0,
-        margin: "auto",
-        bgcolor: "primary.main",
-    };
+  const sidebarStyle = {
+    // ml: 0,
+    margin: 'auto',
+    bgcolor: 'primary.main'
+  }
 
     const rightbarStyle = {
         // mr: 0,
@@ -38,32 +38,32 @@ const Home = (props) => {
         margin: "auto",
         mt: 4,
 
-    }
+  }
 
-    // const backgroundStyle= {
-    //     bgcolor: "warning.main",
-    //     // display: "block",
-    //     width: "100%",
-    //     height: "100%",
-    //     // position: "absolute"
-    // }
-    return (
-        <Box>
-            <Grid container spacing={1} sx={mainBox}>
-                <AppHeader />
-                <Grid item xs={2}>
-                    <MainSidebar sx={sidebarStyle}/>
-                </Grid>
-                <Grid item xs={8}>
-                    <UserHomepage sx={homepageStyle} />
-                </Grid>
-                <Grid item xs={2}>
-                <RightSidebar sx={rightbarStyle}/>
-                </Grid>
-                <AppFooter />
-            </Grid>
-        </Box>
-    );
+  // const backgroundStyle= {
+  //     bgcolor: "warning.main",
+  //     // display: "block",
+  //     width: "100%",
+  //     height: "100%",
+  //     // position: "absolute"
+  // }
+  return (
+    <Box>
+      <Grid container spacing={1} sx={mainBox}>
+        <AppHeader />
+        <Grid item xs={2}>
+          <MainSidebar sx={sidebarStyle} />
+        </Grid>
+        <Grid item xs={8}>
+          <UserHomepage sx={homepageStyle} />
+        </Grid>
+        <Grid item xs={2}>
+          <RightSidebar sx={rightbarStyle} />
+        </Grid>
+        <AppFooter />
+      </Grid>
+    </Box>
+  )
 }
 
-export default Home;
+export default Home

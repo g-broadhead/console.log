@@ -131,14 +131,14 @@ const Profile = (props) => {
 
   const [postState, setPostState] = useState({ avatar: '' });
   const handlePostSubmit = (event) => {
-    event.preventDefault();
-    console.log(postState.avatar);
+    event.preventDefault()
+    console.log(postState.avatar)
     axios.put('/api/user',
       {
         avatar: postState.avatar
       },
       {
-        headers: { 'Authorization': `Bearer ${localStorage.getItem('jwt')}` }
+        headers: { Authorization: `Bearer ${localStorage.getItem('jwt')}` }
       }).then(() => {
         setPostState({ ...postState, avatar: '' });
         handleClose();
@@ -378,7 +378,7 @@ const Profile = (props) => {
       </Modal>
       <AppFooter />
     </>
-  );
+  )
 }
 
-export default Profile;
+export default Profile
