@@ -43,10 +43,10 @@ const Home = (props) => {
         <Box>
             <AppHeader />
             <Grid container spacing={1} sx={mainBox}>
-                <Grid item xs={9}>
+                <Grid item xs={8} md={9}>
                     <UserHomepage sx={homepageStyle} />
                 </Grid>
-                <Grid item xs={2}>
+                <Grid item xs={3} md={2}>
                 <RightSidebar sx={rightbarStyle}/>
                 </Grid>
             </Grid>
