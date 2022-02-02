@@ -18,15 +18,15 @@ import ChatIcon from '@mui/icons-material/Chat'
 import SearchIcon from '@mui/icons-material/Search'
 
 const RightSidebar = (props) => {
-    const rightbarStyle = {
-        flexDirection: "column",
-        height: "80vh",
-        alignItems: "center",
-        marginTop: "1em",
-        boxShadow: "3",
-        bgcolor: "primary.main",
-        display: "flex"
-    }
+  const rightbarStyle = {
+    flexDirection: 'column',
+    height: '80vh',
+    alignItems: 'center',
+    marginTop: '1em',
+    boxShadow: '3',
+    bgcolor: 'primary.main',
+    display: 'flex'
+  }
 
   const listStyle = {
     width: '100%'
@@ -38,50 +38,50 @@ const RightSidebar = (props) => {
     mt: 1
   }
 
-    const searchStyle = {
-        display: "block",
-        justifyContent: "center"
-    }
-    return (
-        <Box sx={rightbarStyle}>
-            <div sx={listStyle}>
-                <List>
-                    <ListItem>
-                        <ListItemText>Topics</ListItemText>
-                    </ListItem>
-                    <Divider/>
-                    <Box>
-                    <ListItem>
-                        <ListItemIcon><ChatIcon /></ListItemIcon>
-                        <ListItemText><Link href="/topic/APIs" underline="none" sx={{ color: 'black' }}>APIs</Link></ListItemText>
-                    </ListItem>
-                    <Divider/>
-                    <ListItem>
-                        <ListItemIcon><ChatIcon /></ListItemIcon>
-                        <ListItemText><Link href="/topic/React" underline="none" sx={{ color: 'black' }}>React</Link></ListItemText>
-                    </ListItem>
-                    <Divider/>
-                    <ListItem>
-                        <ListItemIcon><ChatIcon /></ListItemIcon>
-                        <ListItemText><Link href="/topic/Javascript" underline="none" sx={{ color: 'black' }}>Javascript</Link></ListItemText>
-                    </ListItem>
-                    <Divider/>
-                    <ListItem>
-                        <ListItemIcon><ChatIcon /></ListItemIcon>
-                        <ListItemText><Link href="/topic/MongoDB" underline="none" sx={{ color: 'black' }}>MongoDB</Link></ListItemText>
-                    </ListItem>
-                    </Box>
-                    {/*
+  const searchStyle = {
+    display: 'block',
+    justifyContent: 'center'
+  }
+  return (
+    <Box sx={rightbarStyle}>
+      <div sx={listStyle}>
+        <List>
+          <ListItem>
+            <ListItemText>Topics</ListItemText>
+          </ListItem>
+          <Divider />
+          <Box>
+            <ListItem>
+              <ListItemIcon><ChatIcon /></ListItemIcon>
+              <ListItemText><Link href='/topic/APIs' underline='none' sx={{ color: 'black' }}>APIs</Link></ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemIcon><ChatIcon /></ListItemIcon>
+              <ListItemText><Link href='/topic/React' underline='none' sx={{ color: 'black' }}>React</Link></ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemIcon><ChatIcon /></ListItemIcon>
+              <ListItemText><Link href='/topic/Javascript' underline='none' sx={{ color: 'black' }}>Javascript</Link></ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <ListItemIcon><ChatIcon /></ListItemIcon>
+              <ListItemText><Link href='/topic/MongoDB' underline='none' sx={{ color: 'black' }}>MongoDB</Link></ListItemText>
+            </ListItem>
+          </Box>
+          {/*
                     <Box sx={searchStyle}>
                         <TextField id="filled-basic" label="Search" variant="filled" />
                         <Box sx={buttonStyle}>
                             <Button variant="contained"><SearchIcon />Search</Button>
                         </Box>
-                    </Box>*/}
-                </List>
-            </div>
-        </Box>
-    )
+                    </Box> */}
+        </List>
+      </div>
+    </Box>
+  )
 }
 
 export default RightSidebar

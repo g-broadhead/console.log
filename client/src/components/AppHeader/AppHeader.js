@@ -1,68 +1,67 @@
-import { useState, useContext } from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import { useNavigate } from 'react-router-dom';
+import { useState, useContext } from 'react'
+import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import Toolbar from '@mui/material/Toolbar'
+import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
+import Menu from '@mui/material/Menu'
+import MenuIcon from '@mui/icons-material/Menu'
+import Container from '@mui/material/Container'
+import Avatar from '@mui/material/Avatar'
+import Button from '@mui/material/Button'
+import Tooltip from '@mui/material/Tooltip'
+import MenuItem from '@mui/material/MenuItem'
+import { useNavigate } from 'react-router-dom'
 
-import UserContext from '../../utils/UserContext';
+import UserContext from '../../utils/UserContext'
 
-const pages = ['Home', 'Profile', 'Admin', 'About Us'];
+const pages = ['Home', 'Profile', 'Admin', 'About Us']
 
 const AppHeader = (props) => {
-  const navigate = useNavigate();
-  const userContext = useContext(UserContext);
+  const navigate = useNavigate()
+  const userContext = useContext(UserContext)
 
-  const [anchorElNav, setAnchorElNav] = useState(null);
-  const [anchorElUser, setAnchorElUser] = useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null)
+  const [anchorElUser, setAnchorElUser] = useState(null)
 
   const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
+    setAnchorElNav(event.currentTarget)
+  }
   const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
+    setAnchorElUser(event.currentTarget)
+  }
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+    setAnchorElNav(null)
+  }
 
   const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+    setAnchorElUser(null)
+  }
 
   const handleHomeClick = (event) => {
-    event.preventDefault();
-    navigate('/');
+    event.preventDefault()
+    navigate('/')
   }
 
   const handleProfileClick = (event) => {
-    event.preventDefault();
-    navigate('/profile');
+    event.preventDefault()
+    navigate('/profile')
   }
 
-
   const handleLogoutClick = (event) => {
-    event.preventDefault();
-    navigate('/logout');
+    event.preventDefault()
+    navigate('/logout')
   }
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
+    <AppBar position='static'>
+      <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <Typography
-            variant="h6"
+            variant='h6'
             noWrap
-            component="div"
+            component='div'
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
             console.log
@@ -70,64 +69,62 @@ const AppHeader = (props) => {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
+              size='large'
+              aria-label='account of current user'
+              aria-controls='menu-appbar'
+              aria-haspopup='true'
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color='inherit'
             >
               <MenuIcon />
             </IconButton>
             <Menu
-              id="menu-appbar"
+              id='menu-appbar'
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
-                horizontal: 'left',
+                horizontal: 'left'
               }}
               keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'left',
+                horizontal: 'left'
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', md: 'none' }
               }}
             >
-                <MenuItem key="mob-home" onClick={handleHomeClick}>
-                  <Typography textAlign="center">Home</Typography>
-                  <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                  </Box>
-                </MenuItem>
-                <MenuItem key="mob-profile" onClick={handleProfileClick}>
-                  <Typography textAlign="center">Profile</Typography>
-                  <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                  </Box>
-                </MenuItem>
+              <MenuItem key='mob-home' onClick={handleHomeClick}>
+                <Typography textAlign='center'>Home</Typography>
+                <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} />
+              </MenuItem>
+              <MenuItem key='mob-profile' onClick={handleProfileClick}>
+                <Typography textAlign='center'>Profile</Typography>
+                <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} />
+              </MenuItem>
 
             </Menu>
           </Box>
           <Typography
-            variant="h6"
+            variant='h6'
             noWrap
-            component="div"
+            component='div'
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
             console.log
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Button
-              key="home"
+              key='home'
               onClick={handleHomeClick}
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
               Home
             </Button>
             <Button
-              key="profile"
+              key='profile'
               onClick={handleProfileClick}
               sx={{ my: 2, color: 'white', display: 'block' }}
             >
@@ -137,39 +134,39 @@ const AppHeader = (props) => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title='Open settings'>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src={userContext.userData.avatar}>{userContext.userData.name[0]}</Avatar>
-                <Typography sx={{ color: "white", padding: "0.5em" }}>
+                <Avatar alt='Remy Sharp' src={userContext.userData.avatar}>{userContext.userData.name[0]}</Avatar>
+                <Typography sx={{ color: 'white', padding: '0.5em' }}>
                   {userContext.userData.username}
                 </Typography>
               </IconButton>
             </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
-              id="menu-appbar"
+              id='menu-appbar'
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: 'top',
-                horizontal: 'right',
+                horizontal: 'right'
               }}
               keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'right',
+                horizontal: 'right'
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <MenuItem key="logout" onClick={handleCloseUserMenu}>
-                <Typography textAlign="center" onClick={handleLogoutClick}>Logout</Typography>
+              <MenuItem key='logout' onClick={handleCloseUserMenu}>
+                <Typography textAlign='center' onClick={handleLogoutClick}>Logout</Typography>
               </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
-  );
+  )
 }
 
-export default AppHeader;
+export default AppHeader
