@@ -11,11 +11,13 @@ import {
     Button,
     Chip,
 } from "@mui/material"
+import { useNavigate } from "react-router-dom";
 
 
 
 const PostCard = (props) => {
     const {user, createdAt, content, topics, comments, _id} = props.post;
+    const navigate = useNavigate();
 
     const postStyle = {
         border: "1px solid black",
@@ -25,15 +27,19 @@ const PostCard = (props) => {
         marginBottom: "2em"
     }
 
+    const handleProfileClick = (event) => {
+        event.preventDefault();
+        navigate('/profile/'+user._id);
+    }
+
     return (
         <Box sx={postStyle}>
             
-            <Box align-items="flex-start" sx={{display: "flex"}}>
+            <Box align-items="flex-start" sx={{display: "flex", cursor:"pointer"}} onClick={handleProfileClick}>
                 <Avatar sx={{margin: "0.5em"}} src={user.avatar}>{user.name[0]}</Avatar>
                 <Box sx={{display: "flex", flexDirection: "column"}}>
                     <Typography variant="h5">{user.name}</Typography>
                     <Typography variant="sub">at {createdAt}</Typography>
-                    
                 </Box>
                 
             </Box>
