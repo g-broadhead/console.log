@@ -82,11 +82,6 @@ const UserHomepage = (props) => {
       return;
     }
 
-    if(postState.content.length >= 280) {
-      alert("Post text must be less than 280 characters");
-      return;
-    }
-
     //console.log(postState.content);
     axios.post('/api/post',
       {

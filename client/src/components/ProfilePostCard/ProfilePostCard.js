@@ -14,7 +14,7 @@ import {
 import axios from "axios";
 import {useContext} from 'react';
 import UserContext from "../../utils/UserContext";
-
+import Moment from 'moment-timezone'
 
 
 
@@ -49,12 +49,12 @@ const PostCard = (props) => {
                 <Avatar sx={{margin: "0.5em"}} src={user.avatar}>{user.name[0]}</Avatar>
                 <Box sx={{display: "flex", flexDirection: "column"}}>
                     <Typography variant="h5">{user.name}</Typography>
-                    <Typography variant="sub">at {createdAt}</Typography>
+                    <Typography variant="sub">at {Moment(createdAt).tz('America/Los_Angeles').format('LLLL')}</Typography>
                     
                 </Box>
                 
             </Box>
-            <p>{content}</p>
+            <p dangerouslySetInnerHTML={{__html: content}} />
 
             <Box>
             <a href={"/post/" + _id}>{comments.length} comments</a>
