@@ -44,7 +44,7 @@ const AppFooter = (props) => {
     gridTemplateColumns: 'repeat(3, 1fr)',
     borderTop: '1px solid #AAA',
     marginTop: '2em',
-    bgcolor: 'primary.main',
+    bgcolor: 'success.main',
     width: '100%'
   }
   return (
@@ -69,7 +69,7 @@ const AppFooter = (props) => {
                     control={
                       <Switch checked={isDarkTheme} onChange={changeTheme} />
                     }
-                    label="Dark Theme"
+                    label="Make it Ligther"
                   />
                 </FormGroup>
               }

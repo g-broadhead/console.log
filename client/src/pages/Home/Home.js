@@ -26,7 +26,7 @@ const Home = (props) => {
   const rightbarStyle = {
     // mr: 0,
     margin: 'auto',
-    bgcolor: 'primary.main'
+    bgcolor: 'info.light'
   }
   const homepageStyle = {
     width: '100%',

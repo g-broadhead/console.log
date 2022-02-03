@@ -23,7 +23,7 @@ const AppHeader = (props) => {
     gridTemplateColumns: 'repeat(3, 1fr)',
     borderTop: '1px solid #AAA',
     marginTop: '2em',
-    bgcolor: 'secondary.main',
+    bgcolor: 'primary.light',
     width: '100%'
   }
   const navigate = useNavigate()
@@ -63,8 +63,8 @@ const AppHeader = (props) => {
   }
 
   return (
-    <AppBar position='static'>
-      <Container maxWidth='xl'>
+    <AppBar style={{ background:'#03a9f4'}}position='static'>
+      <Container  maxWidth='xl'>
         <Toolbar disableGutters>
           <Typography
             variant='h6'
