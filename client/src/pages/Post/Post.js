@@ -140,6 +140,7 @@ const Post = (props) => {
           component='div'
           gridColumn='span 6'
           sx={{ overflow: 'scroll', minHeight: '80vh', height: '100px' }}
+          className='wrap'
         >
         <h2>Comments</h2>
         <div className = 'color2'>
