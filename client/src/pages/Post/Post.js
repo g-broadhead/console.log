@@ -20,6 +20,7 @@ import {
 } from '@mui/material'
 import PostCard from '../../components/PostCard'
 import Home from '@mui/icons-material/Home'
+import Moment from 'moment-timezone'
 
 const Post = (props) => {
   const navState = useLocation()
@@ -81,7 +82,7 @@ const Post = (props) => {
         <ListItemAvatar>
           <Avatar src={comment.user.avatar}>{comment.user.name[0]}</Avatar>
         </ListItemAvatar>
-        <ListItemText secondary={comment.user.name}>
+        <ListItemText secondary={`Posted by ${comment.user.name} at ${Moment(comment.createdAt).tz('America/Los_Angeles').format('LLLL')}`}>
           <p dangerouslySetInnerHTML={{__html: comment.body}} />
         </ListItemText>
       </ListItem>
