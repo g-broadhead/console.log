@@ -4,7 +4,6 @@ const Post = new Schema({
     content: {
         type: String,
         required: true,
-        maxlength: 280,
         minlength: 1
     },
     topics: [{

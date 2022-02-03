@@ -14,7 +14,6 @@ import {
 import { useNavigate } from "react-router-dom";
 
 
-
 const PostCard = (props) => {
   const { user, createdAt, content, topics, comments, _id } = props.post;
   const navigate = useNavigate();
@@ -46,7 +45,7 @@ const PostCard = (props) => {
         </Box>
 
       </Box>
-      <p>{content}</p>
+      <p dangerouslySetInnerHTML={{__html: content}} />
 
       <Box>
         <a href={"/post/" + _id}>{comments.length} comments</a>
