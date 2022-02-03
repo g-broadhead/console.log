@@ -54,7 +54,7 @@ const PostCard = (props) => {
                 </Box>
                 
             </Box>
-            <p>{content}</p>
+            <p dangerouslySetInnerHTML={{__html: content}} />
 
             <Box>
             <a href={"/post/" + _id}>{comments.length} comments</a>
