@@ -82,7 +82,7 @@ const Post = (props) => {
           <Avatar src={comment.user.avatar}>{comment.user.name[0]}</Avatar>
         </ListItemAvatar>
         <ListItemText secondary={comment.user.name}>
-          {comment.body}
+          <p dangerouslySetInnerHTML={{__html: comment.body}} />
         </ListItemText>
       </ListItem>
     )
