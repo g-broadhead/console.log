@@ -18,6 +18,14 @@ import UserContext from '../../utils/UserContext'
 const pages = ['Home', 'Profile', 'Admin', 'About Us']
 
 const AppHeader = (props) => {
+  const headerStyle = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    borderTop: '1px solid #AAA',
+    marginTop: '2em',
+    bgcolor: 'secondary.main',
+    width: '100%'
+  }
   const navigate = useNavigate()
   const userContext = useContext(UserContext)
 
