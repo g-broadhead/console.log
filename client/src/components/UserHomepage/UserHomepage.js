@@ -111,11 +111,6 @@ const UserHomepage = (props) => {
     }
     setPostState({ ...postState, topics: topicsCopy });
   }
-
-  const textfieldStyle = {
-      bgcolor: "white"
-  }
-
   return (
     <Box sx={outerBox}>
       <Stack sx={innerBox}>
@@ -135,10 +130,10 @@ const UserHomepage = (props) => {
               // sx={textfieldStyle}
             />
           </Grid>
-          <FormControlLabel label="APIs" control={<Checkbox name="APIs" onChange={handleTopicChange} />} />
-          <FormControlLabel label="React" control={<Checkbox name="React" onChange={handleTopicChange} />} />
-          <FormControlLabel label="Javascript" control={<Checkbox name="Javascript" onChange={handleTopicChange} />} />
-          <FormControlLabel label="MongoDB" control={<Checkbox name="MongoDB" onChange={handleTopicChange} />} />
+          <FormControlLabel label="APIs"componentsProps={{typography : {variant:'h6'}}} control={<Checkbox color="success"  name="APIs" onChange={handleTopicChange} />} />
+          <FormControlLabel label="React" componentsProps={{ typography: { variant: 'h6' } }} control={<Checkbox name="React" color="default" onChange={handleTopicChange} />} />
+          <FormControlLabel label="Javascript" componentsProps={{ typography: { variant: 'h6' } }} control={<Checkbox name="Javascript" color="secondary" onChange={handleTopicChange} />} />
+          <FormControlLabel label="MongoDB" componentsProps={{ typography: { variant: 'h6' } }} control={<Checkbox name="MongoDB" color="warning" onChange={handleTopicChange} />} />
 
 
           <Button sx={buttonStyle} variant="contained" endIcon={<SendIcon />} onClick={handlePostSubmit}>
