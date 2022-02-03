@@ -307,7 +307,7 @@ const Profile = (props) => {
         aria-describedby='child-modal-description'
       >
         <Box
-          sx={{ ...style, width: 200, '& .MuiTextField-root': { m: 1, width: '25ch' } }}
+          sx={{ ...style, width: 350, '& .MuiTextField-root': { m: 1, width: '25ch' } }}
           component='form'
           noValidate
           autoComplete='off'

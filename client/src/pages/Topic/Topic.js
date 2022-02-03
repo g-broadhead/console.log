@@ -7,6 +7,8 @@ import axios from 'axios';
 import PostCard from '../../components/PostCard';
 import AppHeader from '../../components/AppHeader';
 import AppFooter from '../../components/AppFooter';
+import { Box } from '@mui/system';
+
 const Topic = (props) => {
     const params = useParams();
 
@@ -49,13 +51,20 @@ const Topic = (props) => {
         <> 
             
             <AppHeader />
-            <Container>
+            <Container component='div'
+                sx={{ mt: '45px' }}
+            >
+                <Box
+                    component='div'
+                    gridColumn='span 6'
+                    sx={{ overflow: 'scroll', minHeight: '80vh', height: '100px' }}
+                >
                 {topicState.loading ? <h1>Loading topic {params.topic}</h1> :
                     <RenderPosts />
                 }
+            </Box>
             </Container>
-            <AppFooter sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}/>
-
+            <AppFooter /> 
         </>
     );
 

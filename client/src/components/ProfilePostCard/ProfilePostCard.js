@@ -28,6 +28,7 @@ const PostCard = (props) => {
         boxShadow: "4px 4px 8px #AAA",
         padding: "1em",
         marginBottom: "2em",
+        backgroundColor: "white"
     }
     const handlePostDelete = (event) => {
         console.log("hi")

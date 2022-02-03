@@ -69,7 +69,7 @@ const AppFooter = (props) => {
                     control={
                       <Switch checked={isDarkTheme} onChange={changeTheme} />
                     }
-                    label="Make it Ligther"
+                    label="Rave Mode?"
                   />
                 </FormGroup>
               }
