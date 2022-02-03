@@ -1,11 +1,5 @@
 # console.log
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-# Just Start
-=======
-=======
->>>>>>> e8786503229c19e19b64e6a079bcb43d5bf81ffe
 ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/g-broadhead/console.log?style=flat&logo=appveyor) ![Badge for GitHub commit activity](https://img.shields.io/github/commit-activity/w/g-broadhead/console.log?color=purple)
 
   
@@ -61,10 +55,6 @@ If you have any questions, you may contact using the information below:
     Email: hreich1998@gmail.com
    
     
- ![image]()
+<img width="1440" alt="Screen Shot 2022-02-02 at 5 30 40 PM" src="https://user-images.githubusercontent.com/93016157/152266213-22999783-dc19-4377-953f-e32fb87b0b3e.png">
  
  ![image]()
-<<<<<<< HEAD
->>>>>>> 9e19634f25336ac885acc5b5020514586dfcf6e5
-=======
->>>>>>> e8786503229c19e19b64e6a079bcb43d5bf81ffe

@@ -21,12 +21,13 @@ const Home = (props) => {
     height: '100%',
     justifyContent: 'flex-end',
     mt:1
+    
   }
 
   const rightbarStyle = {
     // mr: 0,
     margin: 'auto',
-    bgcolor: 'primary.main'
+    bgcolor: 'info.light'
   }
   const homepageStyle = {
     width: '100%',
@@ -39,7 +40,7 @@ const Home = (props) => {
     return (
         <Box>
             <AppHeader />
-            <Grid container spacing={1} sx={mainBox}>
+            <Grid className = 'wrap' container spacing={1} sx={mainBox}>
                 <Grid item xs={11} sm={8} md={9}>
                     <UserHomepage sx={homepageStyle} />
                 </Grid>

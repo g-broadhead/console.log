@@ -20,7 +20,8 @@ import Report from "@mui/icons-material/Report";
 import UserContext from "../../utils/UserContext";
 import PostCard from "../PostCard";
 import { Checkbox, FormControlLabel } from "@mui/material";
-
+import BackgroundImage from '../../images/Background.jpg'
+import './UserHomepage.css'
 const UserHomepage = (props) => {
   const outerBox = {
     overflow: 'auto'
@@ -36,10 +37,23 @@ const UserHomepage = (props) => {
     height: "80vh",
     // mr: 6,
     // mt: 6,
-    bgcolor: "white"
+    bgcolor: "transparent"
   }
   const buttonStyle = {
     mt: 1,
+  }
+
+  const boxStyle = {
+    display: 'block',
+    position: 'absolute',
+    textAlign: 'center',
+    width: '100%',
+    height: '100%',
+    backgroundImage: `url(${BackgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPositionX: '45%',
+    color: '#000'
   }
 
   useEffect(() => {
@@ -97,7 +111,6 @@ const UserHomepage = (props) => {
     }
     setPostState({ ...postState, topics: topicsCopy });
   }
-
   return (
     <Box sx={outerBox}>
       <Stack sx={innerBox}>
@@ -114,12 +127,14 @@ const UserHomepage = (props) => {
               rows={4}
               placeholder="Text"
               onChange={handlePostChange}
+              className="backgroundColor"
+              // sx={textfieldStyle}
             />
           </Grid>
-          <FormControlLabel label="APIs" control={<Checkbox name="APIs" onChange={handleTopicChange} />} />
-          <FormControlLabel label="React" control={<Checkbox name="React" onChange={handleTopicChange} />} />
-          <FormControlLabel label="Javascript" control={<Checkbox name="Javascript" onChange={handleTopicChange} />} />
-          <FormControlLabel label="MongoDB" control={<Checkbox name="MongoDB" onChange={handleTopicChange} />} />
+          <FormControlLabel label="APIs"componentsProps={{typography : {variant:'h6'}}} control={<Checkbox color="success"  name="APIs" onChange={handleTopicChange} />} />
+          <FormControlLabel label="React" componentsProps={{ typography: { variant: 'h6' } }} control={<Checkbox name="React" color="default" onChange={handleTopicChange} />} />
+          <FormControlLabel label="Javascript" componentsProps={{ typography: { variant: 'h6' } }} control={<Checkbox name="Javascript" color="secondary" onChange={handleTopicChange} />} />
+          <FormControlLabel label="MongoDB" componentsProps={{ typography: { variant: 'h6' } }} control={<Checkbox name="MongoDB" color="warning" onChange={handleTopicChange} />} />
 
 
           <Button sx={buttonStyle} variant="contained" endIcon={<SendIcon />} onClick={handlePostSubmit}>

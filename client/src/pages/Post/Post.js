@@ -3,6 +3,7 @@ import { useNavigate, useLocation, useParams } from 'react-router-dom'
 import axios from 'axios'
 import AppFooter from '../../components/AppFooter'
 import AppHeader from '../../components/AppHeader'
+import './Post.css'
 import {
   Container,
   Box,
@@ -99,6 +100,7 @@ const Post = (props) => {
   const CommentList = (props) => {
     const comments = postState.postData.comments
 
+
     return (
       <List>
         {comments.map((comment, index) => <CommentCard key={index} comment={comment} />)}
@@ -118,6 +120,7 @@ const Post = (props) => {
         <Box component='form'>
           <h2>Leave a comment</h2>
           <TextField
+            className = 'color'
             key='comment-field'
             label='Leave a comment'
             sx={{ width: '90%' }}
@@ -133,8 +136,17 @@ const Post = (props) => {
           </Button>
 
         </Box>
+        <Box
+          component='div'
+          gridColumn='span 6'
+          sx={{ overflow: 'scroll', minHeight: '80vh', height: '100px' }}
+          className='wrap'
+        >
         <h2>Comments</h2>
+        <div className = 'color2'>
         {!postState.loading && <CommentList />}
+          </div>
+        </Box>
       </Container>
       <AppFooter />
     </>
