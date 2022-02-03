@@ -19,8 +19,10 @@ const Home = (props) => {
     display: 'inline-flex',
     width: '100%',
     height: '100%',
-    justifyContent: 'flex-end',
-    mt:1
+    justifyContent: 'flex-start',
+    mt:1,
+    ml:1
+
     
   }
 
@@ -38,18 +40,18 @@ const Home = (props) => {
   }
 
     return (
-        <Box>
-            <AppHeader />
-            <Grid className = 'wrap' container spacing={1} sx={mainBox}>
-                <Grid item xs={11} sm={8} md={9}>
-                    <UserHomepage sx={homepageStyle} />
-                </Grid>
-                <Grid item md={2} sm={3} sx={{ display: { xs: 'none', sm: 'block' } }}>
-                <RightSidebar sx={rightbarStyle}/>
-                </Grid>
+      <>
+        <AppHeader />
+        <Grid className = 'wrap' container spacing={2} sx={mainBox}>
+            <Grid item xs={11} sm={8} md={9} lg={10}>
+                <UserHomepage sx={homepageStyle} />
             </Grid>
-            <AppFooter />
-        </Box>
+            <Grid item lg={2} md={2} sm={3} sx={{ display: { xs: 'none', sm: 'block' } }}>
+              <RightSidebar sx={rightbarStyle}/>
+            </Grid>
+        </Grid>
+        <AppFooter />
+        </>
     );
 }
 
