@@ -56,5 +56,3 @@ If you have any questions, you may contact using the information below:
    
     
 <img width="1440" alt="Screen Shot 2022-02-02 at 5 30 40 PM" src="https://user-images.githubusercontent.com/93016157/152266213-22999783-dc19-4377-953f-e32fb87b0b3e.png">
- 
- ![image]()
