@@ -53,6 +53,7 @@ If you have any questions, you may contact using the information below:
     Email: jyu0628@gmail.com
     Email: gwbroadhead@gmail.com
     Email: hreich1998@gmail.com
-   
-    
-<img width="1440" alt="Screen Shot 2022-02-02 at 5 30 40 PM" src="https://user-images.githubusercontent.com/93016157/152266213-22999783-dc19-4377-953f-e32fb87b0b3e.png">
+  
+  <a href="https://consolelog-proj3.herokuapp.com/">Live App Link</a>
+
+  <img width="1440" alt="Screen Shot 2022-02-02 at 5 30 40 PM" src="https://user-images.githubusercontent.com/93016157/152266213-22999783-dc19-4377-953f-e32fb87b0b3e.png">
