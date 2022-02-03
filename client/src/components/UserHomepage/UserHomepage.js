@@ -19,7 +19,7 @@ import ReportIcon from '@mui/icons-material/Report';
 import Report from "@mui/icons-material/Report";
 import UserContext from "../../utils/UserContext";
 import PostCard from "../PostCard";
-import { Checkbox, FormControlLabel } from "@mui/material";
+import { Checkbox, FormControlLabel, Typography } from "@mui/material";
 import BackgroundImage from '../../images/Background.jpg'
 import './UserHomepage.css'
 const UserHomepage = (props) => {
@@ -112,14 +112,17 @@ const UserHomepage = (props) => {
     setPostState({ ...postState, topics: topicsCopy });
   }
   return (
+
     <Box sx={outerBox}>
       <Stack sx={innerBox}>
-        <Grid container spacing={2} sx={{ justifyContent: 'flex-end', mb: "2em" }}>
-          <Grid item xs={3} md={2} sx={{ justifyContent: "flex-end", display: "flex" }}>
-            <Avatar sx={{ width: 56, height: 56 }} src={userContext.userData.avatar}>{userContext.userData.name[0]}</Avatar>
+        <Grid spacing={2} sx={{ justifyContent: 'flex-start', mb: "2em" }}>
+          <Grid item lg={12} xs={1} md={2} sx={{ justifyContent: "flex-start", display: "flex" }}>
+            {/*<Avatar sx={{ width: 56, height: 56 }} src={userContext.userData.avatar}>{userContext.userData.name[0]}</Avatar>*/}
           </Grid>
-          <Grid item xs={8} md={10} mt={1}>
-            <TextField fullWidth
+          <Grid item xs={11} md={10} mt={1}>
+            <Typography variant="h4">New post</Typography>
+            <TextField 
+              fullWidth
                 sx={{mt: "1em"}}
               id="outlined-textarea fullWidth"
               label="Send a Post"

@@ -22,10 +22,11 @@ const PostCard = (props) => {
   const postStyle = {
     border: "1px solid black",
     borderRadius: "8px",
-    boxShadow: "4px 4px 8px #AAA",
+    boxShadow: "4px 4px 8px #000",
     padding: "1em",
     marginBottom: "2em",
-    bgcolor: "white"
+    bgcolor: "white",
+    width: "95%"
   }
 
   const handleProfileClick = (event) => {
