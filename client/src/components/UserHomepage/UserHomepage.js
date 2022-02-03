@@ -36,7 +36,7 @@ const UserHomepage = (props) => {
     height: "80vh",
     // mr: 6,
     // mt: 6,
-    bgcolor: "white"
+    bgcolor: "transparent"
   }
   const buttonStyle = {
     mt: 1,
