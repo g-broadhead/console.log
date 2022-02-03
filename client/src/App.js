@@ -22,6 +22,11 @@ import Aboutus from './pages/Aboutus'
 import Topic from './pages/Topic'
 
 function App () {
+
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const changeTheme = () => {
+    setIsDarkTheme(!isDarkTheme);
+  };
   const [userState, setUserState] = useState({
     loggedIn: false,
     userData: {},
@@ -45,7 +50,9 @@ function App () {
       <UserContext.Provider value={{ ...userState, setLoggedIn: setLoggedIn }}>
         {userState.loading
 ? <></> 
-        : <Router>
+        : 
+            
+        <Router>
           <Routes>
             <Route exact path='/' element={userState.loggedIn ? <Home /> : <Landing />} />
             <Route exact path="/logout" element={<Logout />} />
@@ -57,7 +64,9 @@ function App () {
             <Route exact path='/about' element={<Aboutus />} />
             <Route exact path='/topic/:topic' element={<Topic />} />
           </Routes>
-        </Router>}
+        </Router>
+        
+        }
       </UserContext.Provider>
     </>
   )

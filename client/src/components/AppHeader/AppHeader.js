@@ -18,6 +18,14 @@ import UserContext from '../../utils/UserContext'
 const pages = ['Home', 'Profile', 'Admin', 'About Us']
 
 const AppHeader = (props) => {
+  const headerStyle = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    borderTop: '1px solid #AAA',
+    marginTop: '2em',
+    bgcolor: 'secondary.main',
+    width: '100%'
+  }
   const navigate = useNavigate()
   const userContext = useContext(UserContext)
 
@@ -64,7 +72,7 @@ const AppHeader = (props) => {
             component='div'
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            console.log
+            <h3>Console.log</h3>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
