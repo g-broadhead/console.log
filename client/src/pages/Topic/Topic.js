@@ -7,7 +7,6 @@ import axios from 'axios';
 import PostCard from '../../components/PostCard';
 import AppHeader from '../../components/AppHeader';
 import AppFooter from '../../components/AppFooter';
-
 const Topic = (props) => {
     const params = useParams();
 
@@ -47,14 +46,16 @@ const Topic = (props) => {
     }
 
     return (
-        <>
+        <> 
+            
             <AppHeader />
             <Container>
                 {topicState.loading ? <h1>Loading topic {params.topic}</h1> :
                     <RenderPosts />
                 }
             </Container>
-            <AppFooter />
+            <AppFooter sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}/>
+
         </>
     );
 
