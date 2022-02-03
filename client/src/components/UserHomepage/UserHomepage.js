@@ -20,7 +20,8 @@ import Report from "@mui/icons-material/Report";
 import UserContext from "../../utils/UserContext";
 import PostCard from "../PostCard";
 import { Checkbox, FormControlLabel } from "@mui/material";
-
+import BackgroundImage from '../../images/Background.jpg'
+import './UserHomepage.css'
 const UserHomepage = (props) => {
   const outerBox = {
     overflow: 'auto'
@@ -40,6 +41,19 @@ const UserHomepage = (props) => {
   }
   const buttonStyle = {
     mt: 1,
+  }
+
+  const boxStyle = {
+    display: 'block',
+    position: 'absolute',
+    textAlign: 'center',
+    width: '100%',
+    height: '100%',
+    backgroundImage: `url(${BackgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPositionX: '45%',
+    color: '#000'
   }
 
   useEffect(() => {
@@ -98,6 +112,10 @@ const UserHomepage = (props) => {
     setPostState({ ...postState, topics: topicsCopy });
   }
 
+  const textfieldStyle = {
+      bgcolor: "white"
+  }
+
   return (
     <Box sx={outerBox}>
       <Stack sx={innerBox}>
@@ -113,6 +131,8 @@ const UserHomepage = (props) => {
               rows={4}
               placeholder="Text"
               onChange={handlePostChange}
+              className="backgroundColor"
+              // sx={textfieldStyle}
             />
           </Grid>
           <FormControlLabel label="APIs" control={<Checkbox name="APIs" onChange={handleTopicChange} />} />
