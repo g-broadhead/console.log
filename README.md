@@ -1,6 +1,5 @@
 # console.log
 
->>>>>>> e8786503229c19e19b64e6a079bcb43d5bf81ffe
 ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/g-broadhead/console.log?style=flat&logo=appveyor) ![Badge for GitHub commit activity](https://img.shields.io/github/commit-activity/w/g-broadhead/console.log?color=purple)
 
   
